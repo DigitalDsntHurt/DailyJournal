@@ -1,0 +1,108 @@
+<%= form_for(entry) do |f| %>
+  <% if entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<ul style="list-style-type:decimal;">
+<h4><i>What am I Grateful for?</i></h4>
+  <li>
+    <div class="field">
+      <%= f.text_field :grateful_1 %>
+    </div>    
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :grateful_2 %>
+    </div>
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :grateful_3 %>
+    </div>
+  </li>
+</ul>  
+
+<ul style="list-style-type:decimal;">
+<h4><i>What will make today great?</i></h4>
+  <li>
+    <div class="field">
+      <%= f.text_field :make_today_great_1 %>
+    </div>    
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :make_today_great_2 %>
+    </div>  
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :make_today_great_3 %>
+    </div>
+  </li>
+</ul>  
+
+
+
+<ul style="list-style-type:decimal;">
+<h4><i>Affirmations</i></h4>
+  <li>
+    <div class="field">
+      <%= f.text_field :affirmation_1 %>
+    </div>  
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :affirmation_2 %>
+    </div>
+  </li>
+</ul>
+
+
+<br><hr><br>
+
+<ul style="list-style-type:decimal;">
+<h4><i>3 Amazing things that happened today</i></h4>
+  <li>
+    <div class="field">
+      <%= f.text_field :amazing_thing_1 %>
+    </div>
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :amazing_thing_2 %>
+    </div>
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :amazing_thing_3 %>
+    </div>
+  </li>
+</ul>
+
+<ul style="list-style-type:decimal;">
+<h4><i>How could I have made today better?</i></h4>
+  <li>
+    <div class="field">
+      <%= f.text_field :improve_today_1 %>
+    </div>
+  </li>
+  <li>
+    <div class="field">
+      <%= f.text_field :improve_today_2 %>
+    </div>
+  </li>
+</ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

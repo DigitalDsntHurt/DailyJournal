@@ -1,0 +1,113 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Entries</h1>
+
+<table width="100%">
+  <tbody>
+  <% @paired_entries.each do |pair| %>
+    <tr>
+    <% next if pair[0] == nil %>
+
+      <td width="50%" style="border: 1px solid black;">
+        <h4 align="center"><i><%= pair[0].created_at %></i></h4>
+        <h4 align="center"><i>What are you grateful for?</i></h4>
+        1. <%= pair[0].grateful_1 %><br>
+        2. <%= pair[0].grateful_2 %><br>
+        3. <%= pair[0].grateful_3 %><br>
+        <h4 align="center"><i>What would make today great?</i></h4>
+        1. <%= pair[0].make_today_great_1 %><br>
+        2. <%= pair[0].make_today_great_2 %><br>
+        3. <%= pair[0].make_today_great_3 %><br>
+        <h4 align="center"><i>Daily affirmations. I am...</i></h4>
+        * <%= pair[0].affirmation_1 %><br>
+        * <%= pair[0].affirmation_2 %><br>
+        <hr>
+        <h4 align="center"><i>3 Amazing things that happend today...</i></h4>
+        * <%= pair[0].amazing_thing_1 %><br>
+        * <%= pair[0].amazing_thing_2 %><br>
+        <h4 align="center"><i>How could I have made today better?</i></h4>
+        * <%= pair[0].improve_today_1 %><br>
+        * <%= pair[0].improve_today_2 %><br>
+      </td>
+
+    <% next if pair[1] == nil %>
+      <td width="50%" style="border: 1px solid black;">
+        <h4 align="center"><i><%= pair[1].created_at %></i></h4>
+        <h4 align="center"><i>What are you grateful for?</i></h4>
+        1. <%= pair[1].grateful_1 %><br>
+        2. <%= pair[1].grateful_2 %><br>
+        3. <%= pair[1].grateful_3 %><br>
+        <h4 align="center"><i>What would make today great?</i></h4>
+        1. <%= pair[1].make_today_great_1 %><br>
+        2. <%= pair[1].make_today_great_2 %><br>
+        3. <%= pair[1].make_today_great_3 %><br>
+        <h4 align="center"><i>Daily affirmations. I am...</i></h4>
+        * <%= pair[1].affirmation_1 %><br>
+        * <%= pair[1].affirmation_2 %><br>
+        <hr>
+        <h4 align="center"><i>3 Amazing things that happend today...</i></h4>
+        * <%= pair[1].amazing_thing_1 %><br>
+        * <%= pair[1].amazing_thing_2 %><br>
+        <h4 align="center"><i>How could I have made today better?</i></h4>
+        * <%= pair[1].improve_today_1 %><br>
+        * <%= pair[1].improve_today_2 %><br>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br><hr><br>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Grateful 1</th>
+      <th>Grateful 2</th>
+      <th>Grateful 3</th>
+      <th>Make today great 1</th>
+      <th>Make today great 2</th>
+      <th>Make today great 3</th>
+      <th>Affirmation 1</th>
+      <th>Affirmation 2</th>
+      <th>Amazing thing 1</th>
+      <th>Amazing thing 2</th>
+      <th>Amazing thing 3</th>
+      <th>Improve today 1</th>
+      <th>Improve today 2</th>
+      <th>Anything else</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.grateful_1 %></td>
+        <td><%= entry.grateful_2 %></td>
+        <td><%= entry.grateful_3 %></td>
+        <td><%= entry.make_today_great_1 %></td>
+        <td><%= entry.make_today_great_2 %></td>
+        <td><%= entry.make_today_great_3 %></td>
+        <td><%= entry.affirmation_1 %></td>
+        <td><%= entry.affirmation_2 %></td>
+        <td><%= entry.amazing_thing_1 %></td>
+        <td><%= entry.amazing_thing_2 %></td>
+        <td><%= entry.amazing_thing_3 %></td>
+        <td><%= entry.improve_today_1 %></td>
+        <td><%= entry.improve_today_2 %></td>
+        <td><%= entry.anything_else %></td>
+        <td><%= link_to 'Show', entry %></td>
+        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entry', new_entry_path %>
