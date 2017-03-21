@@ -1,74 +1,85 @@
+<h1 align="center">Entry for <%= @entry.created_at %></h1>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Grateful 1:</strong>
-  <%= @entry.grateful_1 %>
-</p>
+<h4 align="center"><i>What are you grateful for?</i></h4>
+<table width="100%">
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">
+      1. <%= @entry.grateful_1 %><br>
+      2. <%= @entry.grateful_2 %><br>
+      3. <%= @entry.grateful_3 %><br>
+    </td>
+    <td width="30%"></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Grateful 2:</strong>
-  <%= @entry.grateful_2 %>
-</p>
+<h4 align="center"><i>What would make today great?</i></h4>
+<table width="100%">
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">
+      1. <%= @entry.make_today_great_1 %><br>
+      2. <%= @entry.make_today_great_2 %><br>
+      3. <%= @entry.make_today_great_3 %><br>
+    </td>
+    <td width="30%"></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Grateful 3:</strong>
-  <%= @entry.grateful_3 %>
-</p>
+<h4 align="center"><i>Daily affirmations. I am...</i></h4>
+<table width="100%">
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">
+      * <%= @entry.affirmation_1 %><br>
+      * <%= @entry.affirmation_2 %><br>
+    </td>
+    <td width="30%"></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Make today great 1:</strong>
-  <%= @entry.make_today_great_1 %>
-</p>
+<hr>
+<div width="100%" style="background-color: #a7abb2;">
 
-<p>
-  <strong>Make today great 2:</strong>
-  <%= @entry.make_today_great_2 %>
-</p>
+<h4 align="center"><i>3 Amazing things that happend today...</i></h4>
+<table width="100%">
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">
+      * <%= @entry.amazing_thing_1 %><br>
+      * <%= @entry.amazing_thing_2 %><br>
+      * <%= @entry.amazing_thing_3 %><br>
+    </td>
+    <td width="30%"></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Make today great 3:</strong>
-  <%= @entry.make_today_great_3 %>
-</p>
+<h4 align="center"><i>How could I have made today better?</i></h4>
+<table width="100%">
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">
+      * <%= @entry.improve_today_1 %><br>
+      * <%= @entry.improve_today_2 %><br>
+    </td>
+    <td width="30%"></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Affirmation 1:</strong>
-  <%= @entry.affirmation_1 %>
-</p>
+<h4 align="center"><i>Anything Else?</i></h4>
+<table width="100%">
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">
+      <%= @entry.anything_else %><br>
+    </td>
+    <td width="30%"></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Affirmation 2:</strong>
-  <%= @entry.affirmation_2 %>
-</p>
-
-<p>
-  <strong>Amazing thing 1:</strong>
-  <%= @entry.amazing_thing_1 %>
-</p>
-
-<p>
-  <strong>Amazing thing 2:</strong>
-  <%= @entry.amazing_thing_2 %>
-</p>
-
-<p>
-  <strong>Amazing thing 3:</strong>
-  <%= @entry.amazing_thing_3 %>
-</p>
-
-<p>
-  <strong>Improve today 1:</strong>
-  <%= @entry.improve_today_1 %>
-</p>
-
-<p>
-  <strong>Improve today 2:</strong>
-  <%= @entry.improve_today_2 %>
-</p>
-
-<p>
-  <strong>Anything else:</strong>
-  <%= @entry.anything_else %>
-</p>
+</div>
 
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
 <%= link_to 'Back', entries_path %>
