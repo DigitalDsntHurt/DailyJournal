@@ -1,0 +1,102 @@
+<%= form_for(meal) do |f| %>
+  <% if meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+      <ul>
+      <% meal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :eaten_at %>
+    <%= f.datetime_select :eaten_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :meal %>
+    <%= f.text_field :meal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :meal_source %>
+    <%= f.text_field :meal_source %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i1 %>
+    <%= f.text_field :i1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i2 %>
+    <%= f.text_field :i2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i3 %>
+    <%= f.text_field :i3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i4 %>
+    <%= f.text_field :i4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i5 %>
+    <%= f.text_field :i5 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i6 %>
+    <%= f.text_field :i6 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i7 %>
+    <%= f.text_field :i7 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i8 %>
+    <%= f.text_field :i8 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i9 %>
+    <%= f.text_field :i9 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i10 %>
+    <%= f.text_field :i10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i11 %>
+    <%= f.text_field :i11 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i12 %>
+    <%= f.text_field :i12 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :i_other %>
+    <%= f.text_field :i_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

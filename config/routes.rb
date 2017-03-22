@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :meals
+  post 'spliffs/new_spliff_now' => 'spliffs#new_spliff_now'
+  resources :spliffs
   get 'home/index'
   root 'home#index'
   resources :entries

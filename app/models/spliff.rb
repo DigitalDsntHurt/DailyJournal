@@ -1,0 +1,2 @@
+class Spliff < ApplicationRecord
+end
