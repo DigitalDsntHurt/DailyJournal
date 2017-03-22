@@ -1,6 +1,9 @@
-<h1 align="center">Editing Journal Entry for <%= @entry.created_at %></h1>
+<div class="box">
+	<h1 align="center">Editing Journal Entry</h1> 
+	<h3 align="center"><%= @entry.created_at %></h3><br>
 
-<%= render 'form', entry: @entry %>
+	<%= render 'form', entry: @entry %>
 
-<%= link_to 'Show', @entry %> |
-<%= link_to 'Back', entries_path %>
+	<%= link_to 'Show', @entry %> |
+	<%= link_to 'Back', entries_path %>
+</div>
