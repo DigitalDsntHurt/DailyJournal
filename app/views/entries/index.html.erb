@@ -31,7 +31,7 @@
         <h4 align="center"><i>Other notes</i></h4>
         * <%= pair[0].anything_else %><br>
         
-        <p align="center"><%= link_to 'Show', pair[0] %> | <%= link_to 'Edit', edit_entry_path(pair[0]) %> | <%= link_to 'Destroy', pair[0], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p align="center" style="position:absolute; bottom:0; left:50%; margin-left: -50px"><%= link_to 'Show', pair[0] %> | <%= link_to 'Edit', edit_entry_path(pair[0]) %> | <%= link_to 'Destroy', pair[0], method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </td>
 
     <% next if pair[1] == nil %>
@@ -58,7 +58,7 @@
         <h4 align="center"><i>Other notes</i></h4>
         * <%= pair[1].anything_else %><br>
 
-        <p align="center"><%= link_to 'Show', pair[1] %> | <%= link_to 'Edit', edit_entry_path(pair[1]) %> | <%= link_to 'Destroy', pair[1], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p align="center" style="position:absolute; bottom:0; left:50%; margin-left: -50px"><%= link_to 'Show', pair[1] %> | <%= link_to 'Edit', edit_entry_path(pair[1]) %> | <%= link_to 'Destroy', pair[1], method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </td>
     </tr>
     <% end %>

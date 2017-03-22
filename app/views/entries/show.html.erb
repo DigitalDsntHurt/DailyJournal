@@ -7,38 +7,32 @@
   <h4 align="center"><i>What are you grateful for?</i></h4>
   <table width="100%">
     <tr>
-      <td width="30%"></td>
-      <td width="30%">
+      <td>
         1. <%= @entry.grateful_1 %><br>
         2. <%= @entry.grateful_2 %><br>
         3. <%= @entry.grateful_3 %><br>
       </td>
-      <td width="30%"></td>
     </tr>
   </table>
 
   <h4 align="center"><i>What would make today great?</i></h4>
   <table width="100%">
     <tr>
-      <td width="30%"></td>
-      <td width="30%">
+      <td>
         1. <%= @entry.make_today_great_1 %><br>
         2. <%= @entry.make_today_great_2 %><br>
         3. <%= @entry.make_today_great_3 %><br>
       </td>
-      <td width="30%"></td>
     </tr>
   </table>
 
   <h4 align="center"><i>Daily affirmations. I am...</i></h4>
   <table width="100%">
     <tr>
-      <td width="30%"></td>
-      <td width="30%">
+      <td>
         * <%= @entry.affirmation_1 %><br>
         * <%= @entry.affirmation_2 %><br>
       </td>
-      <td width="30%"></td>
     </tr>
   </table>
 
@@ -47,40 +41,39 @@
   <h4 align="center"><i>3 Amazing things that happend today...</i></h4>
   <table width="100%">
     <tr>
-      <td width="30%"></td>
-      <td width="30%">
+      <td>
         * <%= @entry.amazing_thing_1 %><br>
         * <%= @entry.amazing_thing_2 %><br>
         * <%= @entry.amazing_thing_3 %><br>
       </td>
-      <td width="30%"></td>
     </tr>
   </table>
 
   <h4 align="center"><i>How could I have made today better?</i></h4>
   <table width="100%">
     <tr>
-      <td width="30%"></td>
-      <td width="30%">
+      <td>
         * <%= @entry.improve_today_1 %><br>
         * <%= @entry.improve_today_2 %><br>
       </td>
-      <td width="30%"></td>
     </tr>
   </table>
 
   <h4 align="center"><i>Anything Else?</i></h4>
   <table width="100%">
     <tr>
-      <td width="30%"></td>
-      <td width="30%">
+
+      <td>
         <%= @entry.anything_else %><br>
       </td>
-      <td width="30%"></td>
     </tr>
   </table>
   
+<p align="center" class="show-page-content-footer">
+  <br><br>
   <%= link_to 'Edit', edit_entry_path(@entry) %> |
   <%= link_to 'Back', entries_path %>
+</p>  
+
 
 </div>
