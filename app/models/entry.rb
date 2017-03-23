@@ -9,5 +9,5 @@ class Entry < ApplicationRecord
 			#self.entry_date = self.created_at
 			#self.update(entry_date: Date.today)
 		#end
-	end
+	#end
 end
