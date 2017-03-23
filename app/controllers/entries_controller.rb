@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = Entry.all
-    @paired_entries = @entries.each_slice(2).to_a
+    @paired_entries = @entries.order(:updated_at).reverse.each_slice(2).to_a
   end
 
   # GET /entries/1
