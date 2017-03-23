@@ -17,10 +17,10 @@
     <td width="30%"></td>
     <td width="30%">
       <ul style="list-style-type:none;">
-      <h4 align="center"><i>Entry Date</i></h4>
+      
         <li>
           <div class="field">
-            <%= f.date_field :entry_date %>
+            <h4 align="center"><i>Entry Date</i> <%= f.date_field :entry_date, :value => Date.today %></h4>
           </div>    
         </li>
       </ul>  

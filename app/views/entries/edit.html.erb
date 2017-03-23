@@ -1,6 +1,5 @@
 <div class="box">
 	<h1 align="center">Editing Journal Entry</h1> 
-	<h3 align="center"><%= @entry.created_at.strftime("%A") %> <%= @entry.created_at.strftime("%d") %> <%= @entry.created_at.strftime("%B") %> <%= @entry.created_at.strftime("%Y") %></h3><br>
 
 	<%= render 'form', entry: @entry %>
 	
