@@ -9,7 +9,7 @@
     <% next if pair[0] == nil %>
 
       <td valign="top" class="box" width="50%">
-        <h3 align="center"><i> <%= pair[0].created_at.strftime("%A") %> <%= pair[0].created_at.strftime("%d") %> <%= pair[0].created_at.strftime("%B") %> <%= pair[0].created_at.strftime("%Y") %></i></h3>
+        <h3 align="center"><i> <%= pair[0].entry_date.strftime("%A") %> <%= pair[0].entry_date.strftime("%d") %> <%= pair[0].entry_date.strftime("%B") %> <%= pair[0].entry_date.strftime("%Y") %></i></h3>
         <h4 align="center"><i>What are you grateful for?</i></h4>
         1. <%= pair[0].grateful_1 %><br>
         2. <%= pair[0].grateful_2 %><br>
@@ -36,7 +36,7 @@
 
     <% next if pair[1] == nil %>
       <td valign="top" class="box" width="50%">
-        <h3 align="center"><i> <%= pair[1].created_at.strftime("%A") %> <%= pair[1].created_at.strftime("%d") %> <%= pair[1].created_at.strftime("%B") %> <%= pair[1].created_at.strftime("%Y") %></i></h3>
+        <h3 align="center"><i> <%= pair[1].entry_date.strftime("%A") %> <%= pair[1].entry_date.strftime("%d") %> <%= pair[1].entry_date.strftime("%B") %> <%= pair[1].entry_date.strftime("%Y") %></i></h3>
         <h4 align="center"><i>What are you grateful for?</i></h4>
         1. <%= pair[1].grateful_1 %><br>
         2. <%= pair[1].grateful_2 %><br>
