@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :smoked_at %>
+    <%= f.datetime_select :smoked_at, :value => DateTime.now %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

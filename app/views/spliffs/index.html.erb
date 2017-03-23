@@ -13,7 +13,7 @@
   <tbody>
     <% @spliffs.each do |spliff| %>
       <tr>
-        <td><%= spliff.created_at.strftime"%H" %>:<%= spliff.created_at.strftime"%M" %> - <%= spliff.created_at.strftime"%a" %> <%= spliff.created_at.strftime"%d" %> <%= spliff.created_at.strftime"%b" %></td>
+        <td><%= spliff.smoked_at.strftime"%H" %>:<%= spliff.smoked_at.strftime"%M" %> - <%= spliff.smoked_at.strftime"%a" %> <%= spliff.smoked_at.strftime"%d" %> <%= spliff.smoked_at.strftime"%b" %></td>
         <td><%= link_to 'Show', spliff %></td>
         <td><%= link_to 'Edit', edit_spliff_path(spliff) %></td>
         <td><%= link_to 'Destroy', spliff, method: :delete, data: { confirm: 'Are you sure?' } %></td>

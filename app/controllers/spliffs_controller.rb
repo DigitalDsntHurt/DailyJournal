@@ -28,8 +28,8 @@ class SpliffsController < ApplicationController
 
     respond_to do |format|
       if @spliff.save
-        format.html { redirect_to @spliff, notice: 'Spliff was successfully created.' }
-        format.json { render :show, status: :created, location: @spliff }
+        format.html { redirect_to '/spliffs', notice: 'Spliff was successfully created.' }
+        format.json { redirect_to '/spliffs', status: :created, location: '/spliffs' }
       else
         format.html { render :new }
         format.json { render json: @spliff.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class SpliffsController < ApplicationController
   def update
     respond_to do |format|
       if @spliff.update(spliff_params)
-        format.html { redirect_to @spliff, notice: 'Spliff was successfully updated.' }
-        format.json { render :show, status: :ok, location: @spliff }
+        format.html { redirect_to '/spliffs', notice: 'Spliff was successfully updated.' }
+        format.json { redirect_to '/spliffs', status: :ok, location: '/spliffs' }
       else
         format.html { render :edit }
         format.json { render json: @spliff.errors, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class SpliffsController < ApplicationController
   end
 
   def new_spliff_now
-    Spliff.create!()
+    Spliff.create!(:smoked_at => DateTime.now)
   end
 
   private
@@ -74,5 +74,6 @@ class SpliffsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def spliff_params
       params.fetch(:spliff, {})
+      params.require(:spliff).permit(:smoked_at)
     end
 end
