@@ -1,5 +1,5 @@
 class Entry < ApplicationRecord
-	before_validation :set_entry_date
+	before_create :set_entry_date
 	validates_uniqueness_of :entry_date
 	private
 	def set_entry_date
