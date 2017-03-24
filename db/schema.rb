@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323225600) do
+ActiveRecord::Schema.define(version: 20170324062506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "climbs", force: :cascade do |t|
+    t.integer  "v0s"
+    t.integer  "v1s"
+    t.integer  "v2s"
+    t.integer  "v3s"
+    t.integer  "v4s"
+    t.integer  "v5s"
+    t.integer  "v6s"
+    t.integer  "v7s"
+    t.integer  "v8s"
+    t.integer  "v9s"
+    t.date     "climb_date"
+    t.text     "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.string   "grateful_1"

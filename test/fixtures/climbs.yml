@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  v0s: 1
+  v1s: 1
+  v2s: 1
+  v3s: 1
+  v4s: 1
+  v5s: 1
+  v6s: 1
+  v7s: 1
+  v8s: 1
+  v9s: 1
+
+two:
+  v0s: 1
+  v1s: 1
+  v2s: 1
+  v3s: 1
+  v4s: 1
+  v5s: 1
+  v6s: 1
+  v7s: 1
+  v8s: 1
+  v9s: 1

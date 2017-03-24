@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :climbs
   resources :meals
   post 'spliffs/new_spliff_now' => 'spliffs#new_spliff_now'
   resources :spliffs
