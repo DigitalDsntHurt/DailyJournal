@@ -16,7 +16,7 @@
 		<td align="center"><strong><%= link_to("New Climb", :controller => :entries, :action => :new ) %></strong></td>
 		
 		<td align="center"><%= link_to( "All Spliffs", :controller => :spliffs, :action => :index )%></td>
-		<td align="center"><strong><%= link_to("New Spliff", :controller => :spliffs, :action => :new_spliff_now ) %></strong></td>
+		<td align="center"><strong><%= button_to("New Spliff", :controller => :spliffs, :action => :new_spliff_now ) %></strong></td>
 	</tr>
 </table>
 
