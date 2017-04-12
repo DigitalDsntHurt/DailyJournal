@@ -1,0 +1,141 @@
+<%= form_for(@new_consumable) do |f| %>
+  <% if @new_consumable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_consumable.errors.count, "error") %> prohibited this @new_consumable from being saved:</h2>
+
+      <ul>
+      <% @new_consumable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<table>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :consumption_type %>
+        <%= f.select :consumption_type, options_for_select(["meal","snack","drink","smoke","suppliments", "other"], :selected => "meal") %>
+      </div> 
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :consumed_at %>
+        <%= f.datetime_select :consumed_at %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :item1 %>
+        <%= f.text_field :item1, :value => "egg" %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item2 %>
+        <%= f.text_field :item2, :value => "broccoli" %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item3 %>
+        <%= f.text_field :item3, :value => "spinach" %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item4 %>
+        <%= f.text_field :item4 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item5 %>
+        <%= f.text_field :item5 %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :item6 %>
+        <%= f.text_field :item6 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item7 %>
+        <%= f.text_field :item7 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item8 %>
+        <%= f.text_field :item8 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item9 %>
+        <%= f.text_field :item9 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item10 %>
+        <%= f.text_field :item10 %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :item11 %>
+        <%= f.text_field :item11 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item12 %>
+        <%= f.text_field :item12 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item13 %>
+        <%= f.text_field :item13 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item14 %>
+        <%= f.text_field :item14 %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :item15 %>
+        <%= f.text_field :item15 %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, :value => "omelette", :style=>"width:700px;height:150px;" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

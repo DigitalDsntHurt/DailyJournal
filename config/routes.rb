@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'consumables/meal' => 'consumables#meal'
+  get 'consumables/smoothie' => 'consumables#smoothie'
+  get 'consumables/omelette' => 'consumables#omelette'
+  get 'consumables/mexican' => 'consumables#mexican'
+  resources :consumables
+
+
   resources :climbs
   resources :meals
   post 'spliffs/new_spliff_now' => 'spliffs#new_spliff_now'
