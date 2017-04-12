@@ -1,0 +1,63 @@
+<%= form_for(@new_consumable) do |f| %>
+  <% if @new_consumable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_consumable.errors.count, "error") %> prohibited this consumable from being saved:</h2>
+
+      <ul>
+      <% @new_consumable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<table>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :consumption_type %>
+        <%= f.select :consumption_type, options_for_select(["meal","snack","drink","smoke","suppliments", "other"], :selected => "drink") %>
+      </div> 
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :binge_start %>
+        <%= f.datetime_select :consumed_at %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>
+    	<div class="field">
+        	<%= f.label :beverage %>
+        	<%= f.text_field :item1 %>
+    	</div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :units %>
+        <%= f.text_field :units %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, :value => "binge", :style=>"width:700px;height:150px;" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

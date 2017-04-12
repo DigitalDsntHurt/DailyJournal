@@ -28,8 +28,8 @@ class ConsumablesController < ApplicationController
 
     respond_to do |format|
       if @consumable.save
-        format.html { redirect_to @consumable, notice: 'Consumable was successfully created.' }
-        format.json { render :show, status: :created, location: @consumable }
+        format.html { redirect_to consumables_path, notice: 'Consumable was successfully created.' }
+        format.json { render :index, status: :created, location: :index }
       else
         format.html { render :new }
         format.json { render json: @consumable.errors, status: :unprocessable_entity }
@@ -74,6 +74,49 @@ class ConsumablesController < ApplicationController
   end
 
   def mexican
+    @new_consumable = Consumable.new
+  end
+
+  def food_binge
+    @new_consumable = Consumable.new
+  end
+
+  def drink
+    @new_consumable = Consumable.new
+  end
+
+  def drink_water_now
+    Consumable.create!(:consumed_at => DateTime.now, :consumption_type => "drink", :quantity => 1500, :units => "ml", :item1 => "water")
+    redirect_to :back
+  end
+
+  def drink_coffee_now
+    Consumable.create!(:consumed_at => DateTime.now, :consumption_type => "drink", :quantity => 500, :units => "ml", :item1 => "coffee")
+    redirect_to :back
+  end
+
+  def drink_water
+    @new_consumable = Consumable.new
+  end
+
+  def drink_wine
+    @new_consumable = Consumable.new
+  end
+
+  def drink_coffee
+    @new_consumable = Consumable.new
+  end
+
+  def drink_binge
+    @new_consumable = Consumable.new
+  end
+
+  def new_spliff_now
+    Consumable.create!(:consumed_at => DateTime.now, :consumption_type => "smoke", :quantity => 1, :units => "spliff")
+    redirect_to :back
+  end
+
+  def spliff_binge
     @new_consumable = Consumable.new
   end
 

@@ -3,6 +3,18 @@ Rails.application.routes.draw do
   get 'consumables/smoothie' => 'consumables#smoothie'
   get 'consumables/omelette' => 'consumables#omelette'
   get 'consumables/mexican' => 'consumables#mexican'
+  get 'consumables/food_binge' => 'consumables#food_binge'
+
+  get 'consumables/drink' => 'consumables#drink'
+  get 'consumables/drink_water' => 'consumables#drink_water'
+  get 'consumables/drink_wine' => 'consumables#drink_wine'
+  get 'consumables/drink_coffee' => 'consumables#drink_coffee'
+  get 'consumables/drink_binge' => 'consumables#drink_binge'
+  post 'consumables/drink_water_now' => 'consumables#drink_water_now'
+  post 'consumables/drink_coffee_now' => 'consumables#drink_coffee_now'
+
+  post 'consumables/new_spliff_now' => 'consumables#new_spliff_now'
+  get 'consumables/spliff_binge' => 'consumables#spliff_binge'
   resources :consumables
 
 

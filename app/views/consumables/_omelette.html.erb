@@ -52,13 +52,13 @@
     <td>
       <div class="field">
         <%= f.label :item4 %>
-        <%= f.text_field :item4 %>
+        <%= f.text_field :item4, :value => "onion" %>
       </div>
     </td>
     <td>
       <div class="field">
         <%= f.label :item5 %>
-        <%= f.text_field :item5 %>
+        <%= f.text_field :item5, :value => "garlic" %>
       </div>
     </td>
   </tr>
@@ -67,7 +67,7 @@
     <td>
       <div class="field">
         <%= f.label :item6 %>
-        <%= f.text_field :item6 %>
+        <%= f.text_field :item6, :value => "pepper" %>
       </div>
     </td>
     <td>
@@ -136,6 +136,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Log Omelette" %>
   </div>
 <% end %>

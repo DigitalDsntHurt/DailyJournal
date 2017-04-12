@@ -1,0 +1,28 @@
+
+<h2>Log Consumables...</h2><hr>
+<table>
+  <tr>
+    <td valign="top">
+      <%= link_to "Meal", consumables_meal_path(:controller => @consumables, :action => "meal") %>
+      <br>
+      <%= link_to "Smoothie", consumables_smoothie_path(:controller => @consumables, :action => "smoothie") %>
+      <br>
+      <%= link_to "Omelette", consumables_omelette_path(:controller => @consumables, :action => "omelette") %>
+      <br>
+      <%= link_to "Mexican", consumables_mexican_path(:controller => @consumables, :action => "mexican") %>
+      <br>
+      <%= link_to "Food Binge", consumables_food_binge_path(:controller => @consumables, :action => "food_binge") %>
+    </td>
+    <td valign="top">
+      <%= button_to "1500 ml Water", consumables_drink_water_now_path(:controller => @consumables, :action => "drink_water_now") %>
+      <%= button_to "500 ml Coffee", consumables_drink_coffee_now_path(:controller => @consumables, :action => "drink_coffee_now") %>
+      <%= link_to "Drink Wine", consumables_drink_wine_path(:controller => @consumables, :action => "drink_wine") %>
+      <br>
+      <%= link_to "Drink", consumables_drink_path(:controller => @consumables, :action => "drink") %>
+    </td>
+    <td valign="top">
+      <%= button_to "Spliff", consumables_new_spliff_now_path(:controller => @consumables, :action => "new_spliff_now") %>
+      <%= link_to "Spliffs", consumables_spliff_binge_path(:controller => @consumables, :action => "spliff_binge") %>
+    </td>
+  </tr>
+</table>

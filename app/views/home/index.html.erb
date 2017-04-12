@@ -1,25 +1,21 @@
 <h1 align="center">Daily.. journal/meta/self-tracking/achievement pipeline</h1>
 
-<table width="100%" align="center">
+<table align="center" max-width="88%">
 	<tr>
-		<td align="center"><br>&nbsp;<br></td>
-		<td align="center"><br>&nbsp;<br></td>
-	</tr>
-	<tr>
-		<td align="center"><%= link_to( "All Daily Entries", :controller => :entries, :action => :index )%></td>
-		<td align="center"><strong><%= link_to( "New Daily Entry", :controller => :entries, :action => :new )%></strong></td>
-
-		<td align="center"><%= link_to( "All Meals", :controller => :meals, :action => :index )%></td>
-		<td align="center"><strong><%= link_to("New Meal", :controller => :meals, :action => :new ) %></strong></td>
-
-		<td align="center"><%= link_to( "All Climbs", :controller => :climbs, :action => :index )%></td>
-		<td align="center"><strong><%= link_to("New Climb", :controller => :entries, :action => :new ) %></strong></td>
 		
-		<td align="center"><%= link_to( "All Spliffs", :controller => :spliffs, :action => :index )%></td>
-		<td align="center"><strong><%= button_to("New Spliff", :controller => :spliffs, :action => :new_spliff_now ) %></strong></td>
+		<td width="30%" valign="top">
+			<%= render :partial => '/consumables/log_consumables.html.erb' %>
+		</td>
+		<td width="30%" valign="top">
+			<h2>Log Exercise...</h2><hr>
+			<p></p>
+		</td>
+		<td width="30%" valign="top">
+			<h2>Think, Create, Ideate...</h2><hr>
+			<p></p>
+		</td>
 	</tr>
 </table>
-
 
 <h1 align="center">8-day Overview</h1>
 
