@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :journal_entries
   get 'consumables/meal' => 'consumables#meal'
   get 'consumables/smoothie' => 'consumables#smoothie'
   get 'consumables/omelette' => 'consumables#omelette'

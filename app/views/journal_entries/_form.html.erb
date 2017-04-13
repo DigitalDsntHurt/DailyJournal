@@ -1,0 +1,32 @@
+<%= form_for(journal_entry) do |f| %>
+  <% if journal_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+      <ul>
+      <% journal_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :prompt %>
+    <%= f.text_field :prompt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :entry %>
+    <%= f.text_area :entry %>
+  </div>
+
+  <div class="field">
+    <%= f.label :entry_type %>
+    <%= f.text_field :entry_type %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

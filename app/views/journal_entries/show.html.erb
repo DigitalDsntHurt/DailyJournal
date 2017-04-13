@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prompt:</strong>
+  <%= @journal_entry.prompt %>
+</p>
+
+<p>
+  <strong>Entry:</strong>
+  <%= @journal_entry.entry %>
+</p>
+
+<p>
+  <strong>Entry type:</strong>
+  <%= @journal_entry.entry_type %>
+</p>
+
+<%= link_to 'Edit', edit_journal_entry_path(@journal_entry) %> |
+<%= link_to 'Back', journal_entries_path %>
