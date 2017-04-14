@@ -1,0 +1,62 @@
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <div class="container">
+    <table style="margin-top:5px;">
+        <tr>
+            <td>
+            <div class="navbar-header page-scroll">
+                <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">
+                        Toggle navigation
+                    </span> 
+                    Models >
+                </button>
+                </div>
+            </td>
+            <td width="25%"></td>
+            <td width="25%"></td>
+            <td>
+                <%= link_to "Journal", new_journal_entry_path(:controller => @journal_entries, :action => "new"), :style => "color:white" %>
+            </td>
+            <td>
+                <%= link_to "Climb", new_climb_path(:controller => @climbs, :action => "new"), :style => "color:white" %>
+            </td>
+            <td>
+                <%= link_to "Meals", consumables_meal_path(:controller => @consumables, :action => "meal"), :style => "color:white" %>
+            </td>
+            <td>
+                <%= button_to "1500ml Water", consumables_drink_water_now_path(:controller => @consumables, :action => "drink_water_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff;" %>
+            </td>
+            <td>
+                <%= button_to "500ml Coffee", consumables_drink_coffee_now_path(:controller => @consumables, :action => "drink_coffee_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff;" %>                
+            </td>
+            <td>
+                <%= button_to "Spliff", consumables_new_spliff_now_path(:controller => @consumables, :action => "new_spliff_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff;" %>
+            </td>
+        </tr>
+    </table>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav" style="margin-top:-2px;">
+                <li style="margin-left:-26px;">
+                    <a href="/">Home</a>
+                </li>
+                <li style="margin-left:-26px;">
+                    <a href="/journal_entries">Journal</a>
+                </li>
+                <li style="margin-left:-26px;">
+                    <a href="/consumables">Consumables</a>
+                </li>
+                <li style="margin-left:-26px;">
+                    <a href="/climbs">Exercise</a>
+                </li>
+                <li style="margin-left:-26px;">
+                    <a href="#">Planning</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

@@ -1,21 +1,19 @@
-<h1 align="center">Daily.. journal/meta/self-tracking/achievement pipeline</h1>
+<br>
+<h1 align="center"></h1>
+<br>
 
-<table align="center" max-width="88%">
-	<tr>
-		
-		<td width="30%" valign="top">
-			<%= render :partial => '/consumables/log_consumables.html.erb' %>
-		</td>
-		<td width="30%" valign="top">
-			<h2>Log Exercise...</h2><hr>
-			<p></p>
-		</td>
-		<td width="30%" valign="top">
-			<h2>Think, Create, Ideate...</h2><hr>
-			<p></p>
-		</td>
-	</tr>
-</table>
+<div class="container-fluid" align="center">
+	<div class="row">
+		<div class="col-sm-6">
+			something here
+		</div>
+		<div class="col-sm-6">
+			something here
+		</div>
+	</div>
+</div>
+
+
 
 <h1 align="center">8-day Overview</h1>
 
@@ -67,5 +65,22 @@
 
 
 <br><br>
+<hr>
 <br><br>
 
+<table align="center" max-width="88%">
+	<tr>
+		
+		<td width="30%" valign="top">
+			<%= render :partial => '/consumables/log_consumables.html.erb' %>
+		</td>
+		<td width="30%" valign="top">
+			<h2>Log Exercise...</h2><hr>
+			<p></p>
+		</td>
+		<td width="30%" valign="top">
+			<h2>Think, Create, Ideate...</h2><hr>
+			<p><%= link_to 'New Journal Entry', new_journal_entry_path, :class => "btn-primary" %></p>
+		</td>
+	</tr>
+</table>

@@ -1,5 +1,7 @@
-<h1>New Journal Entry</h1>
+<br><br>
+<h2 align="center">It's <%= Time.now.strftime("%H") %>:<%= Time.now.strftime("%M") %> on <%= Time.now.strftime("%a") %>, <%= Time.now.strftime("%b") %> <%= Time.now.strftime("%d") %>, <%= Time.now.strftime("%Y") %></h2>
+<br><br>
 
 <%= render 'form', journal_entry: @journal_entry %>
 
-<%= link_to 'Back', journal_entries_path %>
+
