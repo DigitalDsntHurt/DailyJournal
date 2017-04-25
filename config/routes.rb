@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  get 'dashboards/morning_dash'
+  get 'dashboards/evening_dash'
+  get 'dashboards/rituals_dash'
+  get 'dashboards/goal_tracking_dash'
+  get 'dashboards/scratch_dash'
+  get 'dashboards/master_dash'
+
   resources :journal_entries
+
+
   get 'consumables/meal' => 'consumables#meal'
   get 'consumables/smoothie' => 'consumables#smoothie'
   get 'consumables/omelette' => 'consumables#omelette'

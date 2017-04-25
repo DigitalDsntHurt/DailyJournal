@@ -11,3 +11,25 @@
 #	Entry.create!(:created_at => date)
 #	date + 1
 #end
+
+
+############
+###### Update JournalEntries
+###### Give DateTime and Date values to new occurrence_time and occurrence_date columns
+############
+
+jes = JournalEntry.all
+jes.select{|je| je.occurrence_date == nil }.each{|entry|
+	@o_date = entry.updated_at.strftime("%Y")+"-"+entry.updated_at.strftime("%m")+"-"+entry.updated_at.strftime("%d")
+	p entry.update!(:occurrence_time => entry.updated_at, :occurrence_date => @o_date)
+
+}
+=begin
+.each{|record|
+	record.occurrence_time = record.updated_at
+	@o_date = record.updated_at.strftime("%Y")+"-"+record.updated_at.strftime("%m")+"-"+record.updated_at.strftime("%d")
+	record.occurrence_time = @o_date
+	p record
+	puts 
+}
+=end
