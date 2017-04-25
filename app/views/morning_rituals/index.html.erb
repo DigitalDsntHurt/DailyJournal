@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Morning Rituals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wake time</th>
+      <th>Exercise done?</th>
+      <th>Exercise name</th>
+      <th>Exercise reps</th>
+      <th>Protein consumed?</th>
+      <th>Brushed?</th>
+      <th>Journaled?</th>
+      <th>Occurrence time</th>
+      <th>Occurrence date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @morning_rituals.each do |morning_ritual| %>
+      <tr>
+        <td><%= morning_ritual.wake_time %></td>
+        <td><%= morning_ritual.exercise_done %></td>
+        <td><%= morning_ritual.exercise_name %></td>
+        <td><%= morning_ritual.exercise_reps %></td>
+        <td><%= morning_ritual.protein_done %></td>
+        <td><%= morning_ritual.brush_done %></td>
+        <td><%= morning_ritual.journal_done %></td>
+        <td><%= morning_ritual.occurrence_time %></td>
+        <td><%= morning_ritual.occurrence_date %></td>
+        <td><%= link_to 'Show', morning_ritual %></td>
+        <td><%= link_to 'Edit', edit_morning_ritual_path(morning_ritual) %></td>
+        <td><%= link_to 'Destroy', morning_ritual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Morning Ritual', new_morning_ritual_path %>

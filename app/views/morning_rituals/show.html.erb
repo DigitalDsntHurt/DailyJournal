@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wake time:</strong>
+  <%= @morning_ritual.wake_time %>
+</p>
+
+<p>
+  <strong>Exercise done?:</strong>
+  <%= @morning_ritual.exercise_done %>
+</p>
+
+<p>
+  <strong>Exercise name:</strong>
+  <%= @morning_ritual.exercise_name %>
+</p>
+
+<p>
+  <strong>Exercise reps:</strong>
+  <%= @morning_ritual.exercise_reps %>
+</p>
+
+<p>
+  <strong>Protein consumed?:</strong>
+  <%= @morning_ritual.protein_done %>
+</p>
+
+<p>
+  <strong>Brushed?:</strong>
+  <%= @morning_ritual.brush_done %>
+</p>
+
+<p>
+  <strong>Journaled?:</strong>
+  <%= @morning_ritual.journal_done %>
+</p>
+
+<p>
+  <strong>Occurrence time:</strong>
+  <%= @morning_ritual.occurrence_time %>
+</p>
+
+<p>
+  <strong>Occurrence date:</strong>
+  <%= @morning_ritual.occurrence_date %>
+</p>
+
+<%= link_to 'Edit', edit_morning_ritual_path(@morning_ritual) %> |
+<%= link_to 'Back', morning_rituals_path %>

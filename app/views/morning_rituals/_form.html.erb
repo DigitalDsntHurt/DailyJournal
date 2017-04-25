@@ -1,0 +1,70 @@
+<%= form_for(morning_ritual) do |f| %>
+  <% if morning_ritual.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(morning_ritual.errors.count, "error") %> prohibited this morning_ritual from being saved:</h2>
+
+      <ul>
+      <% morning_ritual.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="morning_ritual_form">
+    
+      <div class="field">
+        <%= f.label :wake_time %>
+        <%= f.datetime_select :wake_time %>
+      </div>
+
+      <table>
+        <tr>
+          <td>
+            <div class="field">
+              <%= f.label :exercise %>
+              <%= f.text_field :exercise_name, :value => "kettlebell swings" %>
+            </div>        
+          </td>
+          <td>
+            <div class="field">
+              <%= f.label :reps %>
+              <%= f.number_field :exercise_reps, :value => 100 %>
+            </div>
+          </td>    
+          <td>
+            <div class="field">
+              <%= f.label :protein? %>
+              <%= f.check_box :protein_done %>
+            </div>  
+          </td>
+          <td>
+            <div class="field">
+              <%= f.label :journaled? %>
+              <%= f.check_box :journal_done %>
+            </div>        
+          </td>
+          <td>
+            <div class="field">
+              <%= f.label :brushed? %>
+              <%= f.check_box :brush_done %>
+            </div>
+          </td>          
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+
+        </tr>
+      </table>
+
+      <div class="actions" align="center">
+        <%= f.submit %>
+      </div>    
+  </div>
+
+  
+
+
+<% end %>

@@ -24,7 +24,7 @@
 			<% pair.each{|day| %>
 				<div class="col box" align="top"  width="50%">
 
-					<h1><%= day[0] %></h1>
+					<h1><%= day[0].strftime("%a") %> <%= day[0].strftime("%d") %> <%= day[0].strftime("%b") %> <%= day[0].strftime("%Y") %></h1><br>
 					<div class="container-fluid"> 
 						<% day[1].each{|record| %>
 								<% if record.class == JournalEntry %>

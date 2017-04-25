@@ -763,9 +763,6 @@ div#maincontent {
 
 /* Calendar Styles */
 
-
-
-
 .agenda {  }
 
 /* Dates */
@@ -793,4 +790,15 @@ div#maincontent {
 
 @media (max-width: 767px) {
     
+}
+
+
+
+
+
+/* Morning Ritual Styles */
+.morning_ritual_form {
+  max-width: 400px;
+  margin: 20px 30px 20px 30px;
+  padding: 20px 30px 20px 30px;
 }

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :morning_rituals
   get 'dashboards/morning_dash'
   get 'dashboards/evening_dash'
   get 'dashboards/rituals_dash'
