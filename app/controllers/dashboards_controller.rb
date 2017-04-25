@@ -8,8 +8,9 @@ class DashboardsController < ApplicationController
   def journal_dash
     @journal_entries = JournalEntry.all
     @consumables = Consumable.all
-    @everything = (@journal_entries + @consumables).sort_by{|record| record.occurrence_time}
-    @pairs_of_day_groups = @everything.group_by{|record| record.occurrence_date}.sort_by{|pair| pair[0] }.each_slice(2).to_a.reverse
+    @everything = (@journal_entries + @consumables).sort_by{|record| record.occurrence_time}.reverse
+    @day_groups = @everything.group_by{|record| record.occurrence_date}
+    @pairs_of_day_groups = @day_groups.each_slice(2).to_a
     #@day_groups.each{|dg|
 
     #}
