@@ -5,12 +5,12 @@
 		<%-# THIS ROW IS STATIC -%>
 		<div class="row">
 			<%-# Input dash page, top left -%>
-			<div class="col box" align="top">
+			<div class="col box" align="top" width="50%">
 				<h1>Track Today</h1>
 				<br/><br/><br/>
 			</div>
 			<%-# Today so far page, top right -%>
-			<div class="col box" align="top">
+			<div class="col box" align="top" width="50%">
 				<h1>Today so far</h1>
 				<br/><br/><br/>
 			</div>
@@ -22,7 +22,7 @@
 		<%-# BEGIN DYNAMIC ROWS -%>
 		<div class="row">
 			<% pair.each{|day| %>
-				<div class="col box" align="top">
+				<div class="col box" align="top"  width="50%">
 
 					<h1><%= day[0] %></h1>
 					<div class="container-fluid"> 
