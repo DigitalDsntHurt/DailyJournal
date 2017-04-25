@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'dashboards/goal_tracking_dash'
   get 'dashboards/scratch_dash'
   get 'dashboards/master_dash'
+  get 'dashboards/journal_dash'
 
   resources :journal_entries
 

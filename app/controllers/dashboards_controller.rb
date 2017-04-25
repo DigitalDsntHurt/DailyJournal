@@ -6,7 +6,13 @@ class DashboardsController < ApplicationController
   end
 
   def journal_dash
+    @journal_entries = JournalEntry.all
+    @consumables = Consumable.all
+    @everything = (@journal_entries + @consumables).sort_by{|record| record.occurrence_time}
+    @pairs_of_day_groups = @everything.group_by{|record| record.occurrence_date}.each_slice(2).to_a
+    #@day_groups.each{|dg|
 
+    #}
   end
 
   def rituals_dash

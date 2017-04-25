@@ -1,1 +1,126 @@
-journal_dash.html.erb
+<br><br><br>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col box">
+			<h1>Today</h1>
+			<br><br><br>
+		</div>
+		<div class="col box">
+			<h1>Today so far</h1>
+			<br><br><br>
+		</div>
+	</div>
+</div>
+
+
+<br><br><br>
+<hr>
+<br><br><br>
+
+
+
+<%-# BEGIN BIG CONTAINER -%>
+<div class="container-fluid">
+		<%-# THIS ROW IS STATIC -%>
+		<div class="row">
+			<%-# Input dash page, top left -%>
+			<div class="col box" align="top">
+				<h1>Track Today</h1>
+				<br/><br/><br/>
+			</div>
+			<%-# Today so far page, top right -%>
+			<div class="col box" align="top">
+				<h1>Today so far</h1>
+				<br/><br/><br/>
+			</div>
+		</div>
+		<%-# END STATIC ROW -%>
+
+	<%-# BEGIN LOOPING THROUGH PAIRS OF DAY GROUPS -%>	
+	<% @pairs_of_day_groups.each{|pair| %>
+		<%-# BEGIN DYNAMIC ROWS -%>
+		<div class="row">
+			<% pair.each{|day| %>
+				<div class="col box" align="top">
+
+					<h1><%= day[0] %></h1>
+					<div class="container-fluid"> 
+						<% day[1].each{|record| %>
+								<% if record.class == JournalEntry %>
+									<div class="row">
+										<div class="col">
+
+										<table>
+											<tr>
+												<td align="left" width="10%">
+													<%= record.occurrence_time.strftime('%H') %>:<%= record.occurrence_time.strftime('%M') %>
+												</td>
+												<td align="left" width="90%">
+													<strong><%= record.prompt %></strong><br />
+													<%= record.entry %>
+												</td>
+											</tr>
+										</table>
+
+										</div>
+									</div>
+								<% elsif record.class == Consumable %>
+									<div class="row">
+										<div class="col">
+
+											<table>
+												<thead>
+													<th align="left" width="5%"></th>
+													<th align="left">ConsumptionType</th>
+													<th align="left">Quantity</th>
+													<th align="left">Units</th>
+													<th align="left">Item1</th>
+												</thead>
+												<tr>
+													<td align="left" width="5%">
+														<%= record.occurrence_time.strftime('%H') %>:<%= record.occurrence_time.strftime('%M') %>
+													</td>
+													<td align="left">
+														<%= record.consumption_type %>
+													</td>
+													<td align="left">
+														<%= record.quantity %>
+													</td>
+													<td align="left">
+														<%= record.units %>
+													</td>
+													<td align="left">
+														<%= record.item1 %>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								<% else %>	
+									<div class="row">
+										<div class="col">
+											<p>Something weird happened</p>
+										</div>
+									</div>	
+								<% end %>
+						<% } %>
+					</div>
+					<br><br><br>
+
+				</div>
+			<% } %>
+
+		</div>
+		<%-# END DYNAMIC ROWS -%>	
+	<% } %>
+	<%-# END LOOPING THROUGH PAIRS OF DAY GROUPS -%>	
+
+</div>
+<%-# END BIG CONTAINER -%>	
+
+<br><br><br>
+<hr>
+<br><br><br>
+
+<br><br><br>
