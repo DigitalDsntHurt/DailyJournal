@@ -339,6 +339,7 @@ label {
 }
 .navbar-custom .navbar-nav {
   letter-spacing: 1px;
+  max-width:146px;
 }
 .navbar-custom .navbar-nav li a {
   color: white;
@@ -802,3 +803,42 @@ div#maincontent {
   margin: 20px 30px 20px 30px;
   padding: 20px 30px 20px 30px;
 }
+
+
+
+/* Global Nav styles */
+.btn-link {
+  /* text-align: center; */
+  line-height: 14px;
+  font-size: 9px;
+  color:#fff; 
+
+  width:144px;
+
+  transition: all 0.3s ease-in-out;
+  
+
+  border-radius: 10%;
+  
+
+}
+
+.quick-consumables {
+  
+  max-width:166px;
+  font-size: 6px;
+  font-weight: 150;
+  color:#fff; 
+  text-align:right;
+
+  .col {
+    margin: -1px -3px -1px -3px;
+    padding: 0px -3px 0px -3px;
+
+  }
+}
+
+
+
+
+

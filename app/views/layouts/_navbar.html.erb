@@ -11,7 +11,7 @@
                     </span> 
                     Models >
                 </button>
-                </div>
+            </div>
             </td>
             <td width="25%"></td>
             <td width="25%"></td>
@@ -19,19 +19,23 @@
                 <%= link_to "Journal", new_journal_entry_path(:controller => @journal_entries, :action => "new"), :style => "color:white" %>
             </td>
             <td>
+                <%= link_to "JDash", '/dashboards/journal_dash', :style => "color:white" %>
+            </td>            
+            <td>
                 <%= link_to "Climb", new_climb_path(:controller => @climbs, :action => "new"), :style => "color:white" %>
             </td>
             <td>
                 <%= link_to "Meals", consumables_meal_path(:controller => @consumables, :action => "meal"), :style => "color:white" %>
             </td>
             <td>
-                <%= button_to "1500ml Water", consumables_drink_water_now_path(:controller => @consumables, :action => "drink_water_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff;" %>
-            </td>
-            <td>
-                <%= button_to "500ml Coffee", consumables_drink_coffee_now_path(:controller => @consumables, :action => "drink_coffee_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff;" %>                
-            </td>
-            <td>
-                <%= button_to "Spliff", consumables_new_spliff_now_path(:controller => @consumables, :action => "new_spliff_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff;" %>
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span> 
+                        Consumables >
+                    </button>
+                </div>
             </td>
         </tr>
     </table>
@@ -49,13 +53,57 @@
                     <a href="/consumables">Consumables</a>
                 </li>
                 <li style="margin-left:-26px;">
-                    <a href="/climbs">Exercise</a>
+                    <a href="/morning_rituals">Morning Ritual</a>
                 </li>
                 <li style="margin-left:-26px;">
-                    <a href="#">Planning</a>
+                    <a href="/daily_priorities">Daily Priorities</a>
                 </li>
+                <li style="margin-left:-26px;">
+                    <a href="/evening_rituals">Evening Ritual</a>
+                </li>
+                <li style="margin-left:-26px;">
+                    <a href="/exercises">Exercise</a>
+                </li>
+                <li style="margin-left:-26px;">
+                    <a href="/climbs">Climbs</a>
+                </li>                
             </ul>
         </div>
+
+        <!-- Collect meal functionality -->
+        <div align="right" style="margin-right:-33px;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav" style="margin-top:-2px;">
+                <li style="margin-bottom:8px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col quick-consumables" align="right">
+                                <%= link_to "Smoothie", consumables_smoothie_path(:controller => @consumables, :action => "smoothie") %>
+                                &nbsp;
+                                <%= link_to "Omelette", consumables_omelette_path(:controller => @consumables, :action => "omelette") %>
+                                &nbsp;                                
+                                <%= link_to "Mexican", consumables_mexican_path(:controller => @consumables, :action => "mexican") %>
+                                &nbsp;
+                                <%= link_to "Any Meal", consumables_meal_path(:controller => @consumables, :action => "meal") %> 
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li style="margin-bottom:8px;">
+                    <%= button_to "1500ml Water", consumables_drink_water_now_path(:controller => @consumables, :action => "drink_water_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff; width:144px;" %>
+                </li>
+                <li style="margin-bottom:8px;">
+                    <%= button_to "500ml Coffee", consumables_drink_coffee_now_path(:controller => @consumables, :action => "drink_coffee_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff; width:144px;" %>
+                </li>
+                <li style="margin-bottom:8px;">
+                    <%= button_to "Spliff", consumables_new_spliff_now_path(:controller => @consumables, :action => "new_spliff_now"), :class => "btn", :style => "background-color:#11ba7d; color:#fff; width:144px;" %>
+                </li>
+                <li style="margin-bottom:8px;">
+                    <div>
+                        <%= link_to "All Consumables", '/consumables' %>
+                    </div>
+                </li>                
+            </ul>
+        </div>        
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->

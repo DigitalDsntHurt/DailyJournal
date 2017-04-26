@@ -7,6 +7,60 @@
 			<%-# Input dash page, top left -%>
 			<div class="col box" align="top" width="50%">
 				<h1>Track Today</h1>
+					
+					<hr>
+
+					<h4>Track Consumables</h4>
+					<%= form_for(new_consumable_path) do |f| %>
+						
+							<table>
+							  <tr>
+							    <td>
+					    			<div class="field">
+					        			<%= f.label :consumption_type %>
+        								<%= f.select :consumption_type, options_for_select(["meal","snack","drink","smoke","suppliments", "other"], :selected => "meal") %>
+        							</div>
+							    </td>
+							    <td>
+							      <div class="field">
+							        <%= f.label :item1 %>
+							        <%= f.text_field :item1 %>
+							      </div>
+							    </td>
+							    <td>
+							      <div class="field">
+							        <%= f.label :quantity %>
+							        <%= f.text_field :quantity %>
+							      </div>
+							    </td>
+							    <td>
+							      <div class="field">
+							        <%= f.label :units %>
+							        <%= f.text_field :units %>
+							      </div>
+							    </td>
+							    <td>
+						    	  <div class="actions">
+								    <%= f.submit "submit" %>
+								  </div>
+							    </td>
+							  </tr>
+							</table>					
+      					
+		        	<% end %> 
+
+					<hr>
+
+					<h4>Quick Journal Entry</h4>
+					<%= form_for(new_journal_entry_path) do |f| %>
+						<div class="field">
+		          			<%= f.text_area :entry, :value => " ... ", cols: "41", rows: "7" %>
+		        		</div>
+		        		<div class="actions">
+							<%= f.submit "submit" %>
+						</div>
+		        	<% end %> 
+		        	<hr>
 				<br/><br/><br/>
 			</div>
 			<%-# Today so far page, top right -%>
