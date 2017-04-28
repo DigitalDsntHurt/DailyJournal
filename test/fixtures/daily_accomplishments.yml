@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyString
+  priority1: MyText
+  priority1_accomplished: false
+  priority2: MyText
+  priority2_accomplished: false
+  priority3: MyText
+  priority3_accomplished: false
+  priority4: MyText
+  priority4_accomplished: false
+  priority5: MyText
+  priority5_accomplished: false
+  priority6: MyText
+  priority6_accomplished: false
+  priority7: MyText
+  priority7_accomplished: false
+  priority8: MyText
+  priority8_accomplished: false
+  priority9: MyText
+  priority9_accomplished: false
+
+two:
+  day: MyString
+  priority1: MyText
+  priority1_accomplished: false
+  priority2: MyText
+  priority2_accomplished: false
+  priority3: MyText
+  priority3_accomplished: false
+  priority4: MyText
+  priority4_accomplished: false
+  priority5: MyText
+  priority5_accomplished: false
+  priority6: MyText
+  priority6_accomplished: false
+  priority7: MyText
+  priority7_accomplished: false
+  priority8: MyText
+  priority8_accomplished: false
+  priority9: MyText
+  priority9_accomplished: false

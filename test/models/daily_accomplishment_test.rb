@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SpliffTest < ActiveSupport::TestCase
+class DailyAccomplishmentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

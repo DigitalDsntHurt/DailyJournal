@@ -35,6 +35,18 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
 
+.box-fullwidth
+{
+  position: relative;
+  width: 100%;
+  padding: 50px;
+  margin: 0 auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
 .box-overview
 {
   position: relative;
@@ -754,9 +766,53 @@ div#maincontent {
 
 
 
+/* Journal Dash Styles */
+
+.fullwidth-container {
+  margin: 11px 22px 22px 11px;
+  /* border-style: solid; */
+  /* border-width: 1px; */
+}
+
+.dash-body {
+  
+  padding:8px;
+}
+
+.dash-sidebar {
+  
+  background: #2C3E50;
+  color: white;
+}
+
+.box-dash-body
+{
+  position: relative;
+  width: 66%;
+  padding: 50px;
+  margin: 0 auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+
+  vertical-align:top;
+}
 
 
+.box-dash-sidebar
+{
+  position: relative;
+  width: 34%;
+  padding: 50px;
+  margin: 0 auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 
+  vertical-align:top;
+}
 
 
 
@@ -841,4 +897,44 @@ div#maincontent {
 
 
 
+.er-container {
+  max-width:150px;
 
+  .col {
+    text-align:center;
+    align:center;
+  }
+}
+
+
+/* Daily Accomplishment Form Styles */
+.daily-accomplishments-form-container {
+  margin: 12px;
+  padding: 12px;
+  margin:0px;
+  padding:0px;
+
+  textarea{
+    font-family: 'Caveat', cursive;
+    font-size:18px;
+  }
+
+}
+
+.journal-dash{
+  text-align:left;
+  font-size:33px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+td.journal-dash {
+  text-align:left;
+  font-size:13px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+
+.journal-nav-dropdown {
+  margin-left:900px;
+}

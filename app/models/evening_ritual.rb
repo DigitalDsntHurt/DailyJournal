@@ -1,0 +1,2 @@
+class EveningRitual < ApplicationRecord
+end

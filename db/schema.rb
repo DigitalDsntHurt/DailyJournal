@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425213944) do
+ActiveRecord::Schema.define(version: 20170427185108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,30 @@ ActiveRecord::Schema.define(version: 20170425213944) do
     t.date     "occurrence_date"
   end
 
+  create_table "daily_accomplishments", force: :cascade do |t|
+    t.date     "day"
+    t.text     "priority1"
+    t.boolean  "priority1_accomplished"
+    t.text     "priority2"
+    t.boolean  "priority2_accomplished"
+    t.text     "priority3"
+    t.boolean  "priority3_accomplished"
+    t.text     "priority4"
+    t.boolean  "priority4_accomplished"
+    t.text     "priority5"
+    t.boolean  "priority5_accomplished"
+    t.text     "priority6"
+    t.boolean  "priority6_accomplished"
+    t.text     "priority7"
+    t.boolean  "priority7_accomplished"
+    t.text     "priority8"
+    t.boolean  "priority8_accomplished"
+    t.text     "priority9"
+    t.boolean  "priority9_accomplished"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "entries", force: :cascade do |t|
     t.string   "grateful_1"
     t.string   "grateful_2"
@@ -77,6 +101,18 @@ ActiveRecord::Schema.define(version: 20170425213944) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.date     "entry_date"
+  end
+
+  create_table "evening_rituals", force: :cascade do |t|
+    t.boolean  "stretch"
+    t.boolean  "core"
+    t.boolean  "brush"
+    t.boolean  "wash"
+    t.boolean  "read"
+    t.boolean  "journal"
+    t.boolean  "ktime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "journal_entries", force: :cascade do |t|
@@ -123,6 +159,13 @@ ActiveRecord::Schema.define(version: 20170425213944) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.date     "occurrence_date"
+  end
+
+  create_table "priorities", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "accomplished"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "spliffs", force: :cascade do |t|

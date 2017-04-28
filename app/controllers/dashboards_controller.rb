@@ -14,6 +14,10 @@ class DashboardsController < ApplicationController
     #@day_groups.each{|dg|
 
     #}
+
+    @daily_accomplishment = DailyAccomplishment.where(day: Date.today)[0]
+    @tomorrow_accomplishment = DailyAccomplishment.where(day: Date.today+1)[0]
+    @journal_entry = JournalEntry.new
   end
 
   def rituals_dash

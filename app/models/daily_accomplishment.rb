@@ -1,0 +1,2 @@
+class DailyAccomplishment < ApplicationRecord
+end

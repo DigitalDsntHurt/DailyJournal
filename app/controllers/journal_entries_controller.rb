@@ -61,6 +61,22 @@ class JournalEntriesController < ApplicationController
     end
   end
 
+  def entries_for_journal_dash
+    @journal_entry = JournalEntry.new
+  end
+
+  def history
+    @journal_entries = JournalEntry.all
+    @consumables = Consumable.all
+    @everything = (@journal_entries + @consumables).sort_by{|record| record.occurrence_time}.reverse
+    @day_groups = @everything.group_by{|record| record.occurrence_date}
+    @pairs_of_day_groups = @day_groups.each_slice(2).to_a
+
+    @daily_accomplishment = DailyAccomplishment.where(day: Date.today)[0]
+    @tomorrow_accomplishment = DailyAccomplishment.where(day: Date.today+1)[0]
+    @journal_entry = JournalEntry.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_journal_entry

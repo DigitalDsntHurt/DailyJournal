@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  get 'daily_accomplishments/dash_form' => 'daily_accomplishments#dash_form'
+  get 'daily_accomplishments/evening_form' => 'daily_accomplishments#evening_form'
+  resources :daily_accomplishments
+
+  resources :priorities
+
   resources :morning_rituals
+  resources :evening_rituals
+  
+  
   get 'dashboards/morning_dash'
   get 'dashboards/evening_dash'
   get 'dashboards/rituals_dash'
@@ -8,6 +17,8 @@ Rails.application.routes.draw do
   get 'dashboards/master_dash'
   get 'dashboards/journal_dash'
 
+  get 'journal_entries/history' => 'journal_entries#history'
+  get 'journal_entries/entries_for_journal_dash' => 'journal_entries#entries_for_journal_dash'
   resources :journal_entries
 
 
@@ -30,13 +41,9 @@ Rails.application.routes.draw do
   get 'consumables/spliff_binge' => 'consumables#spliff_binge'
   resources :consumables
 
-
   resources :climbs
-  resources :meals
-  post 'spliffs/new_spliff_now' => 'spliffs#new_spliff_now'
-  resources :spliffs
+
   get 'home/index'
   root 'home#index'
-  resources :entries
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

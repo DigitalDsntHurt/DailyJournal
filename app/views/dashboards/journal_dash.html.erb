@@ -1,168 +1,35 @@
+<div class="box-fullwidth container-fluid">
 
+	<table>
+		<tr>
+			<td class="box-dash-body">
+				<br>
+				<h2 align="center">
+					new Exercise, 
+					new Meal
+					-Smoothie, 
+					-omelette,  
+					-any meal,
+				</h2>			
 
-<%-# BEGIN BIG CONTAINER -%>
-<div class="container-fluid">
-		<%-# THIS ROW IS STATIC -%>
-		<div class="row">
-			<%-# Input dash page, top left -%>
-			<div class="col box" align="top" width="50%">
-				<h1>Track Today</h1>
-					
-					<hr>
-
-					<h4>Track Consumables</h4>
-					<%= form_for(new_consumable_path) do |f| %>
-						
-							<table>
-							  <tr>
-							    <td>
-					    			<div class="field">
-					        			<%= f.label :consumption_type %>
-        								<%= f.select :consumption_type, options_for_select(["meal","snack","drink","smoke","suppliments", "other"], :selected => "meal") %>
-        							</div>
-							    </td>
-							    <td>
-							      <div class="field">
-							        <%= f.label :item1 %>
-							        <%= f.text_field :item1 %>
-							      </div>
-							    </td>
-							    <td>
-							      <div class="field">
-							        <%= f.label :quantity %>
-							        <%= f.text_field :quantity %>
-							      </div>
-							    </td>
-							    <td>
-							      <div class="field">
-							        <%= f.label :units %>
-							        <%= f.text_field :units %>
-							      </div>
-							    </td>
-							    <td>
-						    	  <div class="actions">
-								    <%= f.submit "submit" %>
-								  </div>
-							    </td>
-							  </tr>
-							</table>					
-      					
-		        	<% end %> 
-
-					<hr>
-
-					<h4>Quick Journal Entry</h4>
-					<%= form_for(new_journal_entry_path) do |f| %>
-						<div class="field">
-		          			<%= f.text_area :entry, :value => " ... ", cols: "41", rows: "7" %>
-		        		</div>
-		        		<div class="actions">
-							<%= f.submit "submit" %>
-						</div>
-		        	<% end %> 
-		        	<hr>
-				<br/><br/><br/>
-			</div>
-			<%-# Today so far page, top right -%>
-			<div class="col box" align="top" width="50%">
-				<h1>Today so far</h1>
-				<br/><br/><br/>
-			</div>
-		</div>
-		<%-# END STATIC ROW -%>
-
-	<%-# BEGIN LOOPING THROUGH PAIRS OF DAY GROUPS -%>	
-	<% @pairs_of_day_groups.each{|pair| %>
-		<%-# BEGIN DYNAMIC ROWS -%>
-		<div class="row">
-			<% pair.each{|day| %>
-				<div class="col box" align="top"  width="50%">
-
-					<h1><%= day[0].strftime("%a") %> <%= day[0].strftime("%d") %> <%= day[0].strftime("%b") %> <%= day[0].strftime("%Y") %></h1><br>
-					<div class="container-fluid"> 
-						<% day[1].each{|record| %>
-								<% if record.class == JournalEntry %>
-									<div class="row">
-										<div class="col">
-
-										<table>
-											<thead>
-												<th align="left" width="10%">
-													<%= record.occurrence_time.strftime('%H') %>:<%= record.occurrence_time.strftime('%M') %>&nbsp; 
-													
-												</th>
-												<th align="left" width="90%">
-													<%= record.prompt %>
-												</th>
-											</thead>
-											<tr>
-												<td align="left" width="10%">
-												</td>
-												<td align="left" width="90%">
-													<%= record.entry %>
-												</td>
-											</tr>
-										</table>
-										<hr>
-										</div>
-
-									</div>
-								<% elsif record.class == Consumable %>
-									<div class="row">
-										<div class="col">
-
-											<table>
-												<thead>
-													<th align="left" width="10%"><%= record.occurrence_time.strftime('%H') %>:<%= record.occurrence_time.strftime('%M') %>&nbsp;</th>
-													<th align="left">ConsumptionType</th>
-													<th align="left">Quantity</th>
-													<th align="left">Units</th>
-													<th align="left">Item1</th>
-												</thead>
-												<tr>
-													<td align="left" width="10%">
-													</td>
-													<td align="left">
-														<%= record.consumption_type %>
-													</td>
-													<td align="left">
-														<%= record.quantity %>
-													</td>
-													<td align="left">
-														<%= record.units %>
-													</td>
-													<td align="left">
-														<%= record.item1 %>
-													</td>
-												</tr>
-											</table>
-											<hr>
-										</div>
-									</div>
-								<% else %>	
-									<div class="row">
-										<div class="col">
-											<p>Something weird happened</p>
-										</div>
-									</div>	
-								<% end %>
-						<% } %>
-					</div>
-					<br><br><br>
-
-				</div>
-			<% } %>
-
-		</div>
-		<%-# END DYNAMIC ROWS -%>	
-	<% } %>
-	<%-# END LOOPING THROUGH PAIRS OF DAY GROUPS -%>	
-
-</div>
-<%-# END BIG CONTAINER -%>	
-
-<br><br><br>
-<hr>
-<br><br><br>
-
-<br><br><br>
+				<hr>
+				<%= render '/journal_entries/morning_journal_dash', journal_entry: @journal_entry %>
+				<hr>
+				<%= render '/daily_accomplishments/evening_form', tomorrow_accomplishment: @tomorrow_accomplishment %>
+				<hr>
+				<%= render '/journal_entries/evening_journal_dash', journal_entry: @journal_entry %>
+				
+			</td>
+			<td class="box-dash-sidebar">
+				<br>
+				<h2 class="journal-dash">Morning Ritual</h2>
+				<br><br><br><br>
+				<h2 class="journal-dash">Priorities</h2>
+				
+				<%= render '/daily_accomplishments/dash_form', daily_accomplishment: @daily_accomplishment %>
+				<br><br><br><br>
+				<h2 class="journal-dash">Evening Ritual</h2>
+				<br><br><br><br>
+			</td>
+		</tr>
+	</table>

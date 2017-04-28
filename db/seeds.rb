@@ -36,3 +36,22 @@ cs.select{|c| c.occurrence_date == nil }.each{|entry|
 	entry.update!(:occurrence_time => entry.consumed_at, :occurrence_date => @o_date)
 }
 =end
+
+=begin
+=end
+############
+###### Create One Daily Priority record for every day until 2018
+############
+today = Date.today
+extant_days = DailyAccomplishment.all.pluck(:day)
+
+until today.year == 2018
+	DailyAccomplishment.create!(:day => today) unless extant_days.include?(today)
+	today += 1
+end
+
+#until today.year == 2018
+#
+#	today += 1
+#end
+

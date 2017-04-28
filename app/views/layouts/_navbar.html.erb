@@ -16,16 +16,14 @@
             <td width="25%"></td>
             <td width="25%"></td>
             <td>
-                <%= link_to "Journal", new_journal_entry_path(:controller => @journal_entries, :action => "new"), :style => "color:white" %>
-            </td>
-            <td>
-                <%= link_to "JDash", '/dashboards/journal_dash', :style => "color:white" %>
-            </td>            
-            <td>
-                <%= link_to "Climb", new_climb_path(:controller => @climbs, :action => "new"), :style => "color:white" %>
-            </td>
-            <td>
-                <%= link_to "Meals", consumables_meal_path(:controller => @consumables, :action => "meal"), :style => "color:white" %>
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-journal">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span> 
+                        Journal
+                    </button>
+                </div>
             </td>
             <td>
                 <div class="navbar-header page-scroll">
@@ -56,7 +54,7 @@
                     <a href="/morning_rituals">Morning Ritual</a>
                 </li>
                 <li style="margin-left:-26px;">
-                    <a href="/daily_priorities">Daily Priorities</a>
+                    <a href="/daily_accomplishments">Daily Priorities</a>
                 </li>
                 <li style="margin-left:-26px;">
                     <a href="/evening_rituals">Evening Ritual</a>
@@ -70,7 +68,28 @@
             </ul>
         </div>
 
-        <!-- Collect meal functionality -->
+        <!-- Collect journal dropdown content -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-journal">
+            <ul class="nav navbar-nav">
+                <li class="journal-nav-dropdown">
+                    <div>
+                        <%= link_to "Journal Dash", '/dashboards/journal_dash' %>
+                    </div>
+                </li> 
+                <li class="journal-nav-dropdown">
+                    <div>
+                        <%= link_to "Day/Night", '/journal_entries/new' %>
+                    </div>
+                </li>
+                <li class="journal-nav-dropdown">
+                    <div>
+                        <%= link_to "Journal History", '/journal_entries/history' %>
+                    </div>
+                </li>              
+            </ul>
+        </div>        
+
+        <!-- Collect consumables dropdown content -->
         <div align="right" style="margin-right:-33px;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav" style="margin-top:-2px;">
                 <li style="margin-bottom:8px;">
@@ -81,9 +100,11 @@
                                 &nbsp;
                                 <%= link_to "Omelette", consumables_omelette_path(:controller => @consumables, :action => "omelette") %>
                                 &nbsp;                                
-                                <%= link_to "Mexican", consumables_mexican_path(:controller => @consumables, :action => "mexican") %>
+                                <%= link_to "Mexi", consumables_mexican_path(:controller => @consumables, :action => "mexican") %>
                                 &nbsp;
-                                <%= link_to "Any Meal", consumables_meal_path(:controller => @consumables, :action => "meal") %> 
+                                <%= link_to "*Meal", consumables_meal_path(:controller => @consumables, :action => "meal") %>
+                                &nbsp;
+                                <%= link_to "*Drink", consumables_meal_path(:controller => @consumables, :action => "drink") %> 
                             </div>
                         </div>
                     </div>
