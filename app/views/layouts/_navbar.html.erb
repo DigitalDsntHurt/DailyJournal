@@ -3,37 +3,86 @@
     <div class="container">
     <table style="margin-top:5px;">
         <tr>
-            <td>
-            <div class="navbar-header page-scroll">
-                <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">
-                        Toggle navigation
-                    </span> 
-                    Models >
-                </button>
-            </div>
+            <td align="left" width="10%">
+                
+                <table align='left'>
+                    <tr>
+                        <td align="left">
+                            <div class="navbar-header page-scroll">
+                                <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">
+                                        Toggle navigation
+                                    </span> 
+                                    Models >
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
             </td>
-            <td width="25%"></td>
-            <td width="25%"></td>
-            <td>
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-journal">
-                        <span class="sr-only">
-                            Toggle navigation
-                        </span> 
-                        Journal
-                    </button>
-                </div>
-            </td>
-            <td>
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="btn" style="background-color:#11ba7d; color:#fff;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                        <span class="sr-only">
-                            Toggle navigation
-                        </span> 
-                        Consumables >
-                    </button>
-                </div>
+            <td width="70%"></td>
+            <td align="right" width="20%">
+                <table align="right">
+                    <tr>
+                        <td align="right">
+                            <div class="dropdown">
+                              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#11ba7d; color:#fff; border-color: #11ba7d;">Journal
+                              <span class="caret"></span></button>
+                              <ul class="dropdown-menu" style="padding-left:12px;padding-right:12px;">
+                                <li>
+                                    <%= link_to "Journal Dash", '/dashboards/journal_dash' %>
+                                </li> 
+                                <li>
+                                    <%= link_to "Day/Night", '/journal_entries/new' %>
+                                </li>
+                                <li>
+                                    <%= link_to "Journal History", '/journal_entries/history' %>
+                                </li>
+                                <hr>
+                                <li style="padding-bottom:8px;"><%= link_to "Journal Home", '/journal_entries' %></li>
+                              </ul>
+                            </div>                              
+                        </td>
+                        <td align="right">
+                            <div class="dropdown">
+                              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#11ba7d; color:#fff; border-color: #11ba7d;">Exercise
+                              <span class="caret"></span></button>
+                              <ul class="dropdown-menu" style="padding-left:12px;padding-right:12px;">
+                                <li><%= link_to "Kettlebell", exercises_kettlebell_path(:controller => @exercise, :action => "kettlebell") %></li>
+                                <li><%= link_to "Run", exercises_run_path(:controller => @exercise, :action => "run") %></li>
+                                <li><%= link_to "Core", exercises_core_path(:controller => @exercise, :action => "core") %></li>
+                                <li><%= link_to "Stretch", exercises_stretch_path(:controller => @exercise, :action => "stretch") %></li>
+                                <li><%= link_to "Climb", '/climbs/new' %></li>
+                                <hr>
+                                <li style="padding-bottom:8px;"><%= link_to "Climbing Home", '/climbs' %></li>
+                                <li style="padding-bottom:8px;"><%= link_to "Exercise Home", '/exercises' %></li>
+                              </ul>
+                            </div>                            
+                        </td>
+                        <td align="right">
+                            <div class="dropdown">
+                              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#11ba7d; color:#fff; border-color: #11ba7d;">Consumables
+                              <span class="caret"></span></button>
+                              <ul class="dropdown-menu" style="padding-left:12px;padding-right:12px;">
+                                <li><%= link_to "*Meal", consumables_meal_path(:controller => @consumables, :action => "meal") %></li>
+                                <li><%= link_to "Smoothie", consumables_smoothie_path(:controller => @consumables, :action => "smoothie") %></li>
+                                <li><%= link_to "Omelette", consumables_omelette_path(:controller => @consumables, :action => "omelette") %></li>
+                                <li><%= link_to "Mexican", consumables_mexican_path(:controller => @consumables, :action => "mexican") %></li>
+                                
+                                <li>&nbsp;</li>
+                                <li><%= link_to "*Drink", consumables_meal_path(:controller => @consumables, :action => "drink") %></li>
+                                <li><%= link_to "Drink Water", consumables_meal_path(:controller => @consumables, :action => "drink_water") %></li>
+                                <li><%= link_to "Drink Coffee", consumables_meal_path(:controller => @consumables, :action => "drink_coffee") %></li>
+                                <li><%= link_to "Drink Wine", consumables_meal_path(:controller => @consumables, :action => "drink_wine") %></li>
+                                <hr>
+                                <li style="padding-bottom:8px;"><%= link_to "Consumables Home", consumables_path(:controller => @consumables, :action => "index") %></li>
+                              </ul>
+                            </div>                            
+                        </td>
+                    </tr>
+                </table>
+              
             </td>
         </tr>
     </table>
@@ -71,21 +120,8 @@
         <!-- Collect journal dropdown content -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-journal">
             <ul class="nav navbar-nav">
-                <li class="journal-nav-dropdown">
-                    <div>
-                        <%= link_to "Journal Dash", '/dashboards/journal_dash' %>
-                    </div>
-                </li> 
-                <li class="journal-nav-dropdown">
-                    <div>
-                        <%= link_to "Day/Night", '/journal_entries/new' %>
-                    </div>
-                </li>
-                <li class="journal-nav-dropdown">
-                    <div>
-                        <%= link_to "Journal History", '/journal_entries/history' %>
-                    </div>
-                </li>              
+                
+           
             </ul>
         </div>        
 
