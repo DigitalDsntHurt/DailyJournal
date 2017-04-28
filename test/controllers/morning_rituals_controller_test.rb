@@ -17,7 +17,7 @@ class MorningRitualsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create morning_ritual" do
     assert_difference('MorningRitual.count') do
-      post morning_rituals_url, params: { morning_ritual: { brush: @morning_ritual.brush, day: @morning_ritual.day, drink_water: @morning_ritual.drink_water, exercise: @morning_ritual.exercise, journal: @morning_ritual.journal, meditate: @morning_ritual.meditate, protein: @morning_ritual.protein, read: @morning_ritual.read, waketime: @morning_ritual.waketime } }
+      post morning_rituals_url, params: { morning_ritual: { brush: @morning_ritual.brush, day: @morning_ritual.day, drink_water: @morning_ritual.drink_water, exercise: @morning_ritual.exercise, happy: @morning_ritual.happy, journal: @morning_ritual.journal, meditate: @morning_ritual.meditate, protein: @morning_ritual.protein, read: @morning_ritual.read, waketime: @morning_ritual.waketime } }
     end
 
     assert_redirected_to morning_ritual_url(MorningRitual.last)
@@ -34,7 +34,7 @@ class MorningRitualsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update morning_ritual" do
-    patch morning_ritual_url(@morning_ritual), params: { morning_ritual: { brush: @morning_ritual.brush, day: @morning_ritual.day, drink_water: @morning_ritual.drink_water, exercise: @morning_ritual.exercise, journal: @morning_ritual.journal, meditate: @morning_ritual.meditate, protein: @morning_ritual.protein, read: @morning_ritual.read, waketime: @morning_ritual.waketime } }
+    patch morning_ritual_url(@morning_ritual), params: { morning_ritual: { brush: @morning_ritual.brush, day: @morning_ritual.day, drink_water: @morning_ritual.drink_water, exercise: @morning_ritual.exercise, happy: @morning_ritual.happy, journal: @morning_ritual.journal, meditate: @morning_ritual.meditate, protein: @morning_ritual.protein, read: @morning_ritual.read, waketime: @morning_ritual.waketime } }
     assert_redirected_to morning_ritual_url(@morning_ritual)
   end
 

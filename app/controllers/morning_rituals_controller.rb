@@ -42,8 +42,8 @@ class MorningRitualsController < ApplicationController
   def update
     respond_to do |format|
       if @morning_ritual.update(morning_ritual_params)
-        format.html { redirect_to @morning_ritual, notice: 'Morning ritual was successfully updated.' }
-        format.json { render :show, status: :ok, location: @morning_ritual }
+        format.html { redirect_to :back, notice: 'Morning ritual was successfully updated.' }
+        format.json { render :back, status: :ok, location: :back }
       else
         format.html { render :edit }
         format.json { render json: @morning_ritual.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class MorningRitualsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def morning_ritual_params
-      params.require(:morning_ritual).permit(:day, :waketime, :exercise, :brush, :protein, :journal, :drink_water, :read, :meditate)
+      params.require(:morning_ritual).permit(:day, :waketime, :exercise, :brush, :protein, :journal, :drink_water, :read, :meditate, :happy)
     end
 end

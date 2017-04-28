@@ -1,0 +1,2 @@
+class MorningRitual < ApplicationRecord
+end

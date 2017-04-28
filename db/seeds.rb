@@ -49,3 +49,17 @@ until today.year == 2018
 	today += 1
 end
 =end
+
+=begin
+=end
+
+############
+###### Create one Morning Ritual record for every day until 2018
+############
+today = Date.today
+extant_days = MorningRitual.all.pluck(:day)
+
+until today.year == 2018
+	MorningRitual.create!(:day => today) unless extant_days.include?(today)
+	today += 1
+end

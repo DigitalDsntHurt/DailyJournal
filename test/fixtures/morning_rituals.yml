@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-04-28
+  waketime: 2017-04-28 15:15:34
+  exercise: false
+  brush: false
+  protein: false
+  journal: false
+  drink_water: false
+  read: false
+  meditate: false
+  happy: false
+
+two:
+  day: 2017-04-28
+  waketime: 2017-04-28 15:15:34
+  exercise: false
+  brush: false
+  protein: false
+  journal: false
+  drink_water: false
+  read: false
+  meditate: false
+  happy: false

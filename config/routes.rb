@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :priorities
 
+  get 'morning_rituals/journal_dash_form' => 'morning_rituals#journal_dash_form'
   resources :morning_rituals
   resources :evening_rituals
   

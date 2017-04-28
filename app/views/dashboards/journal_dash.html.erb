@@ -61,13 +61,11 @@
 				
 			</td>
 			<td class="box-dash-sidebar">
-				<br>
-				<h2 class="journal-dash">Morning Ritual</h2>
-				<br><br><br><br>
-				<h2 class="journal-dash">Priorities</h2>
-				
+				<%= render '/morning_rituals/journal_dash_form', morning_ritual: @morning_ritual %>
+				<hr>
 				<%= render '/daily_accomplishments/dash_form', daily_accomplishment: @daily_accomplishment %>
-				<br><br><br><br>
+				<hr>
+				
 				<h2 class="journal-dash">Evening Ritual</h2>
 				<br><br><br><br>
 			</td>
