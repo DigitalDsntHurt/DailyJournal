@@ -71,10 +71,10 @@
                                 <li><%= link_to "Mexican", consumables_mexican_path(:controller => @consumables, :action => "mexican") %></li>
                                 
                                 <li>&nbsp;</li>
-                                <li><%= link_to "*Drink", consumables_meal_path(:controller => @consumables, :action => "drink") %></li>
-                                <li><%= link_to "Drink Water", consumables_meal_path(:controller => @consumables, :action => "drink_water") %></li>
-                                <li><%= link_to "Drink Coffee", consumables_meal_path(:controller => @consumables, :action => "drink_coffee") %></li>
-                                <li><%= link_to "Drink Wine", consumables_meal_path(:controller => @consumables, :action => "drink_wine") %></li>
+                                <li><%= link_to "*Drink", consumables_drink_path(:controller => @consumables, :action => "drink") %></li>
+                                <li><%= link_to "Drink Water", consumables_drink_water_path(:controller => @consumables, :action => "drink_water") %></li>
+                                <li><%= link_to "Drink Coffee", consumables_drink_coffee_path(:controller => @consumables, :action => "drink_coffee") %></li>
+                                <li><%= link_to "Drink Wine", consumables_drink_wine_path(:controller => @consumables, :action => "drink_wine") %></li>
                                 <hr>
                                 <li style="padding-bottom:8px;"><%= link_to "Consumables Home", consumables_path(:controller => @consumables, :action => "index") %></li>
                               </ul>
@@ -165,3 +165,4 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<br />
