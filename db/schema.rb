@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428163635) do
+ActiveRecord::Schema.define(version: 20170428220446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,38 +83,6 @@ ActiveRecord::Schema.define(version: 20170428163635) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "entries", force: :cascade do |t|
-    t.string   "grateful_1"
-    t.string   "grateful_2"
-    t.string   "grateful_3"
-    t.string   "make_today_great_1"
-    t.string   "make_today_great_2"
-    t.string   "make_today_great_3"
-    t.string   "affirmation_1"
-    t.string   "affirmation_2"
-    t.string   "amazing_thing_1"
-    t.string   "amazing_thing_2"
-    t.string   "amazing_thing_3"
-    t.string   "improve_today_1"
-    t.string   "improve_today_2"
-    t.string   "anything_else"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.date     "entry_date"
-  end
-
-  create_table "evening_rituals", force: :cascade do |t|
-    t.boolean  "stretch"
-    t.boolean  "core"
-    t.boolean  "brush"
-    t.boolean  "wash"
-    t.boolean  "read"
-    t.boolean  "journal"
-    t.boolean  "ktime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
     t.string   "time"
@@ -134,55 +102,6 @@ ActiveRecord::Schema.define(version: 20170428163635) do
     t.datetime "updated_at",      null: false
     t.datetime "occurrence_time"
     t.date     "occurrence_date"
-  end
-
-  create_table "meals", force: :cascade do |t|
-    t.datetime "eaten_at"
-    t.string   "meal"
-    t.string   "meal_source"
-    t.string   "i1"
-    t.string   "i2"
-    t.string   "i3"
-    t.string   "i4"
-    t.string   "i5"
-    t.string   "i6"
-    t.string   "i7"
-    t.string   "i8"
-    t.string   "i9"
-    t.string   "i10"
-    t.string   "i11"
-    t.string   "i12"
-    t.string   "i_other"
-    t.string   "notes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "morning_rituals", force: :cascade do |t|
-    t.datetime "wake_time"
-    t.boolean  "exercise_done"
-    t.string   "exercise_name"
-    t.integer  "exercise_reps"
-    t.boolean  "protein_done"
-    t.boolean  "brush_done"
-    t.boolean  "journal_done"
-    t.datetime "occurrence_time"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.date     "occurrence_date"
-  end
-
-  create_table "priorities", force: :cascade do |t|
-    t.string   "title"
-    t.boolean  "accomplished"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "spliffs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "smoked_at"
   end
 
 end

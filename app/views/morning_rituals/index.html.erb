@@ -5,15 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Wake time</th>
-      <th>Exercise done?</th>
-      <th>Exercise name</th>
-      <th>Exercise reps</th>
-      <th>Protein consumed?</th>
-      <th>Brushed?</th>
-      <th>Journaled?</th>
-      <th>Occurrence time</th>
-      <th>Occurrence date</th>
+      <th>Day</th>
+      <th>Waketime</th>
+      <th>Exercise</th>
+      <th>Brush</th>
+      <th>Protein</th>
+      <th>Journal</th>
+      <th>Drink water</th>
+      <th>Read</th>
+      <th>Meditate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,15 +21,15 @@
   <tbody>
     <% @morning_rituals.each do |morning_ritual| %>
       <tr>
-        <td><%= morning_ritual.wake_time %></td>
-        <td><%= morning_ritual.exercise_done %></td>
-        <td><%= morning_ritual.exercise_name %></td>
-        <td><%= morning_ritual.exercise_reps %></td>
-        <td><%= morning_ritual.protein_done %></td>
-        <td><%= morning_ritual.brush_done %></td>
-        <td><%= morning_ritual.journal_done %></td>
-        <td><%= morning_ritual.occurrence_time %></td>
-        <td><%= morning_ritual.occurrence_date %></td>
+        <td><%= morning_ritual.day %></td>
+        <td><%= morning_ritual.waketime %></td>
+        <td><%= morning_ritual.exercise %></td>
+        <td><%= morning_ritual.brush %></td>
+        <td><%= morning_ritual.protein %></td>
+        <td><%= morning_ritual.journal %></td>
+        <td><%= morning_ritual.drink_water %></td>
+        <td><%= morning_ritual.read %></td>
+        <td><%= morning_ritual.meditate %></td>
         <td><%= link_to 'Show', morning_ritual %></td>
         <td><%= link_to 'Edit', edit_morning_ritual_path(morning_ritual) %></td>
         <td><%= link_to 'Destroy', morning_ritual, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -69,6 +69,6 @@ class MorningRitualsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def morning_ritual_params
-      params.require(:morning_ritual).permit(:wake_time, :exercise_done, :exercise_name, :exercise_reps, :protein_done, :brush_done, :journal_done, :occurrence_time, :occurrence_date)
+      params.require(:morning_ritual).permit(:day, :waketime, :exercise, :brush, :protein, :journal, :drink_water, :read, :meditate)
     end
 end

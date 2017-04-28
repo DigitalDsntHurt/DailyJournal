@@ -11,60 +11,52 @@
     </div>
   <% end %>
 
-  <div class="morning_ritual_form">
-    
-      <div class="field">
-        <%= f.label :wake_time %>
-        <%= f.datetime_select :wake_time %>
-      </div>
-
-      <table>
-        <tr>
-          <td>
-            <div class="field">
-              <%= f.label :exercise %>
-              <%= f.text_field :exercise_name, :value => "kettlebell swings" %>
-            </div>        
-          </td>
-          <td>
-            <div class="field">
-              <%= f.label :reps %>
-              <%= f.number_field :exercise_reps, :value => 100 %>
-            </div>
-          </td>    
-          <td>
-            <div class="field">
-              <%= f.label :protein? %>
-              <%= f.check_box :protein_done %>
-            </div>  
-          </td>
-          <td>
-            <div class="field">
-              <%= f.label :journaled? %>
-              <%= f.check_box :journal_done %>
-            </div>        
-          </td>
-          <td>
-            <div class="field">
-              <%= f.label :brushed? %>
-              <%= f.check_box :brush_done %>
-            </div>
-          </td>          
-        </tr>
-      </table>
-
-      <table>
-        <tr>
-
-        </tr>
-      </table>
-
-      <div class="actions" align="center">
-        <%= f.submit %>
-      </div>    
+  <div class="field">
+    <%= f.label :day %>
+    <%= f.date_select :day %>
   </div>
 
-  
+  <div class="field">
+    <%= f.label :waketime %>
+    <%= f.datetime_select :waketime %>
+  </div>
 
+  <div class="field">
+    <%= f.label :exercise %>
+    <%= f.check_box :exercise %>
+  </div>
 
+  <div class="field">
+    <%= f.label :brush %>
+    <%= f.check_box :brush %>
+  </div>
+
+  <div class="field">
+    <%= f.label :protein %>
+    <%= f.check_box :protein %>
+  </div>
+
+  <div class="field">
+    <%= f.label :journal %>
+    <%= f.check_box :journal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :drink_water %>
+    <%= f.check_box :drink_water %>
+  </div>
+
+  <div class="field">
+    <%= f.label :read %>
+    <%= f.check_box :read %>
+  </div>
+
+  <div class="field">
+    <%= f.label :meditate %>
+    <%= f.check_box :meditate %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
