@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-04-28
+  core: false
+  stretch: false
+  brush: false
+  read: false
+  journal: false
+
+two:
+  day: 2017-04-28
+  core: false
+  stretch: false
+  brush: false
+  read: false
+  journal: false

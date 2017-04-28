@@ -17,7 +17,7 @@ class EveningRitualsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create evening_ritual" do
     assert_difference('EveningRitual.count') do
-      post evening_rituals_url, params: { evening_ritual: { brush: @evening_ritual.brush, core: @evening_ritual.core, journal: @evening_ritual.journal, ktime: @evening_ritual.ktime, read: @evening_ritual.read, stretch: @evening_ritual.stretch, wash: @evening_ritual.wash } }
+      post evening_rituals_url, params: { evening_ritual: { brush: @evening_ritual.brush, core: @evening_ritual.core, day: @evening_ritual.day, journal: @evening_ritual.journal, read: @evening_ritual.read, stretch: @evening_ritual.stretch } }
     end
 
     assert_redirected_to evening_ritual_url(EveningRitual.last)
@@ -34,7 +34,7 @@ class EveningRitualsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update evening_ritual" do
-    patch evening_ritual_url(@evening_ritual), params: { evening_ritual: { brush: @evening_ritual.brush, core: @evening_ritual.core, journal: @evening_ritual.journal, ktime: @evening_ritual.ktime, read: @evening_ritual.read, stretch: @evening_ritual.stretch, wash: @evening_ritual.wash } }
+    patch evening_ritual_url(@evening_ritual), params: { evening_ritual: { brush: @evening_ritual.brush, core: @evening_ritual.core, day: @evening_ritual.day, journal: @evening_ritual.journal, read: @evening_ritual.read, stretch: @evening_ritual.stretch } }
     assert_redirected_to evening_ritual_url(@evening_ritual)
   end
 

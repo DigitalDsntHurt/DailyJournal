@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evening Rituals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Core</th>
+      <th>Stretch</th>
+      <th>Brush</th>
+      <th>Read</th>
+      <th>Journal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evening_rituals.each do |evening_ritual| %>
+      <tr>
+        <td><%= evening_ritual.day %></td>
+        <td><%= evening_ritual.core %></td>
+        <td><%= evening_ritual.stretch %></td>
+        <td><%= evening_ritual.brush %></td>
+        <td><%= evening_ritual.read %></td>
+        <td><%= evening_ritual.journal %></td>
+        <td><%= link_to 'Show', evening_ritual %></td>
+        <td><%= link_to 'Edit', edit_evening_ritual_path(evening_ritual) %></td>
+        <td><%= link_to 'Destroy', evening_ritual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evening Ritual', new_evening_ritual_path %>

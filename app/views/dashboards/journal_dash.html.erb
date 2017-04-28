@@ -54,20 +54,26 @@
 		<tr>
 			<td class="box-dash-body">
 				<%= render '/journal_entries/morning_journal_dash', journal_entry: @journal_entry %>
+				<br>
 				<hr>
+				<br>
 				<%= render '/daily_accomplishments/evening_form', tomorrow_accomplishment: @tomorrow_accomplishment %>
+				<br>
 				<hr>
+				<br>
 				<%= render '/journal_entries/evening_journal_dash', journal_entry: @journal_entry %>
 				
 			</td>
 			<td class="box-dash-sidebar">
 				<%= render '/morning_rituals/journal_dash_form', morning_ritual: @morning_ritual %>
+				<br>
 				<hr>
+				<br>
 				<%= render '/daily_accomplishments/dash_form', daily_accomplishment: @daily_accomplishment %>
+				<br>
 				<hr>
-				
-				<h2 class="journal-dash">Evening Ritual</h2>
-				<br><br><br><br>
+				<br>
+				<%= render '/evening_rituals/journal_dash_form', evening_ritual: @evening_ritual %>
 			</td>
 		</tr>
 	</table>

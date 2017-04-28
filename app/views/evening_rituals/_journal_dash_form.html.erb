@@ -1,0 +1,30 @@
+<h2 class="journal-dash">Evening Ritual</h2>
+
+<%= form_for(evening_ritual) do |f| %>
+  <% if evening_ritual.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evening_ritual.errors.count, "error") %> prohibited this evening_ritual from being saved:</h2>
+
+      <ul>
+      <% evening_ritual.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td><%= f.check_box :core %> core?</td>
+      <td><%= f.check_box :brush %> brush?</td>
+      <td><%= f.check_box :stretch %> stretch?</td>
+      <td><%= f.check_box :read %> read?</td>
+      <td><%= f.check_box :journal %> journal?</td>
+    </tr>    
+  </table>
+
+  <div class="actions" align="center">
+    <%= f.submit %>
+  </div>
+
+<% end %>
