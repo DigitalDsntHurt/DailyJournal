@@ -1,18 +1,48 @@
-<div class="box-fullwidth container-fluid">
 
+	
+
+<div class="box-fullwidth container-fluid">
+	
+	<table class="box " style="width:100%;">
+		<tr>
+			<td class="top-action-journal-dash" style="padding-left:60px;">
+				<h4 class="journal-dash">Expend:</h4>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "kettlebell", '/exercises/kettlebell', :class=> "journal-dash-btn" %>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "run", '/exercises/run', :class=> "journal-dash-btn" %>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "core", '/exercises/core', :class=> "journal-dash-btn" %>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "stretch", '/exercises/stretch', :class=> "journal-dash-btn" %>	
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "climb", '/climbs/new', :class=> "journal-dash-btn" %>
+			</td>
+			<td align="left">
+				<h4 class="journal-dash">Consume:</h4>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "smoothie", '/consumables/smoothie', :class=> "journal-dash-btn" %>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "omelette", '/consumables/omelette', :class=> "journal-dash-btn" %>
+			</td>
+			<td class="top-action-journal-dash" >
+				<%= link_to "meal", '/consumables/meal', :class=> "journal-dash-btn" %>	
+			</td>
+			<td class="top-action-journal-dash" style="padding-right:60px;">
+				<%= link_to "drink", '/consumables/drink', :class=> "journal-dash-btn" %>
+			</td>
+		</tr>
+	</table>	
 	<table>
 		<tr>
 			<td class="box-dash-body">
-				<br>
-				<h2 align="center">
-					new Exercise, 
-					new Meal
-					-Smoothie, 
-					-omelette,  
-					-any meal,
-				</h2>			
-
-				<hr>
 				<%= render '/journal_entries/morning_journal_dash', journal_entry: @journal_entry %>
 				<hr>
 				<%= render '/daily_accomplishments/evening_form', tomorrow_accomplishment: @tomorrow_accomplishment %>

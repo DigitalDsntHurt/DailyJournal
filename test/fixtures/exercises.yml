@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  time: MyString
+  reps: 1
+  lbs: 1
+  occurrence_time: 2017-04-28 09:36:35
+  occurrence_date: 2017-04-28
+
+two:
+  name: MyString
+  time: MyString
+  reps: 1
+  lbs: 1
+  occurrence_time: 2017-04-28 09:36:35
+  occurrence_date: 2017-04-28

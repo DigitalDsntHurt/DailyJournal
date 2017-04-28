@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'exercises/stretch' => 'exercises#stretch'
+  get 'exercises/core' => 'exercises#core'
+  get 'exercises/run' => 'exercises#run'
+  get 'exercises/kettlebell' => 'exercises#kettlebell'
+  resources :exercises
+
   get 'daily_accomplishments/dash_form' => 'daily_accomplishments#dash_form'
   get 'daily_accomplishments/evening_form' => 'daily_accomplishments#evening_form'
   resources :daily_accomplishments

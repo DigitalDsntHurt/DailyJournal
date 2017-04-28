@@ -1,0 +1,42 @@
+<%= form_for(exercise) do |f| %>
+  <% if exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+
+      <ul>
+      <% exercise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+	<tr>
+		<td width="20%">
+			<div class="field">
+			    <%= f.label :name %>
+			    <%= f.text_field :name, :value => "run" %>
+			</div>			
+		</td>
+		<td>
+		  <div class="field">
+		    <%= f.label :time %>
+		    <%= f.text_field :time, :value => "?? mins" %>
+		  </div>			
+		</td>
+	</tr>
+</table>
+  
+
+
+
+  <div class="field">
+    <%= f.label :occurrence_time %>
+    <%= f.datetime_select :occurrence_time %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
