@@ -38,7 +38,6 @@ cs.select{|c| c.occurrence_date == nil }.each{|entry|
 =end
 
 =begin
-=end
 ############
 ###### Create One Daily Priority record for every day until 2018
 ############
@@ -49,9 +48,4 @@ until today.year == 2018
 	DailyAccomplishment.create!(:day => today) unless extant_days.include?(today)
 	today += 1
 end
-
-#until today.year == 2018
-#
-#	today += 1
-#end
-
+=end
