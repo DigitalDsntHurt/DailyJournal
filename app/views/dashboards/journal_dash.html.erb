@@ -1,6 +1,3 @@
-
-	
-
 <div class="box-fullwidth container-fluid">
 	
 	<table class="container-fluid">
@@ -57,11 +54,15 @@
 				<br>
 				<hr>
 				<br>
-				<%= render '/daily_accomplishments/evening_form', tomorrow_accomplishment: @tomorrow_accomplishment %>
+				<%= render '/journal_entries/simple_journal_entry', journal_entry: @journal_entry %>
 				<br>
 				<hr>
 				<br>
 				<%= render '/journal_entries/evening_journal_dash', journal_entry: @journal_entry %>
+				<br>
+				<hr>
+				<br>
+				<%= render '/daily_accomplishments/evening_form', tomorrow_accomplishment: @tomorrow_accomplishment %>
 				
 			</td>
 			<td class="box-dash-sidebar">
@@ -74,6 +75,11 @@
 				<hr>
 				<br>
 				<%= render '/evening_rituals/journal_dash_form', evening_ritual: @evening_ritual %>
+				<br><br>
+				<br><br>
+				<hr>
+				
+				<%= render '/goal_indicators/evening_progress_reflection', goal_indicator: @goal_indicator %>
 			</td>
 		</tr>
 	</table>

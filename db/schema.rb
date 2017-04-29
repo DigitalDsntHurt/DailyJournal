@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428225751) do
+ActiveRecord::Schema.define(version: 20170428235520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,17 @@ ActiveRecord::Schema.define(version: 20170428225751) do
     t.date     "occurrence_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "goal_indicators", force: :cascade do |t|
+    t.string   "measure"
+    t.boolean  "boolean_indicator"
+    t.float    "dollars_made_indicator"
+    t.float    "dollars_spent_indicator"
+    t.text     "text_indicator"
+    t.string   "goal_category"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "journal_entries", force: :cascade do |t|

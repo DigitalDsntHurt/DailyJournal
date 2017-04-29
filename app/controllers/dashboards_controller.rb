@@ -20,6 +20,7 @@ class DashboardsController < ApplicationController
     @journal_entry = JournalEntry.new
     @morning_ritual = MorningRitual.where(day: Date.today)[0]
     @evening_ritual = EveningRitual.where(day: Date.today)[0]
+    @goal_indicator = GoalIndicator.new
   end
 
   def rituals_dash

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :goal_indicators
   get 'exercises/stretch' => 'exercises#stretch'
   get 'exercises/core' => 'exercises#core'
   get 'exercises/run' => 'exercises#run'

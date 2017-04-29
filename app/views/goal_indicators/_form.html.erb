@@ -1,0 +1,47 @@
+<%= form_for(goal_indicator) do |f| %>
+  <% if goal_indicator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(goal_indicator.errors.count, "error") %> prohibited this goal_indicator from being saved:</h2>
+
+      <ul>
+      <% goal_indicator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :measure %>
+    <%= f.text_field :measure %>
+  </div>
+
+  <div class="field">
+    <%= f.label :boolean_indicator %>
+    <%= f.check_box :boolean_indicator %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dollars_made_indicator %>
+    <%= f.text_field :dollars_made_indicator %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dollars_spent_indicator %>
+    <%= f.text_field :dollars_spent_indicator %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text_indicator %>
+    <%= f.text_area :text_indicator %>
+  </div>
+
+  <div class="field">
+    <%= f.label :goal_category %>
+    <%= f.text_field :goal_category %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -65,7 +65,6 @@ end
 
 
 =begin
-=end
 ############
 ###### Create one Morning Ritual record for every day until 2018
 ############
@@ -76,3 +75,17 @@ until today.year == 2018
 	EveningRitual.create!(:day => today) unless extant_days.include?(today)
 	today += 1
 end
+=end
+
+=begin
+############
+###### Create one Goal Indicator record for every day until 2018
+############
+today = Date.today
+extant_days = GoalIndicator.all.pluck(:day)
+
+until today.year == 2018
+	GoalIndicator.create!(:day => today) unless extant_days.include?(today)
+	today += 1
+end
+=end

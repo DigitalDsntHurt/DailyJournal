@@ -1,0 +1,2 @@
+class GoalIndicator < ApplicationRecord
+end

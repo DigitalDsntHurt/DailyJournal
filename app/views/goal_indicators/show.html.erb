@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Measure:</strong>
+  <%= @goal_indicator.measure %>
+</p>
+
+<p>
+  <strong>Boolean indicator:</strong>
+  <%= @goal_indicator.boolean_indicator %>
+</p>
+
+<p>
+  <strong>Dollars made indicator:</strong>
+  <%= @goal_indicator.dollars_made_indicator %>
+</p>
+
+<p>
+  <strong>Dollars spent indicator:</strong>
+  <%= @goal_indicator.dollars_spent_indicator %>
+</p>
+
+<p>
+  <strong>Text indicator:</strong>
+  <%= @goal_indicator.text_indicator %>
+</p>
+
+<p>
+  <strong>Goal category:</strong>
+  <%= @goal_indicator.goal_category %>
+</p>
+
+<%= link_to 'Edit', edit_goal_indicator_path(@goal_indicator) %> |
+<%= link_to 'Back', goal_indicators_path %>
