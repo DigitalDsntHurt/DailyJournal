@@ -21,6 +21,18 @@
   	<div class="conainter-fluid">
   		<div class="row">
   			<div class="col">
+  			<%= form_for(journal_entry) do |f| %>
+			  <% if journal_entry.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+			      <ul>
+			      <% journal_entry.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>	
   				<div class="container">
         			<div class="field">
 			        	<%= f.text_field :prompt, :value => "What Are You Greateful For?" %>
@@ -34,7 +46,21 @@
 			        <div class="actions">
 			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
 			        </div> 
-        		</div>        		
+        		</div>  
+        	<% end %>
+
+  			<%= form_for(journal_entry) do |f| %>
+			  <% if journal_entry.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+			      <ul>
+			      <% journal_entry.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
   				<div class="container">
         			<div class="field">
 			        	<%= f.text_field :prompt, :value => "What would make today great?" %>
@@ -48,9 +74,23 @@
 			        <div class="actions">
 			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
 			        </div> 
-        		</div>        		       		        		
+        		</div> 
+        	<% end %>
   			</div>
+
   			<div class="col">
+  			<%= form_for(journal_entry) do |f| %>
+			  <% if journal_entry.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+			      <ul>
+			      <% journal_entry.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
         		<div class="container">
         			<div class="field">
 			        	<%= f.text_field :prompt, :value => "Morning Notes" %>
@@ -65,6 +105,20 @@
 			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
 			        </div> 
         		</div>
+        		<% end %>
+
+			<%= form_for(journal_entry) do |f| %>
+			  <% if journal_entry.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+			      <ul>
+			      <% journal_entry.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>        		
  				<div class="container">
         			<div class="field">
 			        	<%= f.text_field :prompt, :value => "Daily Affirmations. I am..." %>
@@ -79,6 +133,8 @@
 			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
 			        </div> 
         		</div>
+        		<% end %>
+
   			</div>
   		</div>
   	</div>       
