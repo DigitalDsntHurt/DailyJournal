@@ -23,7 +23,7 @@
   </thead>
 
   <tbody>
-    <% @climbs.order(:created_at).each do |climb| %>
+    <% @climbs.order(created_at: :desc).each do |climb| %>
       <tr>
         <td><%= climb.v0s %></td>
         <td><%= climb.v1s %></td>
