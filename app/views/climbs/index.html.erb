@@ -35,9 +35,9 @@
         <td><%= climb.v7s %></td>
         <td><%= climb.v8s %></td>
         <td><%= climb.v9s %></td>
-        <td><%= climb.total %></td>
-        <td><%= climb.v_total %></td>
-        <td><%= climb.other %></td>
+        <td min-width="80px"><%= climb.total %></td>
+        <td min-width="80px"><%= climb.v_total %></td>
+        <td max-width="350px"><%= climb.other %></td>
         <td><%= link_to 'Show', climb %></td>
         <td><%= link_to 'Edit', edit_climb_path(climb) %></td>
         <td><%= link_to 'Destroy', climb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
