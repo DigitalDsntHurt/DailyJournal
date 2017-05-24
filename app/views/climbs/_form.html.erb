@@ -1,74 +1,79 @@
+<div class="container-fluid climb-form">
 
-<%= form_for(climb) do |f| %>
-  <% if climb.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(climb.errors.count, "error") %> prohibited this climb from being saved:</h2>
 
-      <ul>
-      <% climb.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_for(climb) do |f| %>
+      <% if climb.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(climb.errors.count, "error") %> prohibited this climb from being saved:</h2>
+
+          <ul>
+          <% climb.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :v0s %>
-    <%= f.number_field :v0s %>
-  </div>
+      <div class="field">
+        <%= f.label :v0s %>
+        <%= f.number_field :v0s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v1s %>
-    <%= f.number_field :v1s %>
-  </div>
+      <div class="field">
+        <%= f.label :v1s %>
+        <%= f.number_field :v1s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v2s %>
-    <%= f.number_field :v2s %>
-  </div>
+      <div class="field">
+        <%= f.label :v2s %>
+        <%= f.number_field :v2s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v3s %>
-    <%= f.number_field :v3s %>
-  </div>
+      <div class="field">
+        <%= f.label :v3s %>
+        <%= f.number_field :v3s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v4s %>
-    <%= f.number_field :v4s %>
-  </div>
+      <div class="field">
+        <%= f.label :v4s %>
+        <%= f.number_field :v4s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v5s %>
-    <%= f.number_field :v5s %>
-  </div>
+      <div class="field">
+        <%= f.label :v5s %>
+        <%= f.number_field :v5s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v6s %>
-    <%= f.number_field :v6s %>
-  </div>
+      <div class="field">
+        <%= f.label :v6s %>
+        <%= f.number_field :v6s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v7s %>
-    <%= f.number_field :v7s %>
-  </div>
+      <div class="field">
+        <%= f.label :v7s %>
+        <%= f.number_field :v7s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v8s %>
-    <%= f.number_field :v8s %>
-  </div>
+      <div class="field">
+        <%= f.label :v8s %>
+        <%= f.number_field :v8s %>
+      </div>
 
-  <div class="field">
-    <%= f.label :v9s %>
-    <%= f.number_field :v9s %>
-  </div>
+      <div class="field">
+        <%= f.label :v9s %>
+        <%= f.number_field :v9s %>
+      </div>
 
 
-  <div class="field">
-    <%= f.label :other %>
-    <%= f.text_field :other %>
-  </div>
+      <div class="field">
+        <%= f.label :other %>
+        <%= f.text_field :other %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+  
+</div>
