@@ -1,0 +1,27 @@
+<%= form_for(impulse) do |f| %>
+  <% if impulse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(impulse.errors.count, "error") %> prohibited this impulse from being saved:</h2>
+
+      <ul>
+      <% impulse.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :resisted? %>
+    <%= f.check_box :resisted %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

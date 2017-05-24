@@ -1,52 +1,57 @@
 <div class="box-fullwidth container-fluid">
 	
-	<table class="container-fluid">
-		<tr class="row">
-			<td>
+	
 
+
+
+	<table class="container">
+		<tr>
+			<td class="box-dash-body">
 				<table>
 					<tr>
-						<td class="top-action-journal-dash" style="padding-left:60px;">
+						<td class="td-quickadd">
 							<h4 class="journal-dash">Expend:</h4>
 						</td>
-						<td class="top-action-journal-dash" >
-							<%= link_to "kettlebell", '/exercises/kettlebell', :class=> "journal-dash-btn" %>
+						<td class="td-quickadd">
+							<%= link_to "kbell", '/exercises/kettlebell', :class=> "journal-dash-btn" %>
 						</td>
-						<td class="top-action-journal-dash" >
+						<td class="td-quickadd">
 							<%= link_to "run", '/exercises/run', :class=> "journal-dash-btn" %>
 						</td>
-						<td class="top-action-journal-dash" >
+						<td class="td-quickadd">
 							<%= link_to "core", '/exercises/core', :class=> "journal-dash-btn" %>
 						</td>
-						<td class="top-action-journal-dash" >
+						<td class="td-quickadd">
 							<%= link_to "stretch", '/exercises/stretch', :class=> "journal-dash-btn" %>	
 						</td>
 					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
 					<tr>
-						<td align="left">
+						<td class="td-quickadd">
 							<h4 class="journal-dash">Consume:</h4>
 						</td>
-						<td class="top-action-journal-dash" >
+						<td class="td-quickadd">
 							<%= link_to "smoothie", '/consumables/smoothie', :class=> "journal-dash-btn" %>
 						</td>
-						<td class="top-action-journal-dash" >
+						<td>
 							<%= link_to "omelette", '/consumables/omelette', :class=> "journal-dash-btn" %>
 						</td>
-						<td class="top-action-journal-dash" >
-							<%= link_to "meal", '/consumables/meal', :class=> "journal-dash-btn" %>	
+						<td>
+							<%= link_to "meal", '/consumables/meal', :class=> "journal-dash-btn" %>
 						</td>
-						<td class="top-action-journal-dash" style="padding-right:60px;">
+						<td>
 							<%= link_to "drink", '/consumables/drink', :class=> "journal-dash-btn" %>
 						</td>
-					</tr>	
-				</table>
-			</td>		
+					</tr>
+				</table>				
+			</td>
+			<td class="box-dash-sidebar">
+				<%= render '/impulses/recent_impulses' %>
+			</td>
 		</tr>
-	</table>	
+	</table>
+
+
+
 	<table>
 		<tr>
 			<td class="box-dash-body">

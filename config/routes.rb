@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  put 'impulses/set_impulse_to_resisted' => 'impulses#set_impulse_to_resisted'
+  put 'impulses/set_impulse_to_not_resisted' => 'impulses#set_impulse_to_not_resisted'
+  resources :impulses
+
   resources :goal_indicators
+
+
   get 'exercises/stretch' => 'exercises#stretch'
   get 'exercises/core' => 'exercises#core'
   get 'exercises/run' => 'exercises#run'
@@ -53,6 +59,6 @@ Rails.application.routes.draw do
   resources :climbs
 
   get 'home/index'
-  root 'home#index'
+  root 'dashboards#journal_dash'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

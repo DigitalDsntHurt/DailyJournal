@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @impulse.name %>
+</p>
+
+<p>
+  <strong>Resisted:</strong>
+  <%= @impulse.resisted %>
+</p>
+
+<%= link_to 'Edit', edit_impulse_path(@impulse) %> |
+<%= link_to 'Back', impulses_path %>

@@ -91,91 +91,11 @@ end
 =end
 
 
-
+=begin
 ############
 ###### Update Climb values for new columns total and v_total
 ############
-=begin
-Climb.where(:v1s => nil).each{ |climb|
-	climb.update!(:v1s => 0)
-}
-
-Climb.where(:v2s => nil).each{ |climb|
-	climb.update!(:v2s => 0)
-}
-
-Climb.where(:v3s => nil).each{ |climb|
-	climb.update!(:v3s => 0)
-}
-
-Climb.where(:v4s => nil).each{ |climb|
-	climb.update!(:v4s => 0)
-}
-=end
-
 Climb.where(:v9s => nil).each{ |climb|
 	climb.update!(:v9s => 0)
 }
-=begin
-Climb.all.each{|climb|
-	if climb.v0s == nil
-		climb.update!(v0s: 0) 
-		#climb.v0s = 0
-	end
-
-	if climb.v9s == nil
-		climb.update!(v9s: 0) 
-		#climb.v0s = 0
-	end
-	puts "======"
-	#cols = Climb.column_names
-	#cols.each{|col|
-	#	p climb.col
-	#}
-
-
-	if climb.v1s == nil
-		climb.v1s = 0
-	end
-	if climb.v2s == nil
-		climb.v2s = 0
-	end
-	if climb.v3s == nil
-		climb.v3s = 0			
-	end
-	if climb.v4s == nil
-		climb.v4s = 0
-	end
-	if climb.v5s == nil
-		climb.v5s = 0			
-	end
-	if climb.v6s == nil
-		climb.v6s = 0
-	end
-	if climb.v7s == nil
-		climb.v7s = 0
-	end
-	if climb.v8s == nil
-		climb.v8s = 0			
-	end
-	if climb.v9s == nil
-		climb.v9s = 0
-	end
-	if climb.v9s == nil
-		climb.v9s = 0
-	end
 =end
-#}
-
-
-#Climb.where(total: 0).each{|climb|
-#	climb.update!(total: climb.v0s + climb.v1s + climb.v2s + climb.v3s + climb.v4s + climb.v5s + climb.v6s + climb.v7s + climb.v8s + climb.v9s)
-#}
-
-#Climb.where(v_total: 0).each{|climb|
-#	climb.update!(v_total: climb.v0s + climb.v1s + climb.v2s*2 + climb.v3s*3 + climb.v4s*4 + climb.v5s*5 + climb.v6s*6 + climb.v7s*7 + climb.v8s*8 + climb.v9s*9)
-#}
-
-=begin
-=end
-

@@ -59,6 +59,27 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
 
+
+.box-impulses {
+    min-width: 540px;
+    padding: 50px;
+    margin: 0 auto;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);  
+}
+
+
+.impulse-container {
+    width:100%;
+    margin: 0 auto;
+}
+.quickadd-container {
+    width:100%;
+    margin: 0 auto;
+}
+
 .container {
 	width:100%;
 }
@@ -808,7 +829,7 @@ div#maincontent {
 
 .journal-dash{
   text-align:left;
-  font-size:33px;
+  font-size: 29px;
   font-family: 'Permanent Marker', cursive;
 }
 
@@ -836,10 +857,13 @@ td.journal-dash-btn-container {
     align:left;
     }
 
+td.td-quickadd {
+  width: auto !important;
+}
 
 a.journal-dash-btn{
    background: #11ba7d;
-   padding: 14px 24px;
+   padding: 7px 12px;
    border: 0 none;
 
    line-height: 44px;
@@ -865,5 +889,11 @@ td.top-action-journal-dash {
   max-width:300px;
   align:center;
 
-  
+
 }
+
+.impluse-text{
+  font-size: 9px;
+  font-family: 'Permanent Marker', cursive;
+}
+
