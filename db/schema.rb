@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524213305) do
+ActiveRecord::Schema.define(version: 20170525214626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,15 @@ ActiveRecord::Schema.define(version: 20170524213305) do
     t.boolean  "happy"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "simple_consumables", force: :cascade do |t|
+    t.boolean  "on_diet"
+    t.datetime "occurrence_time"
+    t.date     "occurrence_date"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "consumable_type"
   end
 
 end

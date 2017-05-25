@@ -1,0 +1,55 @@
+<%= form_for(simple_consumable) do |f| %>
+  <% if simple_consumable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(simple_consumable.errors.count, "error") %> prohibited this simple_consumable from being saved:</h2>
+
+      <ul>
+      <% simple_consumable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table style="max-width: 555px;" align="center">
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :consumable_type %>
+        <%= f.select :consumable_type, options_for_select(["meal","snack","drink","smoke","tobacco other"]) %>
+      </div>      
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :on_diet? %>
+        <%= f.check_box :on_diet %>
+      </div>      
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :occurrence_time %>
+        <%= f.datetime_select :occurrence_time %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :occurrence_date %>
+        <%= f.date_select :occurrence_date %>
+      </div>      
+    </td>
+  </tr>
+</table>
+
+<table style="max-width: 555px;" align="center">
+  <tr>
+    <td>
+      <div class="actions" align="center">
+        <%= f.submit %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<% end %>

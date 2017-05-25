@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :simple_consumables
   put 'impulses/set_impulse_to_resisted' => 'impulses#set_impulse_to_resisted'
   put 'impulses/set_impulse_to_not_resisted' => 'impulses#set_impulse_to_not_resisted'
   resources :impulses

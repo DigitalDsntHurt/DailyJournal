@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Consumable Type:</strong>
+  
+</p>
+
+<p>
+  <strong>On diet:</strong>
+  <%= @simple_consumable.on_diet %>
+</p>
+
+<p>
+  <strong>Occurrence time:</strong>
+  <%= @simple_consumable.occurrence_time %>
+</p>
+
+<p>
+  <strong>Occurrence date:</strong>
+  <%= @simple_consumable.occurrence_date %>
+</p>
+
+<%= link_to 'Edit', edit_simple_consumable_path(@simple_consumable) %> |
+<%= link_to 'Back', simple_consumables_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  on_diet: false
+  occurrence_time: 2017-05-25 14:40:04
+  occurrence_date: 2017-05-25
+
+two:
+  on_diet: false
+  occurrence_time: 2017-05-25 14:40:04
+  occurrence_date: 2017-05-25

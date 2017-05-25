@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Simple Consumables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Consumable type</th>
+      <th>On diet?</th>
+      <th>Occurrence time</th>
+      <th>Occurrence date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @simple_consumables.order(occurrence_time: :desc).each do |simple_consumable| %>
+      <tr>
+        <td><%= simple_consumable.consumable_type %></td>
+        <td><%= simple_consumable.on_diet %></td>
+        <td><%= simple_consumable.occurrence_time %></td>
+        <td><%= simple_consumable.occurrence_date %></td>
+        <td><%= link_to 'Show', simple_consumable %></td>
+        <td><%= link_to 'Edit', edit_simple_consumable_path(simple_consumable) %></td>
+        <td><%= link_to 'Destroy', simple_consumable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Simple Consumable', new_simple_consumable_path %>
