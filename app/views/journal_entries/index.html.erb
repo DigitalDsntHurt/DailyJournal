@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @journal_entries.each do |journal_entry| %>
+    <% @journal_entries.order( updated_at: :desc ).each do |journal_entry| %>
       <tr>
         <td><%= journal_entry.prompt %></td>
         <td><%= journal_entry.entry %></td>
