@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Read:</strong>
+  <%= @everyday.read %>
+</p>
+
+<p>
+  <strong>Cardio:</strong>
+  <%= @everyday.cardio %>
+</p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @everyday.exercise %>
+</p>
+
+<p>
+  <strong>Eat to plan:</strong>
+  <%= @everyday.eat_to_plan %>
+</p>
+
+<p>
+  <strong>Make money:</strong>
+  <%= @everyday.make_money %>
+</p>
+
+<%= link_to 'Edit', edit_everyday_path(@everyday) %> |
+<%= link_to 'Back', everydays_path %>

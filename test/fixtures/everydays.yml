@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  read: false
+  cardio: false
+  exercise: false
+  eat_to_plan: false
+  make_money: false
+
+two:
+  read: false
+  cardio: false
+  exercise: false
+  eat_to_plan: false
+  make_money: false

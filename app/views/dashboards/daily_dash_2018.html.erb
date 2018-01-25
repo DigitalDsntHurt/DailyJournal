@@ -18,7 +18,7 @@
 								<%= render '/morning_rituals/daily_dash_form', morning_ritual: @morning_ritual %>
 							<% end %>
 						</td>
-						<td style="border-right: 1px solid black;">
+						<td>
 							<% if @todays_evening_ritual.count > 0 %>
 								<%= render '/evening_rituals/daily_dash_show', todays_evening_ritual: @todays_evening_ritual %>
 							<% else %>
@@ -26,7 +26,13 @@
 							<% end %>
 						</td>
 						<td>
-							ER
+							<% if @todays_everyday == nil %>
+								<%= render '/everydays/daily_dash_form', everyday: @everyday %>
+							<% elsif @todays_everyday.created_at.to_date == Date.today %>
+								<%= render '/everydays/daily_dash_show', todays_everyday: @todays_everyday %>
+							<% else %>
+								<%= render '/everydays/daily_dash_form', everyday: @everyday %>
+							<% end %>							
 						</td>
 					</tr>
 				</table>

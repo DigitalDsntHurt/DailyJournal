@@ -1,0 +1,70 @@
+<%= form_for(everyday) do |f| %>
+  <% if everyday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(everyday.errors.count, "error") %> prohibited this everyday from being saved:</h2>
+
+      <ul>
+      <% everyday.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td>
+          <div class="field">
+            <%= f.check_box :read %>
+          </div>
+      </td>
+      <td valign="top">
+        Read
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :cardio %>
+        </div>      
+      </td>
+      <td valign="top">
+        Cardio
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :exercise %>
+        </div>       
+      </td>
+      <td valign="top">
+        Exercise
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :eat_to_plan %>
+        </div>      
+      </td>
+      <td valign="top">
+        Eat to plan
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :make_money %>
+        </div>          
+      </td>
+      <td valign="top">
+        Make Money
+      </td>
+    </tr>    
+  </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

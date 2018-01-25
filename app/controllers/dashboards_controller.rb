@@ -45,6 +45,9 @@ class DashboardsController < ApplicationController
     @evening_ritual = EveningRitual.new
     @todays_evening_ritual = EveningRitual.where(:day => Date.today)
 
+    @everyday = Everyday.new
+    @todays_everyday = Everyday.all.last
+
     @weight = Weight.new
     @todays_weight = Weight.all
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :everydays
   resources :weights
   resources :simple_consumables
   put 'impulses/set_impulse_to_resisted' => 'impulses#set_impulse_to_resisted'

@@ -1,0 +1,15 @@
+<p>
+  <strong>Read:</strong> <%= @todays_everyday.read %>
+  <br />
+  <strong>Cardio:</strong> <%= @todays_everyday.cardio %>
+  <br />
+  <strong>Exercise:</strong> <%= @todays_everyday.exercise %>
+  <br />
+  <strong>Eat to plan:</strong> <%= @todays_everyday.eat_to_plan %>
+  <br />
+  <strong>Make money:</strong> <%= @todays_everyday.make_money %>
+  <br /><br />
+  <u>
+		<%= link_to "Edit these Dos", edit_everyday_path(:controller => "everydays", :action => "edit", :id => @todays_everyday.id) %>
+	</u>  
+</p>
