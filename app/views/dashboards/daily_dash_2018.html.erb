@@ -30,15 +30,39 @@
 						</td>
 					</tr>
 				</table>
-				<hr/>
-				<% if @todays_weight.count == 0 %>
+
+				<br>
+
+				<table frame="box" rules="none">
+					<tr>
+						<td>
+							<br>
+							<% if @todays_weight.count == 0 %>
+
+							<% elsif @todays_weight.order(:weighed_at).last.weighed_at.to_date == Date.today %>
+								<%= render '/weights/daily_dash_show', weight: @todays_weight %>
+							<% else %>
+								<%= render '/weights/daily_dash_form', weight: @weight %>
+							<% end %>	
+						</td>
+					</tr>
+				</table>
 				
-				<% elsif @todays_weight.order(:weighed_at).last.weighed_at.to_date == Date.today %>
-					<%= render '/weights/daily_dash_show', weight: @todays_weight %>
-				<% else %>
-					<%= render '/weights/daily_dash_form', weight: @weight %>
-				<% end %>
-				<hr/><br/><br/>
+				<br><br>
+
+				<table frame="box" rules="none">
+					<tr>
+						<td width="50%" align="center" style="border-right: 1px solid black;"><strong>GamePlan</strong></td>
+						<td width="50%" align="center"><strong>CaloricConsumption</strong></td>
+					</tr>
+					<tr>
+						<td style="border-right: 1px solid black;">GamePlan</td>
+						<td>CaloricConsumption</td>
+					</tr>
+				</table>
+				
+				<br><hr><br>
+				
 				<%= render '/journal_entries/daily_dash', journal_entry: @journal_entry %>
 
 			</td>

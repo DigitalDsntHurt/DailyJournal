@@ -38,7 +38,6 @@ class DashboardsController < ApplicationController
   end
 
   def daily_dash_2018
-    @journal_entry = JournalEntry.new
 
     @morning_ritual = MorningRitual.new
     @todays_morning_ritual = MorningRitual.where(:day => Date.today)
@@ -48,5 +47,7 @@ class DashboardsController < ApplicationController
 
     @weight = Weight.new
     @todays_weight = Weight.all
+
+    @journal_entry = JournalEntry.new
   end
 end
