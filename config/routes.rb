@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :weights
   resources :simple_consumables
   put 'impulses/set_impulse_to_resisted' => 'impulses#set_impulse_to_resisted'
   put 'impulses/set_impulse_to_not_resisted' => 'impulses#set_impulse_to_not_resisted'
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   resources :evening_rituals
   
   
+  get 'dashboards/daily_dash_2018'
   get 'dashboards/morning_dash'
   get 'dashboards/evening_dash'
   get 'dashboards/rituals_dash'

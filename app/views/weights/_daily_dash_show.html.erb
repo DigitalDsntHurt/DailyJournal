@@ -1,0 +1,10 @@
+<table align="left">
+	<tr>
+		<td max-width="100%">
+			Today's weight: <strong><%= @todays_weight.weight %> lbs</strong> @ <%= @todays_weight.weighed_at.hour %>:<%= @todays_weight.weighed_at.min %>
+		</td>
+		<td max-width="100%">
+			<%= button_to "Go To Weights Index", '/weights', :method => :get %>
+		</td>
+	</tr>
+</table>

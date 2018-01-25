@@ -1,0 +1,60 @@
+<%= form_for(evening_ritual) do |f| %>
+  <% if evening_ritual.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evening_ritual.errors.count, "error") %> prohibited this evening_ritual from being saved:</h2>
+
+      <ul>
+      <% evening_ritual.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :brush %>
+        </div>        
+      </td>
+      <td valign="top">
+        Brush
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :core %>
+        </div>        
+      </td>
+      <td valign="top">
+        Core
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :stretch %>
+        </div>        
+      </td>
+      <td valign="top">
+        Stretch
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.check_box :journal %>
+        </div>        
+      </td>
+      <td valign="top">
+        Plan Tomorrow
+      </td>
+    </tr>     
+  </table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

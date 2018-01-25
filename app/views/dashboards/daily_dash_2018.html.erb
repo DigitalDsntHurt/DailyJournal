@@ -1,0 +1,46 @@
+<div class="box-fullwidth container-fluid">
+	
+	<table class="container">
+		<tr>
+			<td class="box-dash-body">
+
+				<table>
+					<tr>
+						<th width="30%">Morning Ritual</th>
+						<th width="30%">Evening Ritual</th>
+						<th width="30%">Things to do Everyday</th>
+					</tr>
+					<tr>
+						<td>
+							<% if @todays_morning_ritual.count > 0 %>
+								<%= render '/morning_rituals/daily_dash_show', todays_morning_ritual: @todays_morning_ritual %>
+							<% else %>
+								<%= render '/morning_rituals/daily_dash_form', morning_ritual: @morning_ritual %>
+							<% end %>
+						</td>
+						<td style="border-right: 1px solid black;">
+							<% if @todays_evening_ritual.count > 0 %>
+								<%= render '/evening_rituals/daily_dash_show', todays_evening_ritual: @todays_evening_ritual %>
+							<% else %>
+								<%= render '/evening_rituals/daily_dash_form', evening_ritual: @evening_ritual %>
+							<% end %>
+						</td>
+						<td>
+							ER
+						</td>
+					</tr>
+				</table>
+				<hr/>
+				<% if @todays_weight.weighed_at.to_date == Date.today %>
+					<%= render '/weights/daily_dash_show', weight: @todays_weight %>
+				<% else %>
+					<%= render '/weights/daily_dash_form', weight: @weight %>
+				<% end %>
+				<hr/><br/><br/>
+				<%= render '/journal_entries/daily_dash', journal_entry: @journal_entry %>
+
+			</td>
+		</tr>
+	</table>
+
+</div>

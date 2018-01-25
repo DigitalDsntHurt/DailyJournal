@@ -28,8 +28,8 @@ class EveningRitualsController < ApplicationController
 
     respond_to do |format|
       if @evening_ritual.save
-        format.html { redirect_to @evening_ritual, notice: 'Evening ritual was successfully created.' }
-        format.json { render :show, status: :created, location: @evening_ritual }
+        format.html { redirect_to :back, notice: 'Evening ritual was successfully created.' }
+        format.json { render :show, status: :created, location: :back }
       else
         format.html { render :new }
         format.json { render json: @evening_ritual.errors, status: :unprocessable_entity }
