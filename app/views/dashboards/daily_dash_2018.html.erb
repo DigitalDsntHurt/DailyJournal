@@ -31,7 +31,9 @@
 					</tr>
 				</table>
 				<hr/>
-				<% if @todays_weight.weighed_at.to_date == Date.today %>
+				<% if @todays_weight.count == 0 %>
+				
+				<% elsif @todays_weight.order(:weighed_at).last.weighed_at.to_date == Date.today %>
 					<%= render '/weights/daily_dash_show', weight: @todays_weight %>
 				<% else %>
 					<%= render '/weights/daily_dash_form', weight: @weight %>

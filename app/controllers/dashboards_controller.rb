@@ -47,6 +47,6 @@ class DashboardsController < ApplicationController
     @todays_evening_ritual = EveningRitual.where(:day => Date.today)
 
     @weight = Weight.new
-    @todays_weight = Weight.all.order(:weighed_at).last
+    @todays_weight = Weight.all
   end
 end
