@@ -58,12 +58,22 @@
 
 				<table frame="box" rules="none">
 					<tr>
-						<td width="50%" align="center" style="border-right: 1px solid black;"><strong>GamePlan</strong></td>
-						<td width="50%" align="center"><strong>CaloricConsumption</strong></td>
+						<td width="33%" align="center">
+							<strong>GamePlan</strong>
+						</td>
+						<td width="33%" align="center">
+							<strong>Priorities</strong>
+						</td>
+						<td width="33%" align="center">
+							<strong>CaloricConsumption</strong>
+						</td>
 					</tr>
 					<tr>
 						<td style="border-right: 1px solid black;">
 							<p><%= simple_format(@gameplan.entry) %></p>
+						</td>
+						<td style="border-right: 1px solid black;">
+							<p><%= simple_format(@priorities.entry) %></p>
 						</td>
 						<td></td>
 					</tr>

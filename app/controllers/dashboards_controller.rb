@@ -48,6 +48,7 @@ class DashboardsController < ApplicationController
     @todays_weight = Weight.all
 
     @gameplan = JournalEntry.where(prompt: "gameplan").last
+    @priorities = JournalEntry.where("prompt like ?", "%priorities%").last
 
     @journal_entry = JournalEntry.new
   end

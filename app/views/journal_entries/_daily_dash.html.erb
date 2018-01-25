@@ -19,7 +19,7 @@
 						  <% end %>
 			        		<div class="container">
 			        			<div class="field">
-						        	<%= f.text_field :prompt, :value => "Journal Entry" %>
+						        	<%= f.select :prompt, options_for_select(["Journal Entry", "gameplan", "priorities"])  %>
 						        </div>
 
 						        <div class="field">
