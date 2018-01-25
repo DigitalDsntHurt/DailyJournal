@@ -4,18 +4,11 @@ Rails.application.routes.draw do
   resources :weights
   resources :simple_consumables
 
-  resources :goal_indicators
-
-
   get 'exercises/stretch' => 'exercises#stretch'
   get 'exercises/core' => 'exercises#core'
   get 'exercises/run' => 'exercises#run'
   get 'exercises/kettlebell' => 'exercises#kettlebell'
   resources :exercises
-
-  get 'daily_accomplishments/dash_form' => 'daily_accomplishments#dash_form'
-  get 'daily_accomplishments/evening_form' => 'daily_accomplishments#evening_form'
-  resources :daily_accomplishments
 
   resources :priorities
 
@@ -37,9 +30,7 @@ Rails.application.routes.draw do
   get 'journal_entries/entries_for_journal_dash' => 'journal_entries#entries_for_journal_dash'
   resources :journal_entries
 
-
   get 'consumables/meal' => 'consumables#meal'
-  #get 'consumables/meal' => 'consumables#meal'
   get 'consumables/smoothie' => 'consumables#smoothie'
   get 'consumables/omelette' => 'consumables#omelette'
   get 'consumables/mexican' => 'consumables#mexican'

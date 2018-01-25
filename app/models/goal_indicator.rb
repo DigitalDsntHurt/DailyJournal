@@ -1,2 +1,0 @@
-class GoalIndicator < ApplicationRecord
-end
