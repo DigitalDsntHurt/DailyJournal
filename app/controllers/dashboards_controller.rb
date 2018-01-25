@@ -21,8 +21,6 @@ class DashboardsController < ApplicationController
     @morning_ritual = MorningRitual.where(day: Date.today)[0]
     @evening_ritual = EveningRitual.where(day: Date.today)[0]
     @goal_indicator = GoalIndicator.new
-
-    @recent_impulses = Impulse.all.order(created_at: :desc).take(10)
   end
 
   def rituals_dash

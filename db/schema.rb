@@ -128,13 +128,6 @@ ActiveRecord::Schema.define(version: 20180125075909) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "impulses", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "resisted"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "journal_entries", force: :cascade do |t|
     t.string   "prompt"
     t.text     "entry"
