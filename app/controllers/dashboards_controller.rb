@@ -48,6 +48,8 @@ class DashboardsController < ApplicationController
     @weight = Weight.new
     @todays_weight = Weight.all
 
+    @gameplan = JournalEntry.where(prompt: "gameplan").last
+
     @journal_entry = JournalEntry.new
   end
 end
