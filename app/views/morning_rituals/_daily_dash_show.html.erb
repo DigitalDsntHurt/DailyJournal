@@ -6,4 +6,8 @@
   <strong>Exercise:</strong> <%= @todays_morning_ritual[0].exercise %>
   <br />
   <strong>Journal:</strong> <%= @todays_morning_ritual[0].journal %>
+  <br /><br />
+  <u>
+		<%= link_to "Edit this Ritual", edit_morning_ritual_path(:controller => "morning_rituals", :action => "edit", :id => @todays_morning_ritual[0].id) %>
+	</u>
 </p>

@@ -6,4 +6,8 @@
   <strong>Stretch:</strong> <%= @todays_evening_ritual[0].stretch %>
   <br />
   <strong>Journal / Plan Tomorrow:</strong> <%= @todays_evening_ritual[0].journal %>
+  <br /><br />
+  <u>
+		<%= link_to "Edit this Ritual", edit_evening_ritual_path(:controller => "evening_rituals", :action => "edit", :id => @todays_evening_ritual[0].id) %>
+	</u>  
 </p>
