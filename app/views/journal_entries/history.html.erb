@@ -6,7 +6,7 @@
 			<% @today.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>		
@@ -15,7 +15,7 @@
 			<% @yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>
@@ -26,7 +26,7 @@
 			<% @dayb4yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>		
@@ -35,7 +35,7 @@
 			<% @dayb5yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>
@@ -46,7 +46,7 @@
 			<% @dayb6yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>		
@@ -55,7 +55,7 @@
 			<% @dayb7yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>
@@ -66,7 +66,7 @@
 			<% @dayb8yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>		
@@ -75,7 +75,7 @@
 			<% @dayb9yesterday.each do |entry| %>
 				<p align="left">
 					<strong><%= entry.prompt %></strong><br/>
-					<%= entry.entry %>
+					<%= simple_format(entry.entry) %>
 				</p>
 			<% end %>
 		</div>
