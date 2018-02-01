@@ -71,8 +71,17 @@ class JournalEntriesController < ApplicationController
     @everything = (@journal_entries + @consumables).sort_by{|record| record.occurrence_time}.reverse
     @day_groups = @everything.group_by{|record| record.occurrence_date}
     @pairs_of_day_groups = @day_groups.each_slice(2).to_a
-
     @journal_entry = JournalEntry.new
+
+    @today = JournalEntry.where(occurrence_date: Date.today)
+    @yesterday = JournalEntry.where(occurrence_date: Date.yesterday)
+    @dayb4yesterday = JournalEntry.where(occurrence_date: Date.yesterday-1)
+    @dayb5yesterday = JournalEntry.where(occurrence_date: Date.yesterday-2)
+    @dayb6yesterday = JournalEntry.where(occurrence_date: Date.yesterday-3)
+    @dayb7yesterday = JournalEntry.where(occurrence_date: Date.yesterday-4)
+    @dayb8yesterday = JournalEntry.where(occurrence_date: Date.yesterday-5)
+    @dayb9yesterday = JournalEntry.where(occurrence_date: Date.yesterday-6)
+
   end
 
   private

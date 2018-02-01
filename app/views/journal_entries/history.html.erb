@@ -1,92 +1,83 @@
 <%-# BEGIN BIG CONTAINER -%>
-<div class="container-fluid">
-
-	<%-# BEGIN LOOPING THROUGH PAIRS OF DAY GROUPS -%>	
-	<% @pairs_of_day_groups.each{|pair| %>
-		<%-# BEGIN DYNAMIC ROWS -%>
-		<div class="row">
-			<% pair.each{|day| %>
-				<div class="col box" align="top"  width="50%">
-
-					<h1><%= day[0].strftime("%a") %> <%= day[0].strftime("%d") %> <%= day[0].strftime("%b") %> <%= day[0].strftime("%Y") %></h1><br>
-					<div class="container-fluid"> 
-						<% day[1].each{|record| %>
-								<% if record.class == JournalEntry %>
-									<div class="row">
-										<div class="col">
-
-										<table>
-											<thead>
-												<th align="left" width="10%">
-													<%= record.occurrence_time.strftime('%H') %>:<%= record.occurrence_time.strftime('%M') %>&nbsp; 
-													
-												</th>
-												<th align="left" width="90%">
-													<%= record.prompt %>
-												</th>
-											</thead>
-											<tr>
-												<td align="left" width="10%">
-												</td>
-												<td align="left" width="90%">
-													<%= record.entry %>
-												</td>
-											</tr>
-										</table>
-										<hr>
-										</div>
-
-									</div>
-								<% elsif record.class == Consumable %>
-									<div class="row">
-										<div class="col">
-
-											<table>
-												<thead>
-													<th align="left" width="10%"><%= record.occurrence_time.strftime('%H') %>:<%= record.occurrence_time.strftime('%M') %>&nbsp;</th>
-													<th align="left">ConsumptionType</th>
-													<th align="left">Quantity</th>
-													<th align="left">Units</th>
-													<th align="left">Item1</th>
-												</thead>
-												<tr>
-													<td align="left" width="10%">
-													</td>
-													<td align="left">
-														<%= record.consumption_type %>
-													</td>
-													<td align="left">
-														<%= record.quantity %>
-													</td>
-													<td align="left">
-														<%= record.units %>
-													</td>
-													<td align="left">
-														<%= record.item1 %>
-													</td>
-												</tr>
-											</table>
-											<hr>
-										</div>
-									</div>
-								<% else %>	
-									<div class="row">
-										<div class="col">
-											<p>Something weird happened</p>
-										</div>
-									</div>	
-								<% end %>
-						<% } %>
-					</div>
-					<br><br><br>
-
-				</div>
-			<% } %>
-
+<div class="container-fluid" style="padding-right:12px; padding-left:12px;">
+	<div class="row">
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.today %></h3>
+			<% @today.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>		
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday %></h3>
+			<% @yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
 		</div>
-		<%-# END DYNAMIC ROWS -%>	
-	<% } %>
-	<%-# END LOOPING THROUGH PAIRS OF DAY GROUPS -%>	
-
+	</div>
+	<div class="row">
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday-1 %></h3>
+			<% @dayb4yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>		
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday-2 %></h3>
+			<% @dayb5yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday-3 %></h3>
+			<% @dayb6yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>		
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday-4 %></h3>
+			<% @dayb7yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday-5 %></h3>
+			<% @dayb8yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>		
+		<div class="col-lg-6 box" align="top">
+			<h3>Journal Entries on <%= Date.yesterday-6 %></h3>
+			<% @dayb9yesterday.each do |entry| %>
+				<p align="left">
+					<strong><%= entry.prompt %></strong><br/>
+					<%= entry.entry %>
+				</p>
+			<% end %>
+		</div>
+	</div>	
 </div>
-<%-# END BIG CONTAINER -%>	
