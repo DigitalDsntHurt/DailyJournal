@@ -28,8 +28,8 @@ class SimpleConsumablesController < ApplicationController
 
     respond_to do |format|
       if @simple_consumable.save
-        format.html { redirect_to '/simple_consumables', notice: 'Simple consumable was successfully created.' }
-        format.json { render :index, status: :created, location: @simple_consumables }
+        format.html { redirect_to :back, notice: 'Simple consumable was successfully created.' }
+        format.json { render :index, status: :created, location: :back }
       else
         format.html { render :new }
         format.json { render json: @simple_consumable.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class SimpleConsumablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def simple_consumable_params
-      params.require(:simple_consumable).permit(:consumable_type, :on_diet, :occurrence_time, :occurrence_date)
+      params.require(:simple_consumable).permit(:consumable_type, :on_diet, :description, :occurrence_time, :occurrence_date)
     end
 end

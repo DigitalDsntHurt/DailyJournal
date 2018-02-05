@@ -1,5 +1,6 @@
 <div class="box-fullwidth container-fluid">
-	
+
+<%-# TOP AREA -- MR, ER, EVERYDAY -%>	
 	<table class="container">
 		<tr>
 			<td class="box-dash-body">
@@ -38,7 +39,7 @@
 				</table>
 
 				<br>
-
+<%-# WEIGHT ENTRY AREA -%>
 				<table frame="box" rules="none">
 					<tr>
 						<td>
@@ -54,8 +55,46 @@
 					</tr>
 				</table>
 				
-				<br><br>
+<%-# CONSUMPTION ENTRY & DISPLAY AREA-%>
+				<p align="center" style="margin-bottom:6px;">
+					<strong>Consumption</strong>
+				</p>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col-lg-7" align="top" style="border-right: 1px solid black;">
+							<%= render '/simple_consumables/dash_form', simple_consumable: @simple_consumable %>
+						</div>
+						<div class="col-md-5" align="top">
+							<div class="container-fluid">
+								<% @todays_simple_consumables.each{ |sc| %>
+									<div class="row">
+										<div class="col-sm-2">
+											<%= sc.occurrence_time.hour %>:<%= sc.occurrence_time.min %>
+										</div>
+										<div class="col-sm-3">
+											<% if sc.on_diet %>
+												on-diet
+											<% else %>
+												off-diet
+											<% end %>	
+										</div>
+										<div class="col-sm-3">
+											<%= sc.consumable_type %>	
+										</div>
+										<div class="col-sm-4">
+											<%= link_to("check it", sc) %>	
+										</div>
+									</div>
+								<% } %>	
+							</div>
+						</div>
+					</div>
+				</div>
 
+
+
+				<br><br>
+<%-# 3-PRONG TABLE -%>
 				<table frame="box" rules="none">
 					<tr>
 						<td width="33%" align="center">
@@ -80,7 +119,7 @@
 				</table>
 				
 				<br><hr><br>
-				
+<%-# JOURNAL AREA -%>
 				<%= render '/journal_entries/daily_dash', journal_entry: @journal_entry %>
 
 				<p align="center">

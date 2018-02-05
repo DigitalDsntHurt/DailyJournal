@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125075909) do
+ActiveRecord::Schema.define(version: 20180205073139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,30 @@ ActiveRecord::Schema.define(version: 20180125075909) do
     t.date     "occurrence_date"
   end
 
+  create_table "daily_accomplishments", force: :cascade do |t|
+    t.date     "day"
+    t.text     "priority1"
+    t.boolean  "priority1_accomplished"
+    t.text     "priority2"
+    t.boolean  "priority2_accomplished"
+    t.text     "priority3"
+    t.boolean  "priority3_accomplished"
+    t.text     "priority4"
+    t.boolean  "priority4_accomplished"
+    t.text     "priority5"
+    t.boolean  "priority5_accomplished"
+    t.text     "priority6"
+    t.boolean  "priority6_accomplished"
+    t.text     "priority7"
+    t.boolean  "priority7_accomplished"
+    t.text     "priority8"
+    t.boolean  "priority8_accomplished"
+    t.text     "priority9"
+    t.boolean  "priority9_accomplished"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "evening_rituals", force: :cascade do |t|
     t.date     "day"
     t.boolean  "core"
@@ -91,6 +115,24 @@ ActiveRecord::Schema.define(version: 20180125075909) do
     t.date     "occurrence_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "goal_indicators", force: :cascade do |t|
+    t.string   "measure"
+    t.boolean  "boolean_indicator"
+    t.float    "dollars_made_indicator"
+    t.float    "dollars_spent_indicator"
+    t.text     "text_indicator"
+    t.string   "goal_category"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "impulses", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "resisted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "journal_entries", force: :cascade do |t|
@@ -125,6 +167,7 @@ ActiveRecord::Schema.define(version: 20180125075909) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "consumable_type"
+    t.text     "description"
   end
 
   create_table "weights", force: :cascade do |t|

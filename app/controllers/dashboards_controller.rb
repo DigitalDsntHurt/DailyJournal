@@ -51,5 +51,8 @@ class DashboardsController < ApplicationController
     @priorities = JournalEntry.where("prompt like ?", "%priorities%").last
 
     @journal_entry = JournalEntry.new
+
+    @simple_consumable = SimpleConsumable.new
+    @todays_simple_consumables = SimpleConsumable.where(occurrence_date: Date.today).order(:occurrence_time)
   end
 end
