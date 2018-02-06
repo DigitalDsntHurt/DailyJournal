@@ -49,6 +49,7 @@ class DashboardsController < ApplicationController
 
     @gameplan = JournalEntry.where(prompt: "gameplan").last
     @priorities = JournalEntry.where("prompt like ?", "%priorities%").last
+    @make_today_great = JournalEntry.where(prompt: "what would make today great?").last
 
     @journal_entry = JournalEntry.new
 
