@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   
   get 'dashboards/daily_dash_2018'
+  get 'dashboards/yesterday_dash_2018'
   get 'dashboards/morning_dash'
   get 'dashboards/evening_dash'
   get 'dashboards/rituals_dash'
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get 'dashboards/scratch_dash'
   get 'dashboards/master_dash'
   get 'dashboards/journal_dash'
+  get 'dashboards/health_dash'
 
   get 'journal_entries/history' => 'journal_entries#history'
   get 'journal_entries/entries_for_journal_dash' => 'journal_entries#entries_for_journal_dash'

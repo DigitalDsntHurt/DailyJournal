@@ -1,0 +1,138 @@
+<div class="box-fullwidth container-fluid">
+
+<%-# TOP AREA -- MR, ER, EVERYDAY -%>	
+	<table class="container">
+		<tr>
+			<td class="box-dash-body">
+
+				<table>
+					<tr>
+						<th width="30%">Morning Ritual</th>
+						<th width="30%">Evening Ritual</th>
+						<th width="30%">Things to do Everyday</th>
+					</tr>
+					<tr>
+						<td>
+							<% if @todays_morning_ritual.count > 0 %>
+								<%= render '/morning_rituals/daily_dash_show', todays_morning_ritual: @todays_morning_ritual %>
+							<% else %>
+								<%= render '/morning_rituals/daily_dash_form', morning_ritual: @morning_ritual %>
+							<% end %>
+						</td>
+						<td>
+							<% if @todays_evening_ritual.count > 0 %>
+								<%= render '/evening_rituals/daily_dash_show', todays_evening_ritual: @todays_evening_ritual %>
+							<% else %>
+								<%= render '/evening_rituals/daily_dash_form', evening_ritual: @evening_ritual %>
+							<% end %>
+						</td>
+						<td>
+							<% if @todays_everyday == nil %>
+								<%= render '/everydays/daily_dash_form', everyday: @everyday %>
+							<% elsif @todays_everyday.created_at.to_date == Date.today %>
+								<%= render '/everydays/daily_dash_show', todays_everyday: @todays_everyday %>
+							<% else %>
+								<%= render '/everydays/daily_dash_form', everyday: @everyday %>
+							<% end %>							
+						</td>
+					</tr>
+				</table>
+
+				<br>
+<%-# WEIGHT ENTRY AREA -%>
+				<table frame="box" rules="none">
+					<tr>
+						<td>
+							<br>
+							<% if @todays_weight.count == 0 %>
+
+							<% elsif @todays_weight.order(:weighed_at).last.weighed_at.to_date == Date.today %>
+								<%= render '/weights/daily_dash_show', weight: @todays_weight %>
+							<% else %>
+								<%= render '/weights/daily_dash_form', weight: @weight %>
+							<% end %>	
+						</td>
+					</tr>
+				</table>
+				
+<%-# CONSUMPTION ENTRY & DISPLAY AREA-%>
+				<p align="center" style="margin-bottom:6px;">
+					<strong>Consumption</strong>
+				</p>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col-lg-7" align="top" style="border-right: 1px solid black;">
+							<%= render '/simple_consumables/dash_form', simple_consumable: @simple_consumable %>
+						</div>
+						<div class="col-md-5" align="top">
+							<div class="container-fluid">
+								<% @todays_simple_consumables.each{ |sc| %>
+									<div class="row">
+										<div class="col-sm-2">
+											<%= sc.occurrence_time.hour %>:<%= sc.occurrence_time.min %>
+										</div>
+										<div class="col-sm-3">
+											<% if sc.on_diet %>
+												on-diet
+											<% else %>
+												off-diet
+											<% end %>	
+										</div>
+										<div class="col-sm-3">
+											<%= sc.consumable_type %>	
+										</div>
+										<div class="col-sm-4">
+											<%= link_to("check it", sc) %>	
+										</div>
+									</div>
+								<% } %>	
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<br><br>
+<%-# 3-PRONG TABLE -%>
+				<table frame="box" rules="none">
+					<tr>
+						<td width="33%" align="center">
+							<strong>GamePlan</strong>
+						</td>
+						<td width="33%" align="center">
+							<strong>Priorities</strong>
+						</td>
+						<td width="33%" align="center">
+							<strong>What will make today great?</strong>
+						</td>
+					</tr>
+					<tr>
+						<td style="border-right: 1px solid black;" valign="top">
+							<p><%= simple_format(@gameplan.entry) %></p>
+						</td>
+						<td style="border-right: 1px solid black;" valign="top">
+							<p><%= simple_format(@priorities.entry) %></p>
+						</td>
+						<td valign="top">
+							<p><%= simple_format(@make_today_great.entry) %></p>
+						</td>
+					</tr>
+				</table>
+				
+				<br><hr><br>
+<%-# JOURNAL AREA -%>
+				<%= render '/journal_entries/daily_dash', journal_entry: @journal_entry %>
+
+				<p align="center">
+					<u>
+						<strong>
+							<%= link_to("Journal History","/journal_entries/history") %>
+						</strong>
+					</u>
+				</p>
+			</td>
+		</tr>
+	</table>
+
+</div>

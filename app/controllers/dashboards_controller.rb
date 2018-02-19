@@ -56,4 +56,36 @@ class DashboardsController < ApplicationController
     @simple_consumable = SimpleConsumable.new
     @todays_simple_consumables = SimpleConsumable.where(occurrence_date: Date.today).order(:occurrence_time)
   end
+
+  def yesterday_dash_2018
+
+    @morning_ritual = MorningRitual.new
+    @todays_morning_ritual = MorningRitual.where(:day => Date.today-1)
+
+    @evening_ritual = EveningRitual.new
+    @todays_evening_ritual = EveningRitual.where(:day => Date.today-1)
+
+    @everyday = Everyday.new
+    @todays_everyday = Everyday.where(:created_at => Date.today-1)
+
+    @weight = Weight.new
+    @todays_weight = Weight.all
+
+    @gameplan = JournalEntry.where(prompt: "gameplan").last
+    @priorities = JournalEntry.where("prompt like ?", "%priorities%").last
+    @make_today_great = JournalEntry.where(prompt: "what would make today great?").last
+
+    @journal_entry = JournalEntry.new
+
+    @simple_consumable = SimpleConsumable.new
+    @todays_simple_consumables = SimpleConsumable.where(occurrence_date: Date.today-1).order(:occurrence_time)
+  end
+
+  def health_dash
+    @morning_rituals = MorningRitual.all
+    @evening_rituals = EveningRitual.all
+    @consumables = SimpleConsumable.all
+    @climbs = Climb.all
+    
+  end
 end
