@@ -8,64 +8,83 @@
 				<% @use_date = Date.today - @date_iterator %>
 				<div class="col-lg-6 box" align="top">
 					<h3><%= @use_date.strftime("%a") %> <%= @use_date.strftime("%d") %> <%= @use_date.strftime("%b") %> <%= @use_date.strftime("%Y") %></h3>
-						<% @todays_morning_ritual = @morning_rituals.where(day: @use_date)[0] %>
-
-						<% if @todays_morning_ritual.class == NilClass %>
-							<p align="left">
-								<strong>Morning Ritual</strong>: 0/4<br>
-								<strong>Brush:</strong> NOT DONE<br>
-								<strong>Drink water:</strong> NOT DONE<br>
-								<strong>Exercise:</strong> NOT DONE<br>
-								<strong>Journal:</strong> NOT DONE<br>
-							</p>								
-						<% else %>
-							<p align="left">
-								<% @completion_number = 0 %>
-								<% @completion_number += 1 if @todays_morning_ritual.brush == true %>
-								<% @completion_number += 1 if @todays_morning_ritual.drink_water == true %>
-								<% @completion_number += 1 if @todays_morning_ritual.exercise == true %>
-								<% @completion_number += 1 if @todays_morning_ritual.journal == true %>
-								<strong>Morning Ritual</strong>: <%= @completion_number %>/4<br>
-								<strong>Brush:</strong> <%= @todays_morning_ritual.brush %><br>
-								<strong>Drink water:</strong> <%= @todays_morning_ritual.drink_water %><br>
-								<strong>Exercise:</strong> <%= @todays_morning_ritual.exercise %><br>
-								<strong>Journal:</strong> <%= @todays_morning_ritual.journal %><br>
-							</p>		
-						<% end %>
-					
-					<p align="left">
-						<strong>Diet + Exercise</strong><br>
-						<% @consumables.where(occurrence_date: @use_date).each{ |consumable| %>
-							<% if consumable.on_diet %>
-								<%= consumable.occurrence_time.hour %>:<%= consumable.occurrence_time.min %> -- on-diet <%= consumable.consumable_type %>: <%= consumable.description %><br>
-							<% else %>
-								<%= consumable.occurrence_time.hour %>:<%= consumable.occurrence_time.min %> -- off-diet <%= consumable.consumable_type %>: <%= consumable.description %><br>
-							<% end %>
-						<% } %>
-					</p>
-					
-						<% if @todays_evening_ritual.class == NilClass %>
-							<p align="left">
-								<strong>Evening Ritual</strong>: 0/4<br>
-								<strong>Brush:</strong> NOT DONE<br>
-								<strong>Core:</strong> NOT DONE<br>
-								<strong>Stretch:</strong> NOT DONE<br>
-								<strong>Plan Tomorrow:</strong> NOT DONE<br>
-							</p>								
-						<% else %>
-							<p align="left">
-								<% @completion_number = 0 %>
-								<% @completion_number += 1 if @todays_evening_ritual.brush == true %>
-								<% @completion_number += 1 if @todays_evening_ritual.core == true %>
-								<% @completion_number += 1 if @todays_evening_ritual.stretch == true %>
-								<% @completion_number += 1 if @todays_evening_ritual.journal == true %>
-								<strong>Evening Ritual</strong>: <%= @completion_number %>/4<br>
-								<strong>Brush:</strong> <%= @todays_evening_ritual.brush %><br>
-								<strong>Drink water:</strong> <%= @todays_evening_ritual.core %><br>
-								<strong>Stretch:</strong> <%= @todays_evening_ritual.stretch %><br>
-								<strong>Plan Tomorrow:</strong> <%= @todays_evening_ritual.journal %><br>
-							</p>		
-						<% end %>					
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<% @todays_morning_ritual = @morning_rituals.where(day: @use_date)[0] %>
+								<% if @todays_morning_ritual.class == NilClass %>
+									<p align="left">
+										<strong>Morning Ritual</strong>: 0/4<br>
+										<strong>Brush:</strong> NOT DONE<br>
+										<strong>Drink water:</strong> NOT DONE<br>
+										<strong>Exercise:</strong> NOT DONE<br>
+										<strong>Journal:</strong> NOT DONE<br>
+									</p>								
+								<% else %>
+									<p align="left">
+										<% @completion_number = 0 %>
+										<% @completion_number += 1 if @todays_morning_ritual.brush == true %>
+										<% @completion_number += 1 if @todays_morning_ritual.drink_water == true %>
+										<% @completion_number += 1 if @todays_morning_ritual.exercise == true %>
+										<% @completion_number += 1 if @todays_morning_ritual.journal == true %>
+										<strong>Morning Ritual</strong>: <%= @completion_number %>/4<br>
+										<strong>Brush:</strong> <%= @todays_morning_ritual.brush %><br>
+										<strong>Drink water:</strong> <%= @todays_morning_ritual.drink_water %><br>
+										<strong>Exercise:</strong> <%= @todays_morning_ritual.exercise %><br>
+										<strong>Journal:</strong> <%= @todays_morning_ritual.journal %><br>
+									</p>		
+								<% end %>								
+							</div>
+							<div class="col">
+								<p align="left">
+									<strong>Diet</strong><br>
+									<% @consumables.where(occurrence_date: @use_date).each{ |consumable| %>
+										<% if consumable.on_diet %>
+											<%= consumable.occurrence_time.strftime("%H") %>:<%= consumable.occurrence_time.strftime("%M") %> -- on-diet <%= consumable.consumable_type %>: <%= consumable.description %><br>
+										<% else %>
+											<%= consumable.occurrence_time.strftime("%H") %>:<%= consumable.occurrence_time.strftime("%M") %> -- off-diet <%= consumable.consumable_type %>: <%= consumable.description %><br>
+										<% end %>
+									<% } %>
+								</p>								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p align="left">
+									<strong>Exercise</strong><br>
+									<% @exercises.where(occurrence_date: @use_date).each{ |exercise| %>
+										<% if exercise.occurrence_time != nil and exercise.done %>
+											<%= exercise.occurrence_time.strftime("%H") %>:<%= exercise.occurrence_time.strftime("%M") %> -- DONE -- <%= exercise.name %>: <%= exercise.description %><br>
+										<% end %>
+									<% } %>
+								</p>									
+							</div>
+							<div class="col">
+								<% if @todays_evening_ritual.class == NilClass %>
+									<p align="left">
+										<strong>Evening Ritual</strong>: 0/4<br>
+										<strong>Brush:</strong> NOT DONE<br>
+										<strong>Core:</strong> NOT DONE<br>
+										<strong>Stretch:</strong> NOT DONE<br>
+										<strong>Plan Tomorrow:</strong> NOT DONE<br>
+									</p>								
+								<% else %>
+									<p align="left">
+										<% @completion_number = 0 %>
+										<% @completion_number += 1 if @todays_evening_ritual.brush == true %>
+										<% @completion_number += 1 if @todays_evening_ritual.core == true %>
+										<% @completion_number += 1 if @todays_evening_ritual.stretch == true %>
+										<% @completion_number += 1 if @todays_evening_ritual.journal == true %>
+										<strong>Evening Ritual</strong>: <%= @completion_number %>/4<br>
+										<strong>Brush:</strong> <%= @todays_evening_ritual.brush %><br>
+										<strong>Drink water:</strong> <%= @todays_evening_ritual.core %><br>
+										<strong>Stretch:</strong> <%= @todays_evening_ritual.stretch %><br>
+										<strong>Plan Tomorrow:</strong> <%= @todays_evening_ritual.journal %><br>
+									</p>		
+								<% end %>									
+							</div>
+						</div>
+					</div>
 
 				</div>	
 				<% @date_iterator += 1 %>

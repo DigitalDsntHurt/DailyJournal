@@ -1,0 +1,68 @@
+<%= form_for(exercise) do |f| %>
+  <% if exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercise.errors.count, "error") %> prohibited this exercise from being saved:</h2>
+
+      <ul>
+      <% exercise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+      <div class="container-fluid">
+        <div class="row">
+			<div class="col-sm-1" align="center">
+            	<div class="field">
+            		<% if exercise.done == true and exercise.occurrence_time != nil %>
+            			<%= exercise.occurrence_time.strftime("%H") %>:<%= exercise.occurrence_time.strftime("%M") %>
+            		<% elsif exercise.occurrence_time == nil and exercise.planned_time != nil %>
+            			<%= exercise.planned_time.strftime("%H") %>:<%= exercise.planned_time.strftime("%M") %>
+            		<% else %>
+            			--
+            		<% end %>
+            	</div>
+          	</div>
+          	<div class="col-xs-1" align="center">
+            	<div class="checkbox">
+              	<label>
+                	&nbsp;&nbsp;<%= f.check_box :done %>
+              	</label>
+            	</div>  
+          	</div>
+          	<div class="col-sm-5">
+            	<div class="field">
+              		<%= exercise.name %>: <%= exercise.description %>
+            	</div>
+          	</div>
+          	<div class="col-xs-2">
+            	<div class="actions">
+              		<%= link_to 'Show', exercise %>&nbsp;&nbsp;
+            	</div>
+          	</div>
+          	<div class="col-xs-2">
+            	<div class="actions">
+              		<%= link_to 'Edit', edit_exercise_path(exercise) %>&nbsp;&nbsp;
+            	</div>
+          	</div>
+          	<div class="col-xs-2">
+            	<div class="actions">
+              		<%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' } %>
+            	</div>
+          	</div>
+          	<div class="col-sm-3">
+            	<% if exercise.done == true %>
+
+            	<% else %>
+	            	<div class="actions">
+	              		<%= f.submit %>
+	            	</div>
+            	<% end %>
+          	</div>
+
+        </div>
+      </div>
+
+<% end %>

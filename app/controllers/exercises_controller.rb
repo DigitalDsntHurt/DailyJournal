@@ -77,6 +77,11 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.new
   end
 
+  def copy
+    @exercise = Exercise.find(params[:old_exercise]).dup
+    render new_exercise_path(@exercise)
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -86,6 +91,6 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:name, :time, :reps, :lbs, :occurrence_time, :occurrence_date)
+      params.require(:exercise).permit(:name, :time, :reps, :lbs, :description, :notes, :done, :occurrence_time, :occurrence_date, :planned_time, :planned_date)
     end
 end

@@ -55,6 +55,17 @@ class DashboardsController < ApplicationController
 
     @simple_consumable = SimpleConsumable.new
     @todays_simple_consumables = SimpleConsumable.where(occurrence_date: Date.today).order(:occurrence_time)
+
+    @exercise = Exercise.new
+    @todays_planned_exercises = Exercise.where(planned_date: Date.today)#.reverse#.order(planned_date: :desc)
+    @todays_occurred_exercises = Exercise.where(occurrence_date: Date.today)
+    @todays_exercises = (@todays_planned_exercises.to_a + @todays_occurred_exercises.to_a).uniq.sort_by{|item| 
+      if item.occurrence_time == nil
+        item.planned_time
+      else 
+        item.occurrence_time
+      end
+      }
   end
 
   def yesterday_dash_2018
@@ -85,7 +96,8 @@ class DashboardsController < ApplicationController
     @morning_rituals = MorningRitual.all
     @evening_rituals = EveningRitual.all
     @consumables = SimpleConsumable.all
+    @exercises = Exercise.all
     @climbs = Climb.all
-    
+
   end
 end

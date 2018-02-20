@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :weights
   resources :simple_consumables
 
+  get 'exercises/copy' => 'exercises#copy'
   get 'exercises/stretch' => 'exercises#stretch'
   get 'exercises/core' => 'exercises#core'
   get 'exercises/run' => 'exercises#run'
