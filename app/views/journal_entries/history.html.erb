@@ -5,17 +5,33 @@
 		<div class="row">
 			<% 2.times do |col_index| %>
 				<% @use_date = Date.today - @date_iterator %>
-				<div class="col-lg-6 box" align="top">
-					<h3>Journal Entries on <%= @use_date %></h3>
-					
-					<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
-						<p align="left">
-							<strong><%= entry.prompt %></strong><br/>
-							<%= simple_format(entry.entry) %>
-						</p>
-					<% end %>
-				</div>	
-				<% @date_iterator += 1 %>
+				<% if @use_date == Date.today %>
+					<div class="col-lg-6 box" align="top">
+						<h3>Journal Entries on <%= @use_date %></h3>
+						<br>
+						<%= render 'mini_form', journal_entry: @journal_entry %>
+						<hr>
+						<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
+							<p align="left">
+								<strong><%= entry.prompt %></strong><br/>
+								<%= simple_format(entry.entry) %>
+							</p>
+						<% end %>
+					</div>	
+					<% @date_iterator += 1 %>				
+				<% else %>
+					<div class="col-lg-6 box" align="top">
+						<h3>Journal Entries on <%= @use_date %></h3>
+						<br><hr>
+						<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
+							<p align="left">
+								<strong><%= entry.prompt %></strong><br/>
+								<%= simple_format(entry.entry) %>
+							</p>
+						<% end %>
+					</div>	
+					<% @date_iterator += 1 %>				
+				<% end %>
 			<% end %>
 		</div>
 	<% end %>
