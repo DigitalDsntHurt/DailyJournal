@@ -1,83 +1,22 @@
 <%-# BEGIN BIG CONTAINER -%>
 <div class="container-fluid" style="padding-right:12px; padding-left:12px;">
-	<div class="row">
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.today %></h3>
-			<% @today.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>		
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday %></h3>
-			<% @yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday-1 %></h3>
-			<% @dayb4yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>		
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday-2 %></h3>
-			<% @dayb5yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
+	<% @date_iterator = 0 %>
+	<% 50.times do |row_index| %>
+		<div class="row">
+			<% 2.times do |col_index| %>
+				<% @use_date = Date.today - @date_iterator %>
+				<div class="col-lg-6 box" align="top">
+					<h3>Journal Entries on <%= @use_date %></h3>
+					
+					<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
+						<p align="left">
+							<strong><%= entry.prompt %></strong><br/>
+							<%= simple_format(entry.entry) %>
+						</p>
+					<% end %>
+				</div>	
+				<% @date_iterator += 1 %>
 			<% end %>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday-3 %></h3>
-			<% @dayb6yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>		
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday-4 %></h3>
-			<% @dayb7yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday-5 %></h3>
-			<% @dayb8yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>		
-		<div class="col-lg-6 box" align="top">
-			<h3>Journal Entries on <%= Date.yesterday-6 %></h3>
-			<% @dayb9yesterday.each do |entry| %>
-				<p align="left">
-					<strong><%= entry.prompt %></strong><br/>
-					<%= simple_format(entry.entry) %>
-				</p>
-			<% end %>
-		</div>
-	</div>	
+	<% end %>
 </div>

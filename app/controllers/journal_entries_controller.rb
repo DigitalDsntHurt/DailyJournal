@@ -73,6 +73,7 @@ class JournalEntriesController < ApplicationController
     @pairs_of_day_groups = @day_groups.each_slice(2).to_a
     @journal_entry = JournalEntry.new
 
+    @all_entries = JournalEntry.all
     @today = JournalEntry.where(occurrence_date: Date.today)
     @yesterday = JournalEntry.where(occurrence_date: Date.yesterday)
     @dayb4yesterday = JournalEntry.where(occurrence_date: Date.yesterday-1)
