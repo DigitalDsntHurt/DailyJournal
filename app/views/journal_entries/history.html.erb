@@ -12,8 +12,15 @@
 						<%= render 'mini_form', journal_entry: @journal_entry %>
 						<hr>
 						<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-lg-6">
+										<strong><%= entry.prompt %></strong> (<%= link_to "show", entry %>, <%= link_to "edit", edit_journal_entry_path(entry) %>)
+									</div>
+									
+								</div>
+							</div>
 							<p align="left">
-								<strong><%= entry.prompt %></strong><br/>
 								<%= simple_format(entry.entry) %>
 							</p>
 						<% end %>
