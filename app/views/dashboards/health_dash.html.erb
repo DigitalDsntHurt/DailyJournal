@@ -60,6 +60,7 @@
 								</p>									
 							</div>
 							<div class="col-sm-6">
+								<% @todays_evening_ritual = @evening_rituals.where(day: @use_date)[0] %>
 								<% if @todays_evening_ritual.class == NilClass %>
 									<p align="left">
 										<strong>Evening Ritual</strong>: 0/4<br>
