@@ -10,7 +10,7 @@
 					<h3><%= @use_date.strftime("%a") %> <%= @use_date.strftime("%d") %> <%= @use_date.strftime("%b") %> <%= @use_date.strftime("%Y") %></h3>
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-sm-8">
+							<div class="col-sm-6">
 								<% @todays_morning_ritual = @morning_rituals.where(day: @use_date)[0] %>
 								<% if @todays_morning_ritual.class == NilClass %>
 									<p align="left">
@@ -35,7 +35,7 @@
 									</p>		
 								<% end %>								
 							</div>
-							<div class="col-sm-8">
+							<div class="col-sm-6">
 								<p align="left">
 									<strong>Diet</strong><br>
 									<% @consumables.where(occurrence_date: @use_date).each{ |consumable| %>
@@ -49,7 +49,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-8">
+							<div class="col-sm-6">
 								<p align="left">
 									<strong>Exercise</strong><br>
 									<% @exercises.where(occurrence_date: @use_date).each{ |exercise| %>
@@ -59,7 +59,7 @@
 									<% } %>
 								</p>									
 							</div>
-							<div class="col-sm-8">
+							<div class="col-sm-6">
 								<% if @todays_evening_ritual.class == NilClass %>
 									<p align="left">
 										<strong>Evening Ritual</strong>: 0/4<br>
