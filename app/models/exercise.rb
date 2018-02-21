@@ -14,7 +14,7 @@ UPDATE
 =end
 
 	before_create :set_planned_date, :set_occurrence_date
-	before_update :set_occurrence_date_and_time_if_done_is_true
+	before_update :set_occurrence_date_and_time_if_done_is_true, :set_occurrence_date
 
 	private
 
