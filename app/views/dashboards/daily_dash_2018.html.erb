@@ -69,7 +69,7 @@
 								<% @todays_simple_consumables.each{ |sc| %>
 									<div class="row">
 										<div class="col-sm-2">
-											<%= sc.occurrence_time.hour %>:<%= sc.occurrence_time.min %>
+											<%= sc.occurrence_time.strftime("%H") %>:<%= sc.occurrence_time.strftime("%M") %>
 										</div>
 										<div class="col-sm-3">
 											<% if sc.on_diet %>
