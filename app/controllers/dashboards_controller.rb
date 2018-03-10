@@ -100,4 +100,12 @@ class DashboardsController < ApplicationController
     @climbs = Climb.all
 
   end
+
+  def weekly_dash_2018
+    # this year made easier by the fact Jan 1 was a Monday
+    @start_date = Date.new(2018,01,01)
+    @end_date = Date.today
+    @date_range = (@start_date..@end_date)
+    @weeks = @date_range.to_a.in_groups_of(7)
+  end
 end

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   
   get 'dashboards/daily_dash_2018'
   get 'dashboards/yesterday_dash_2018'
+  get 'dashboards/weekly_dash_2018'
   get 'dashboards/morning_dash'
   get 'dashboards/evening_dash'
   get 'dashboards/rituals_dash'

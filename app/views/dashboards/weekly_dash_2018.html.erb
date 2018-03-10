@@ -1,0 +1,78 @@
+<div class="box-fullwidth container-fluid">
+
+<%-# COMMENT HERE -%>	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col box-dash-body">
+
+				<%-# WEEKLY RECAP  -%>
+				<div class="container-fluid">
+					<% @weeks.reverse.each{ |week| %>
+						<div class="row">
+							<div class="col" style="border-bottom:1px solid;">
+								<% @mr_count = 0 %>
+								<% @er_count = 0 %>
+								<% @workouts_count = 0 %>
+								<% @on_diet_meals_count = 0 %>
+								<% @cheat_meals_count = 0 %>
+
+								<% week.each{|day| %>
+									<%-# check for morning rituals  -%>
+									<% unless MorningRitual.where(day: day)[0] == nil %>
+										<% if MorningRitual.where(day: day)[0].attributes.values.select{|item| item == true }.count > 2 %>
+											<% @mr_count += 1 %>
+										<% end %>
+									<% end %>
+
+									<%-# check for evening rituals  -%>
+									<% unless EveningRitual.where(day: day)[0] == nil %>
+										<% if EveningRitual.where(day: day)[0].attributes.values.select{|item| item == true }.count > 2 %>
+											<% @er_count += 1 %>
+										<% end %>
+									<% end %>
+								<% } %>
+
+								<% if week.last == nil %>
+									<strong>
+										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= (week.first + 6).strftime("%d") %> <%= (week.first + 6).strftime("%b") %> 
+									</strong>
+									<br>
+									Morning Rituals: <%= @mr_count %><br>
+									Workouts: <%= @workouts_count %>/7<br>
+									On- vs Off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %><br>
+									Evening Rituals: <%= @er_count %><br>
+								<% else %>
+									<strong>
+										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= week.last.strftime("%d") %> <%= week.last.strftime("%b") %> 
+									</strong>
+									<br>
+									Morning Rituals: <%= @mr_count %><br>
+									Workouts: <%= @workouts_count %>/7<br>
+									On- vs Off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %><br>
+									Evening Rituals: <%= @er_count %><br>
+								<% end %>
+								
+								<br>
+							</div>
+						</div>
+					<% } %>
+				</div>
+
+<br><br><br>
+
+				<%-# CALENDAR  -%>	
+				<div class="container-fluid">
+					<% @weeks.each{ |week| %>
+						<div class="row">
+							<% week.each{ |day| %>
+								<div class="col cal-day">
+									<%= day %>	
+								</div>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+
+			</div>
+		</div>
+	</div>
