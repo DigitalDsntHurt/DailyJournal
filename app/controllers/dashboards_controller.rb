@@ -66,6 +66,12 @@ class DashboardsController < ApplicationController
         item.occurrence_time
       end
       }
+
+    @workout = Workout.new
+
+    @todays_workouts = Workout.where(occurrence_date: Date.today)
+    @todays_consumption = SimpleConsumable.where(occurrence_date: Date.today)
+    @todays_health_summary = (@todays_workouts.to_a + @todays_consumption.to_a).sort_by{|item| item.occurrence_time }
   end
 
   def yesterday_dash_2018

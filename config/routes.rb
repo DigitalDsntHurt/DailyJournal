@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :workouts
   resources :everydays
   resources :weights
   resources :simple_consumables

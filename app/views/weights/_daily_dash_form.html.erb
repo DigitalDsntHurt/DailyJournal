@@ -11,32 +11,37 @@
     </div>
   <% end %>
 
-  <table>
-    <tr>
-      <td valign="top">
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
         <div class="field">
           <%= f.label :weight %>
-          <%= f.text_field :weight %>
-        </div>      
-      </td>
-      <td valign="top">
-        <div class="field">
-          <%= f.label :weighed_at %>
-          <%= f.datetime_select :weighed_at %>
-        </div>          
-      </td>
-      <td valign="top">
+          <%= f.number_field :weight %>
+        </div> 
+      </div>
+      <div class="col">
         <div class="field">
           <%= f.label :notes %>
           <%= f.text_field :notes %>
-        </div>             
-      </td>
-      <td valign="bottom">
+        </div>
+      </div>    
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="field">
+          <%= f.label :weighed_at %>
+          <%= f.datetime_select :weighed_at %>
+        </div>         
+      </div>
+      <div class="col">
         <div class="actions">
+          <br>
           <%= f.submit %>
-        </div>      
-      </td>      
-    </tr>
-  </table>
+        </div>       
+      </div>
+    </div>
+  </div>
 
 <% end %>
