@@ -13,10 +13,14 @@
 								<% @mr_count = 0 %>
 								<% @er_count = 0 %>
 								<% @workouts_count = 0 %>
+								<% @workout_mins = 0 %>
 								<% @on_diet_meals_count = 0 %>
 								<% @cheat_meals_count = 0 %>
+								<% @on_diet_snacks_count = 0 %>
+								<% @off_diet_snacks_count = 0 %>
 
 								<% week.each{|day| %>
+									
 									<%-# check for morning rituals  -%>
 									<% unless MorningRitual.where(day: day)[0] == nil %>
 										<% if MorningRitual.where(day: day)[0].attributes.values.select{|item| item == true }.count > 2 %>
@@ -30,26 +34,66 @@
 											<% @er_count += 1 %>
 										<% end %>
 									<% end %>
+
+									<%-# check for # workouts -%>
+									<% unless Workout.where(occurrence_date: day)[0] == nil %>
+										<% if Workout.where(occurrence_date: day).count > 0 %>
+											<% @workouts_count += Workout.where(occurrence_date: day).count %>
+										<% end %>
+									<% end %>
+
+									<%-# check for workout minutes -%>
+									<% unless Workout.where(occurrence_date: day)[0] == nil %>
+										<% if Workout.where(occurrence_date: day).count == 1 %>
+											<% @workout_mins += Workout.where(occurrence_date: day)[0].minutes %>
+										<% elsif Workout.where(occurrence_date: day).count > 1 %>
+											<% Workout.where(occurrence_date: day).each{ |workout| %>
+											<% @workout_mins += workout.minutes %>
+											<% } %>
+										<% else %>	
+										<% end %>
+									<% end %>
+
+									<%-# check for # on-diet & # cheat meals -%>
+									<% unless SimpleConsumable.where(occurrence_date: day).count == 0 %>
+										<% @cheat_meals_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "meal").where(on_diet: false).count %>
+										<% @on_diet_meals_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "meal").where(on_diet: true).count %>
+										<% @on_diet_snacks_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "snack").where(on_diet: true).count %>
+										<% @off_diet_snacks_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "snack").where(on_diet: false).count %>
+									<% end %>
+
 								<% } %>
 
+
+								<%-# display totals + summaries -%>
 								<% if week.last == nil %>
 									<strong>
 										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= (week.first + 6).strftime("%d") %> <%= (week.first + 6).strftime("%b") %> 
 									</strong>
 									<br>
-									Morning Rituals: <%= @mr_count %><br>
+									Morning Rituals: <%= @mr_count %>/7<br>
+									<br>
 									Workouts: <%= @workouts_count %>/7<br>
-									On- vs Off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %><br>
-									Evening Rituals: <%= @er_count %><br>
+									Workout Minutes: <%= @workout_mins %>/420<br>
+									<br>
+									On- vs off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %> (of <%= @on_diet_meals_count + @cheat_meals_count %> total meals)<br>
+									On- vs off-diet snacks: <%= @on_diet_snacks_count %> vs <%= @off_diet_snacks_count %> (of <%= @on_diet_snacks_count + @off_diet_snacks_count %> total snacks)<br>
+									<br>
+									Evening Rituals: <%= @er_count %>/7<br>
 								<% else %>
 									<strong>
 										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= week.last.strftime("%d") %> <%= week.last.strftime("%b") %> 
 									</strong>
 									<br>
-									Morning Rituals: <%= @mr_count %><br>
+									Morning Rituals: <%= @mr_count %>/7<br>
+									<br>
 									Workouts: <%= @workouts_count %>/7<br>
-									On- vs Off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %><br>
-									Evening Rituals: <%= @er_count %><br>
+									Workout Minutes: <%= @workout_mins %>/420<br>
+									<br>
+									On- vs off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %> (of <%= @on_diet_meals_count + @cheat_meals_count %> total meals)<br>
+									On- vs off-diet snacks: <%= @on_diet_snacks_count %> vs <%= @off_diet_snacks_count %> (of <%= @on_diet_snacks_count + @off_diet_snacks_count %> total snacks)<br>
+									<br>
+									Evening Rituals: <%= @er_count %>/7<br>
 								<% end %>
 								
 								<br>
