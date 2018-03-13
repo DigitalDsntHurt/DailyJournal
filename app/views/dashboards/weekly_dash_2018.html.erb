@@ -71,29 +71,165 @@
 										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= (week.first + 6).strftime("%d") %> <%= (week.first + 6).strftime("%b") %> 
 									</strong>
 									<br>
-									Morning Rituals: <%= @mr_count %>/7<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Morning Rituals:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= (@mr_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @mr_count %>" aria-valuemin="0" aria-valuemax="7"><%= @mr_count %>/7</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<br>
-									Workouts: <%= @workouts_count %>/7<br>
-									Workout Minutes: <%= @workout_mins %>/420<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Workouts:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workouts_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @workouts_count %>" aria-valuemin="0" aria-valuemax="7"><%= @workouts_count %>/7</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<br>
-									On- vs off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %> (of <%= @on_diet_meals_count + @cheat_meals_count %> total meals)<br>
-									On- vs off-diet snacks: <%= @on_diet_snacks_count %> vs <%= @off_diet_snacks_count %> (of <%= @on_diet_snacks_count + @off_diet_snacks_count %> total snacks)<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Workout Minutes:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workout_mins/420.0*100.0).ceil %>%" aria-valuenow="<%= @workout_mins %>" aria-valuemin="0" aria-valuemax="420"><%= @workout_mins %>/420</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<br>
-									Evening Rituals: <%= @er_count %>/7<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												On- vs off-diet meals:
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <%= @on_diet_meals_count/(@on_diet_meals_count+@cheat_meals_count).to_f*100.0 %>%" aria-valuenow="<%= @on_diet_meals_count %>" aria-valuemin="0" aria-valuemax="<%= @on_diet_meals_count + @cheat_meals_count %>"><%= @on_diet_meals_count %> on-diet of <%= @on_diet_meals_count + @cheat_meals_count %> total meals</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												On- vs off-diet snacks:
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <%= @on_diet_snacks_count/(@on_diet_snacks_count+@off_diet_snacks_count).to_f*100.0 %>%" aria-valuenow="<%= @on_diet_snacks_count %>" aria-valuemin="0" aria-valuemax="<%= @on_diet_snacks_count + @off_diet_snacks_count %>"><%= @on_diet_snacks_count %> on-diet of <%= @on_diet_snacks_count + @off_diet_snacks_count %> total snacks</div>
+												</div>
+											</div>
+										</div>
+									</div>																		
+									<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Evening Rituals:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= (@er_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @er_count %>" aria-valuemin="0" aria-valuemax="7"><%= @er_count %>/7</div>
+												</div>
+											</div>
+										</div>
+									</div>									
 								<% else %>
 									<strong>
-										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= week.last.strftime("%d") %> <%= week.last.strftime("%b") %> 
+										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= (week.first + 6).strftime("%d") %> <%= (week.first + 6).strftime("%b") %> 
 									</strong>
 									<br>
-									Morning Rituals: <%= @mr_count %>/7<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Morning Rituals:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= (@mr_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @mr_count %>" aria-valuemin="0" aria-valuemax="7"><%= @mr_count %>/7</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<br>
-									Workouts: <%= @workouts_count %>/7<br>
-									Workout Minutes: <%= @workout_mins %>/420<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Workouts:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workouts_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @workouts_count %>" aria-valuemin="0" aria-valuemax="7"><%= @workouts_count %>/7</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<br>
-									On- vs off-diet meals: <%= @on_diet_meals_count %> vs <%= @cheat_meals_count %> (of <%= @on_diet_meals_count + @cheat_meals_count %> total meals)<br>
-									On- vs off-diet snacks: <%= @on_diet_snacks_count %> vs <%= @off_diet_snacks_count %> (of <%= @on_diet_snacks_count + @off_diet_snacks_count %> total snacks)<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Workout Minutes:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workout_mins/420.0*100.0).ceil %>%" aria-valuenow="<%= @workout_mins %>" aria-valuemin="0" aria-valuemax="420"><%= @workout_mins %>/420</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<br>
-									Evening Rituals: <%= @er_count %>/7<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												On- vs off-diet meals:
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <%= @on_diet_meals_count/(@on_diet_meals_count+@cheat_meals_count).to_f*100.0 %>%" aria-valuenow="<%= @on_diet_meals_count %>" aria-valuemin="0" aria-valuemax="<%= @on_diet_meals_count + @cheat_meals_count %>"><%= @on_diet_meals_count %> on-diet of <%= @on_diet_meals_count + @cheat_meals_count %> total meals</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												On- vs off-diet snacks:
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <%= @on_diet_snacks_count/(@on_diet_snacks_count+@off_diet_snacks_count).to_f*100.0 %>%" aria-valuenow="<%= @on_diet_snacks_count %>" aria-valuemin="0" aria-valuemax="<%= @on_diet_snacks_count + @off_diet_snacks_count %>"><%= @on_diet_snacks_count %> on-diet of <%= @on_diet_snacks_count + @off_diet_snacks_count %> total snacks</div>
+												</div>
+											</div>
+										</div>
+									</div>																		
+									<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Evening Rituals:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <%= (@er_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @er_count %>" aria-valuemin="0" aria-valuemax="7"><%= @er_count %>/7</div>
+												</div>
+											</div>
+										</div>
+									</div>	
 								<% end %>
 								
 								<br>
