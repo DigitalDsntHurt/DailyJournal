@@ -12,12 +12,15 @@
 							<div class="col" style="border-bottom:1px solid;">
 								<% @mr_count = 0 %>
 								<% @er_count = 0 %>
+								<% @workout_days = 0 %>
 								<% @workouts_count = 0 %>
 								<% @workout_mins = 0 %>
 								<% @on_diet_meals_count = 0 %>
 								<% @cheat_meals_count = 0 %>
 								<% @on_diet_snacks_count = 0 %>
 								<% @off_diet_snacks_count = 0 %>
+								<% @alcohol_days = 0 %>
+								<% @alcohol_drinks = 0 %>
 
 								<% week.each{|day| %>
 									
@@ -32,6 +35,13 @@
 									<% unless EveningRitual.where(day: day)[0] == nil %>
 										<% if EveningRitual.where(day: day)[0].attributes.values.select{|item| item == true }.count > 2 %>
 											<% @er_count += 1 %>
+										<% end %>
+									<% end %>
+
+									<%-# check for # workout days -%>
+									<% unless Workout.where(occurrence_date: day)[0] == nil %>
+										<% if Workout.where(occurrence_date: day).count > 0 %>
+											<% @workout_days += 1 %>
 										<% end %>
 									<% end %>
 
@@ -54,12 +64,16 @@
 										<% end %>
 									<% end %>
 
-									<%-# check for # on-diet & # cheat meals -%>
+									<%-# check for # on-diet & # cheat meals & on-diet snacks & cheat snacks & alcohol -%>
 									<% unless SimpleConsumable.where(occurrence_date: day).count == 0 %>
 										<% @cheat_meals_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "meal").where(on_diet: false).count %>
 										<% @on_diet_meals_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "meal").where(on_diet: true).count %>
 										<% @on_diet_snacks_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "snack").where(on_diet: true).count %>
 										<% @off_diet_snacks_count += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "snack").where(on_diet: false).count %>
+										<% if SimpleConsumable.where(occurrence_date: day).where(consumable_type: "alcohol").count > 0 %>
+											<% @alcohol_days += 1 %>
+											<% @alcohol_drinks += SimpleConsumable.where(occurrence_date: day).where(consumable_type: "alcohol").count %>
+										<% end %>
 									<% end %>
 
 								<% } %>
@@ -91,7 +105,20 @@
 											</div>
 											<div class="col-lg-8">
 												<div class="progress" style="height: 44px;">
-													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workouts_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @workouts_count %>" aria-valuemin="0" aria-valuemax="7"><%= @workouts_count %>/7</div>
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workouts_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @workouts_count %>" aria-valuemin="0" aria-valuemax="7"><%= @workouts_count %></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>									
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Workout Days:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workout_days/7.0*100.0).ceil %>%" aria-valuenow="<%= @workout_days %>" aria-valuemin="0" aria-valuemax="7"><%= @workout_days %>/7</div>
 												</div>
 											</div>
 										</div>
@@ -134,8 +161,21 @@
 												</div>
 											</div>
 										</div>
-									</div>																		
+									</div>
 									<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Days on which I drank alcohol:
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <%= @alcohol_days/7.0*100.0 %>%" aria-valuenow="<%= @alcohol_days %>" aria-valuemin="0" aria-valuemax="7"><%= @alcohol_days %>/7 (<%= @alcohol_drinks%> total drinks)</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>									
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-sm-2" align="right">
@@ -147,7 +187,7 @@
 												</div>
 											</div>
 										</div>
-									</div>									
+									</div>								
 								<% else %>
 									<strong>
 										Week of <%= week.first.strftime("%d") %> <%= week.first.strftime("%b") %> - <%= (week.first + 6).strftime("%d") %> <%= (week.first + 6).strftime("%b") %> 
@@ -173,7 +213,20 @@
 											</div>
 											<div class="col-lg-8">
 												<div class="progress" style="height: 44px;">
-													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workouts_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @workouts_count %>" aria-valuemin="0" aria-valuemax="7"><%= @workouts_count %>/7</div>
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workouts_count/7.0*100.0).ceil %>%" aria-valuenow="<%= @workouts_count %>" aria-valuemin="0" aria-valuemax="7"><%= @workouts_count %></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>									
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Workout Days:		
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: <%= (@workout_days/7.0*100.0).ceil %>%" aria-valuenow="<%= @workout_days %>" aria-valuemin="0" aria-valuemax="7"><%= @workout_days %>/7</div>
 												</div>
 											</div>
 										</div>
@@ -216,8 +269,21 @@
 												</div>
 											</div>
 										</div>
-									</div>																		
+									</div>
 									<br>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-sm-2" align="right">
+												Days on which I drank alcohol:
+											</div>
+											<div class="col-lg-8">
+												<div class="progress" style="height: 44px;">
+													<div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <%= @alcohol_days/7.0*100.0 %>%" aria-valuenow="<%= @alcohol_days %>" aria-valuemin="0" aria-valuemax="7"><%= @alcohol_days %>/7 (<%= @alcohol_drinks%> total drinks)</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>									
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-sm-2" align="right">
@@ -229,7 +295,7 @@
 												</div>
 											</div>
 										</div>
-									</div>	
+									</div>
 								<% end %>
 								
 								<br>
