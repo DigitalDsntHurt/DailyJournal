@@ -53,9 +53,9 @@
 								<p align="left">
 									<strong>Exercise</strong><br>
 									<% @exercises.where(occurrence_date: @use_date).each{ |exercise| %>
-										<% if exercise.occurrence_time != nil and exercise.done %>
-											<%= exercise.occurrence_time.strftime("%H") %>:<%= exercise.occurrence_time.strftime("%M") %> -- DONE -- <%= exercise.name %>: <%= exercise.description %><br>
-										<% end %>
+										
+											<%= exercise.occurrence_time.strftime("%H") %>:<%= exercise.occurrence_time.strftime("%M") %> -- <%= exercise.minutes %> minute <%= exercise.name %>: <%= exercise.description %><br>
+										
 									<% } %>
 								</p>									
 							</div>

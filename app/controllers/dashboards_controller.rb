@@ -102,7 +102,7 @@ class DashboardsController < ApplicationController
     @morning_rituals = MorningRitual.all
     @evening_rituals = EveningRitual.all
     @consumables = SimpleConsumable.all
-    @exercises = Exercise.all
+    @exercises = Workout.all
     @climbs = Climb.all
 
   end
