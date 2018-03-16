@@ -101,8 +101,8 @@ class DashboardsController < ApplicationController
   def health_dash
     @morning_rituals = MorningRitual.all
     @evening_rituals = EveningRitual.all
-    @consumables = SimpleConsumable.all
-    @exercises = Workout.all
+    @consumables = SimpleConsumable.all.order(:occurrence_time)
+    @exercises = Workout.all.order(:occurrence_time)
     @climbs = Climb.all
 
   end
