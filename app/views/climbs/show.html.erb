@@ -1,59 +1,136 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>V0s:</strong>
-  <%= @climb.v0s %>
-</p>
 
-<p>
-  <strong>V1s:</strong>
-  <%= @climb.v1s %>
-</p>
 
-<p>
-  <strong>V2s:</strong>
-  <%= @climb.v2s %>
-</p>
+<div class="container-fluid" style="max-width:600px;">
+  <div class="row">
+    <div class="col">
+      <p>
+        <%= @climb.minutes %> minute <%= @climb.other %><br/>
+        <%= @climb.total %> total sends on <%= @climb.attempt_total %> total attempts. v-total: <%= @climb.v_total %> 
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>V3s:</strong>
-  <%= @climb.v3s %>
-</p>
+  <div class="row">
+    <div class="col">
+      <strong>V0s Sent:</strong>
+      <%= @climb.v0s %>    
+    </div>
+    <div class="col">
+      <strong>V0 Attempts:</strong>
+      <%= @climb.v0_attempts %>    
+    </div>
+  </div>    
 
-<p>
-  <strong>V4s:</strong>
-  <%= @climb.v4s %>
-</p>
+  <div class="row">
+    <div class="col">
+      <strong>V1s Sent:</strong>
+      <%= @climb.v1s %>    
+    </div>
+    <div class="col">
+      <strong>V1 Attempts:</strong>
+      <%= @climb.v1_attempts %>    
+    </div>
+  </div>
 
-<p>
-  <strong>V5s:</strong>
-  <%= @climb.v5s %>
-</p>
+  <div class="row">
+    <div class="col">
+      <strong>V2s Sent:</strong>
+      <%= @climb.v2s %>    
+    </div>
+    <div class="col">
+      <strong>V2 Attempts:</strong>
+      <%= @climb.v2_attempts %>    
+    </div>
+  </div>
+  
+  <div class="row">  
+    <div class="col">
+      <strong>V3s Sent:</strong>
+      <%= @climb.v3s %>    
+    </div>
+    <div class="col">
+      <strong>V3 Attempts:</strong>
+      <%= @climb.v3_attempts %>    
+    </div>
+  </div>
+  
+  <div class="row">  
+    <div class="col">
+      <strong>V4s Sent:</strong>
+      <%= @climb.v4s %>    
+    </div>
+    <div class="col">
+      <strong>V4 Attempts:</strong>
+      <%= @climb.v4_attempts %>    
+    </div>
+  </div>
+  
+  <div class="row">  
+    <div class="col">
+      <strong>V5s Sent:</strong>
+      <%= @climb.v5s %>    
+    </div>
+    <div class="col">
+      <strong>V5 Attempts:</strong>
+      <%= @climb.v5_attempts %>    
+    </div>
+  </div>
 
-<p>
-  <strong>V6s:</strong>
-  <%= @climb.v6s %>
-</p>
+  <div class="row">  
+    <div class="col">
+      <strong>V6s Sent:</strong>
+      <%= @climb.v6s %>    
+    </div>
+    <div class="col">
+      <strong>V6 Attempts:</strong>
+      <%= @climb.v6_attempts %>    
+    </div>
+  </div>
 
-<p>
-  <strong>V7s:</strong>
-  <%= @climb.v7s %>
-</p>
+  <div class="row">  
+    <div class="col">
+      <strong>V7s Sent:</strong>
+      <%= @climb.v7s %>    
+    </div>
+    <div class="col">
+      <strong>V7 Attempts:</strong>
+      <%= @climb.v7_attempts %>    
+    </div>
+  </div>
 
-<p>
-  <strong>V8s:</strong>
-  <%= @climb.v8s %>
-</p>
+  <div class="row">  
+    <div class="col">
+      <strong>V8s Sent:</strong>
+      <%= @climb.v8s %>    
+    </div>
+    <div class="col">
+      <strong>V8 Attempts:</strong>
+      <%= @climb.v8_attempts %>    
+    </div>
+  </div>
 
-<p>
-  <strong>V9s:</strong>
-  <%= @climb.v9s %>
-</p>
+  <div class="row">  
+    <div class="col">
+      <strong>V9s Sent:</strong>
+      <%= @climb.v9s %>    
+    </div>
+    <div class="col">
+      <strong>V9 Attempts:</strong>
+      <%= @climb.v9_attempts %>    
+    </div>
+  </div>         
 
-<p>
-  <strong>Notes/Other</strong>
-  <%= @climb.other %>
-</p>
+  <div class="row">
+    <div class="col">
+      <br/><br/>
+      <%= link_to 'Edit', edit_climb_path(@climb) %> |
+      <%= link_to 'Back', climbs_path %>      
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_climb_path(@climb) %> |
-<%= link_to 'Back', climbs_path %>
+
+</div>
+
+

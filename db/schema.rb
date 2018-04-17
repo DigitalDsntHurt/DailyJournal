@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311221912) do
+ActiveRecord::Schema.define(version: 20180417155051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,22 @@ ActiveRecord::Schema.define(version: 20180311221912) do
     t.integer  "v9s"
     t.date     "climb_date"
     t.text     "other"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "total"
     t.integer  "v_total"
+    t.integer  "v0_attempts"
+    t.integer  "v1_attempts"
+    t.integer  "v2_attempts"
+    t.integer  "v3_attempts"
+    t.integer  "v4_attempts"
+    t.integer  "v5_attempts"
+    t.integer  "v6_attempts"
+    t.integer  "v7_attempts"
+    t.integer  "v8_attempts"
+    t.integer  "v9_attempts"
+    t.integer  "minutes"
+    t.integer  "attempt_total"
   end
 
   create_table "consumables", force: :cascade do |t|
@@ -188,6 +200,7 @@ ActiveRecord::Schema.define(version: 20180311221912) do
     t.datetime "updated_at",      null: false
     t.datetime "occurrence_time"
     t.date     "occurrence_date"
+    t.integer  "climb_id"
   end
 
 end
