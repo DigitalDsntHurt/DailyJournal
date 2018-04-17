@@ -1,0 +1,34 @@
+<% if @todays_morning_notes.occurrence_date == Date.today %>
+  <p>
+    <span class="dash-header-2018"><%= @todays_morning_notes.prompt %></span>
+    <%= simple_format(@todays_morning_notes.entry, align: "left") %>
+  </p>
+<% else %>
+  <%= form_for(journal_entry) do |f| %>
+    <% if journal_entry.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+        <ul>
+        <% journal_entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>	
+  		<div class="container">
+  		<div class="field">
+          	<%= f.text_field :prompt, :value => "Morning Journal" %>
+          </div>
+
+          <div class="field">
+  	        <% f.label :entry %>
+  	        <%= f.text_area :entry, :style => "height:250px;" %>
+          </div>
+
+          <div class="actions">
+           	<%= f.submit "submit", :class => "btn btn-success", :style => "width:100%" %>
+          </div> 
+  	</div>  
+  <% end %>
+<% end %>

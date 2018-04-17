@@ -4,78 +4,33 @@
 	<table class="container">
 		<tr>
 			<td class="box-dash-body">
-
-				<table>
-					<tr>
-						<th width="30%">Morning Ritual</th>
-						<th width="30%">Evening Ritual</th>
-						<th width="30%">Things to do Everyday</th>
-					</tr>
-					<tr>
-						<td>
+<%-# Morning Ritual + Journal Area -%>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col-lg-4">
 							<% if @todays_morning_ritual.count > 0 %>
 								<%= render '/morning_rituals/daily_dash_show', todays_morning_ritual: @todays_morning_ritual %>
 							<% else %>
 								<%= render '/morning_rituals/daily_dash_form', morning_ritual: @morning_ritual %>
 							<% end %>
-						</td>
-						<td>
-							<% if @todays_evening_ritual.count > 0 %>
-								<%= render '/evening_rituals/daily_dash_show', todays_evening_ritual: @todays_evening_ritual %>
-							<% else %>
-								<%= render '/evening_rituals/daily_dash_form', evening_ritual: @evening_ritual %>
-							<% end %>
-						</td>
-						<td>
-							<% if @todays_everyday == nil %>
-								<%= render '/everydays/daily_dash_form', everyday: @everyday %>
-							<% elsif @todays_everyday.created_at.to_date == Date.today %>
-								<%= render '/everydays/daily_dash_show', todays_everyday: @todays_everyday %>
-							<% else %>
-								<%= render '/everydays/daily_dash_form', everyday: @everyday %>
-							<% end %>							
-						</td>
-					</tr>
-				</table>
-				
-<%-# CONSUMPTION ENTRY & DISPLAY AREA-%>
-				
-				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
-					<div class="row">
-						<div class="col">
-							<strong>Consumption</strong>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col" align="top" style="border-right: 1px solid black;">
-							<%= render '/simple_consumables/dash_form', simple_consumable: @simple_consumable %>
-						</div>
-					</div>
-				</div>
-
-<%-# EXERCISE ENTRY & DISPLAY AREA-%>
-				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
-					<div class="row">
-						<div class="col">
-							<strong>Exercise</strong>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-12">
-							<%= render '/workouts/dash_form', workout: @workout %>
-						</div>
-						<div class="col-lg-12">
-							<br>
 							
+							<%= render '/journal_entries/gameplan_narrow', journal_entry: @journal_entry %>
+						</div>
+						<div class="col-lg-8">
+							<%= render '/journal_entries/morning_journal_dash', journal_entry: @journal_entry %>
 						</div>
 					</div>
+					<div class="row">
+			  			<div class="col">
+			  				<%= render '/journal_entries/morning_notes', journal_entry: @journal_entry %>
+			  			</div>
+			  		</div>
 				</div>
-
 <%-# WEIGHT ENTRY AREA -%>
 				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
 					<div class="row">
 						<div class="col">
-							<strong>Weight</strong>
+							<span class="dash-header-2018">Weight</span>
 						</div>
 					</div>
 					<div class="row">
@@ -89,33 +44,56 @@
 							<% end %>	
 						</div>
 					</div>
+				</div>							
+
+<%-# CONSUMPTION ENTRY & DISPLAY AREA-%>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col">
+							<span class="dash-header-2018">Consumption</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col" align="top" style="border-right: 1px solid black;">
+							<%= render '/simple_consumables/dash_form', simple_consumable: @simple_consumable %>
+						</div>
+					</div>
+				</div>
+
+<%-# EXERCISE ENTRY & DISPLAY AREA-%>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col">
+							<span class="dash-header-2018">Exercise</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<%= render '/workouts/dash_form', workout: @workout %>
+						</div>
+						<div class="col-lg-12">
+							<br>
+							
+						</div>
+					</div>
 				</div>
 			
 
-<%-# 3-PRONG TABLE -%>
+<%-# 2-PRONG TABLE -%>
 				<table frame="box" rules="none">
 					<tr>
 						<td width="33%" align="center">
 							<br>
-							<strong>What will make today great?</strong>
+							<span class="dash-header-2018">Journal</span>
 						</td>
 						<td width="33%" align="center">
 							<br>
-							<strong>GamePlan</strong>
-						</td>
-						<td width="33%" align="center">
-							<br>
-							<strong>Today's Health Summary</strong>
+							<span class="dash-header-2018">Today's Health Summary</span>
 						</td>
 					</tr>
 					<tr>
 						<td style="border-right: 1px solid black;" valign="top">
-							<p><%= simple_format(@make_today_great.entry) %></p>
-						</td>
-						<td style="border-right: 1px solid black;" valign="top">
-							<p><%= simple_format(@gameplan.entry) %></p>
-							<div align="center"><strong>Priorities</strong></div>
-							<p><%= simple_format(@priorities.entry) %></p>
+							<%= render '/journal_entries/basic_journal', journal_entry: @journal_entry %>
 						</td>
 						<td valign="top">
 							<br>
@@ -132,19 +110,29 @@
 					</tr>
 				</table>
 				
-				<br><hr><br>
-<%-# JOURNAL AREA -%>
-				<%= render '/journal_entries/daily_dash', journal_entry: @journal_entry %>
+<%-# Evening Ritual + Journal Area -%>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col-lg-4">
+							<% if @todays_evening_ritual.count > 0 %>
+								<%= render '/evening_rituals/daily_dash_show', todays_evening_ritual: @todays_evening_ritual %>
+							<% else %>
+								<%= render '/evening_rituals/daily_dash_form', evening_ritual: @evening_ritual %>
+							<% end %>
+							<%= render '/journal_entries/amazing_things_narrow', journal_entry: @journal_entry %>
+						</div>
+						<div class="col-lg-8">
+							<%= render '/journal_entries/evening_journal_dash' %>
+						</div>
+					</div>
+				</div>
 
-				<p align="center">
-					<u>
-						<strong>
-							<%= link_to("Journal History","/journal_entries/history") %>
-						</strong>
-					</u>
-				</p>
+				<br><hr><br>
+
 			</td>
 		</tr>
 	</table>
 
+
 </div>
+

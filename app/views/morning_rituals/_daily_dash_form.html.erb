@@ -1,3 +1,7 @@
+<h4 class="dash-header-2018">Morning Ritual</h4>
+
+
+
 
 <%= form_for(morning_ritual) do |f| %>
   <% if morning_ritual.errors.any? %>
@@ -57,7 +61,7 @@
 
     </table>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" align="center">
+    <%= f.submit "Create Morning Ritual", :class => "btn btn-success", :style => "width:100%;" %>
   </div>
 <% end %>

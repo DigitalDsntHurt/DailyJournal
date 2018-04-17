@@ -5,93 +5,138 @@
 <div class="container-fluid">
 	<div class="row">
 	  	<div class="col">
-			<%= form_for(journal_entry) do |f| %>
-			  <% if journal_entry.errors.any? %>
-			    <div id="error_explanation">
-			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+	  		<% if @made_today_better.class == NilClass %>
+		        <%= form_for(@journal_entry) do |f| %>
+				  <% if @journal_entry.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@journal_entry.errors.count, "error") %> prohibited this @journal_entry from being saved:</h2>
 
-			      <ul>
-			      <% journal_entry.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>				
-				<div class="container">
-        			<div class="field">
-			        	<%= f.text_field :prompt, :value => "Three Amazing Things Happened Today..." %>
-			        </div>
+				      <ul>
+				      <% @journal_entry.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>				
+					<div class="container">
+	        			<div class="field">
+				        	<%= f.text_field :prompt, :value => "How could I have made today better?" %>
+				        </div>
 
-			        <div class="field">
-				        <% f.label :entry %>
-				        <%= f.text_area :entry %>
-			        </div>
+				        <div class="field">
+					        <% f.label :entry %>
+					        <%= f.text_area :entry, :style => "height:120px;"  %>
+				        </div>
 
-			        <div class="actions">
-			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
-			        </div> 
-        		</div> 
-			<% end %>
+				        <div class="actions">
+				         	<%= f.submit "submit", :class => "btn btn-success", :style => "width:100%" %>
+				        </div> 
+	        		</div> 
+				<% end %>	  			
+	  		<% elsif @made_today_better.occurrence_date == Date.today %>
+        		<p>
+        			<span class="dash-header-2018">
+        				<%= @made_today_better.prompt %>
+        			</span>
+	        		<%= simple_format(@made_today_better.entry, align: "left") %>
+	        	</p>
+	        <% else %>
+		        <%= form_for(@journal_entry) do |f| %>
+				  <% if @journal_entry.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@journal_entry.errors.count, "error") %> prohibited this @journal_entry from being saved:</h2>
 
-			<%= form_for(journal_entry) do |f| %>
-			  <% if journal_entry.errors.any? %>
-			    <div id="error_explanation">
-			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+				      <ul>
+				      <% @journal_entry.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>				
+					<div class="container">
+	        			<div class="field">
+				        	<%= f.text_field :prompt, :value => "How could I have made today better?" %>
+				        </div>
 
-			      <ul>
-			      <% journal_entry.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>
-  				<div class="container">
-        			<div class="field">
-			        	<%= f.text_field :prompt, :value => "How could I have made today better?" %>
-			        </div>
+				        <div class="field">
+					        <% f.label :entry %>
+					        <%= f.text_area :entry, :style => "height:120px;"  %>
+				        </div>
 
-			        <div class="field">
-				        <% f.label :entry %>
-				        <%= f.text_area :entry %>
-			        </div>
+				        <div class="actions">
+				         	<%= f.submit "submit", :class => "btn btn-success", :style => "width:100%" %>
+				        </div> 
+	        		</div> 
+				<% end %>
+	        <% end %>
 
-			        <div class="actions">
-			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
-			        </div> 
-        		</div>
-        	<% end %>	
+			
+	        <% if @todays_evening_notes.class == NilClass %>
+				<%= form_for(@journal_entry) do |f| %>
+				  <% if @journal_entry.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@journal_entry.errors.count, "error") %> prohibited this @journal_entry from being saved:</h2>
+
+				      <ul>
+				      <% @journal_entry.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+	  				<div class="container">
+	        			<div class="field">
+				        	<%= f.text_field :prompt, :value => "Evening Journal" %>
+				        </div>
+
+				        <div class="field">
+					        <% f.label :entry %>
+					        <%= f.text_area :entry, :style => "height:120px;" %>
+				        </div>
+
+				        <div class="actions">
+				         	<%= f.submit "submit", :class => "btn btn-success", :style => "width:100%" %>
+				        </div> 
+	        		</div>
+	        	<% end %>		        
+	        <% elsif @todays_evening_notes.occurrence_date == Date.today %>
+        		<p>
+        			<span class="dash-header-2018">
+        				<%= @todays_evening_notes.prompt %>
+        			</span>
+	        		<%= simple_format(@todays_evening_notes.entry, align: "left") %>
+	        	</p>
+	        <% else %>
+				<%= form_for(@journal_entry) do |f| %>
+				  <% if @journal_entry.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@journal_entry.errors.count, "error") %> prohibited this @journal_entry from being saved:</h2>
+
+				      <ul>
+				      <% @journal_entry.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+	  				<div class="container">
+	        			<div class="field">
+				        	<%= f.text_field :prompt, :value => "Evening Journal" %>
+				        </div>
+
+				        <div class="field">
+					        <% f.label :entry %>
+					        <%= f.text_area :entry, :style => "height:120px;" %>
+				        </div>
+
+				        <div class="actions">
+				         	<%= f.submit "submit", :class => "btn btn-success", :style => "width:100%" %>
+				        </div> 
+	        		</div>
+	        	<% end %>
+	        <% end %>
 	  	</div>
-	  	<div class="col">
 
-			<%= form_for(journal_entry) do |f| %>
-			  <% if journal_entry.errors.any? %>
-			    <div id="error_explanation">
-			      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
-
-			      <ul>
-			      <% journal_entry.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>	
-				<div class="container">
-					<div class="field">
-			        	<%= f.text_field :prompt, :value => "Evening Notes Notes" %>
-			        </div>
-
-			        <div class="field">
-				        <% f.label :entry %>
-				        <%= f.text_area :entry, :style => "height:180px;" %>
-			        </div>
-
-			        <div class="actions">
-			         	<%= f.submit "submit", :class => "btn round", :style => "width:100%" %>
-			        </div> 
-				</div>				
-			<% end %>
-
-	  	</div>
 	</div>  	    
 </div> 
 
