@@ -11,6 +11,15 @@
 						<br>
 						<%= render 'mini_form', journal_entry: @journal_entry %>
 						<hr>
+						<% @todays_entries = JournalEntry.where(occurrence_date: @use_date) %>
+						<p>
+							<%= @todays_entries.pluck(:entry).join(" ").split.size + @todays_entries.pluck(:prompt).join(" ").split.size %> words written in <%= @todays_entries.count %> journal entries<br/>
+							
+							most common ussages: <% @words = (@todays_entries.pluck(:entry).join(" ").split + @todays_entries.pluck(:prompt).join(" ").split) %>
+							<% @counts = Hash.new(0) %>
+							<% @words.each { |word| @counts[word] += 1 } %>
+							<%= @counts.reject{|k,v| v < 3 } %>
+						</p>
 						<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
 							<div class="container-fluid">
 								<div class="row">
@@ -30,6 +39,16 @@
 					<div class="col-lg-6 box" align="top">
 						<h3>Journal Entries on <%= @use_date %></h3>
 						<br><hr>
+						<hr>
+						<% @todays_entries = JournalEntry.where(occurrence_date: @use_date) %>
+						<p>
+							<%= @todays_entries.pluck(:entry).join(" ").split.size + @todays_entries.pluck(:prompt).join(" ").split.size %> words written in <%= @todays_entries.count %> journal entries<br/>
+							
+							most common ussages: <% @words = (@todays_entries.pluck(:entry).join(" ").split + @todays_entries.pluck(:prompt).join(" ").split) %>
+							<% @counts = Hash.new(0) %>
+							<% @words.each { |word| @counts[word] += 1 } %>
+							<%= @counts.reject{|k,v| v < 3 } %>
+						</p>
 						<% @all_entries.where(occurrence_date: @use_date).each do |entry| %>
 							<div class="container-fluid">
 								<div class="row">
