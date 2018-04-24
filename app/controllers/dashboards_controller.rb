@@ -78,6 +78,31 @@ class DashboardsController < ApplicationController
     @todays_workouts = Workout.where(occurrence_date: Date.today)
     @todays_consumption = SimpleConsumable.where(occurrence_date: Date.today)
     @todays_health_summary = (@todays_workouts.to_a + @todays_consumption.to_a).sort_by{|item| item.occurrence_time }
+
+
+    ## Goal Tracking ###
+    #@todays_morning_ritual
+    @morning_ritual_goal = nil
+    if @todays_morning_ritual.count == 0
+      @morning_ritual_goal = false
+    elsif @todays_morning_ritual[0].attributes.values.select{|item| item == true }.count > 2
+      @morning_ritual_goal = true
+    else
+      @morning_ritual_goal = false
+    end
+  end
+
+  ## Morning Ritual Streak
+  if @todays_morning_ritual == nil
+    @morning_ritual_streak = 0
+  else
+    @morning_ritual_streak = 1  
+  end
+  
+  @check_date = Date.today - 1
+  until MorningRitual.where(day: @check_date)[0] == nil or MorningRitual.where(day: @check_date)[0].attributes.values.select{|item| item == true }.count < 3
+    @morning_ritual_streak += 1
+    @check_date -= 1
   end
 
   def yesterday_dash_2018

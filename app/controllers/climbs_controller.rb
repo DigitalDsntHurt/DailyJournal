@@ -69,6 +69,6 @@ class ClimbsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def climb_params
-      params.require(:climb).permit(:v0s, :v1s, :v2s, :v3s, :v4s, :v5s, :v6s, :v7s, :v8s, :v9s, :climb_date, :other, :v0_attempts, :v1_attempts, :v2_attempts, :v3_attempts, :v4_attempts, :v5_attempts, :v6_attempts, :v7_attempts, :v8_attempts, :v9_attempts, :minutes)
+      params.require(:climb).permit(:v0s, :v1s, :v2s, :v3s, :v4s, :v5s, :v6s, :v7s, :v8s, :v9s, :climb_date, :other, :v0_attempts, :v1_attempts, :v2_attempts, :v3_attempts, :v4_attempts, :v5_attempts, :v6_attempts, :v7_attempts, :v8_attempts, :v9_attempts, :minutes, :nine_ab, :nine_cd, :ten_ab, :ten_cd, :eleven_ab, :eleven_cd, :twelve_a, :twelve_b, :twelve_c, :twelve_d, :nine_ab_attempts, :nine_cd_attempts, :ten_ab_attempts, :ten_cd_attempts, :eleven_ab_attempts, :eleven_cd_attempts, :twelve_a_attempts, :twelve_b_attempts, :twelve_c_attempts, :twelve_d_attempts )
     end
 end

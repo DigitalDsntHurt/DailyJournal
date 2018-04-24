@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'dashboards/master_dash'
   get 'dashboards/journal_dash'
   get 'dashboards/health_dash'
+  get 'dashboards/success'
 
   get 'journal_entries/history' => 'journal_entries#history'
   get 'journal_entries/entries_for_journal_dash' => 'journal_entries#entries_for_journal_dash'

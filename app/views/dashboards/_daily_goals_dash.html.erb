@@ -1,0 +1,253 @@
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col">
+							<span class="dash-header-2018">Daily Goal Tracking</span><br/><br/><br/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="dash-header-2018">Morning Ritual</span>
+							<br/><br/>
+							<%-# STREAK TABLE -%>
+							<div class="container-fluid" style="border:1px solid black;">
+								<div class="row">
+									<% if @morning_ritual_goal == true %>
+										<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;background-color: green;">
+									<% else %>
+										<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black; background-color: red;">
+									<% end %>
+										TODAY?
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
+										CURRENT
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black;">
+										LONGEST
+									</div>
+								</div>
+								<div class="row">
+									<% if @morning_ritual_goal == true %>
+										<div class="col-sm-4" style="padding:12px; border-right:1px solid black; background-color: green;">	
+											<br/>
+											DONE!
+									<% else %>
+										<div class="col-sm-4" style="padding:12px; border-right:1px solid black; background-color: red;">
+											<br/>
+											NOT DONE
+									<% end %>
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										<%= @morning_ritual_streak %> days
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px;">
+										<br/>
+										Y days
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+							<%-# END STREAK TABLE -%>							
+						</div>
+						<div class="col">
+							<span class="dash-header-2018">Evening Ritual</span>
+							<br/><br/>
+							<%-# STREAK TABLE -%>
+							<div class="container-fluid" style="border:1px solid black;">
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;">
+										TODAY?
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
+										CURRENT
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black;">
+										LONGEST
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										YES/NO
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										X days
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px;">
+										<br/>
+										Y days
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+							<%-# END STREAK TABLE -%>	
+						</div>
+						<div class="col">
+							<span class="dash-header-2018">Smoking</span>
+							<br/><br/>
+							<%-# STREAK TABLE -%>
+							<div class="container-fluid" style="border:1px solid black;">
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;">
+										TODAY?
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
+										CURRENT
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black;">
+										LONGEST
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										YES/NO
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										X days
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px;">
+										<br/>
+										Y days
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+							<%-# END STREAK TABLE -%>	
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<br/><br/><br/>
+							<span class="dash-header-2018">Diet</span>
+							<br/><br/>
+							<%-# STREAK TABLE -%>
+							<div class="container-fluid" style="border:1px solid black;">
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;">
+										TODAY?
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
+										CURRENT
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black;">
+										LONGEST
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										YES/NO
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										X days
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px;">
+										<br/>
+										Y days
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+							<%-# END STREAK TABLE -%>	
+
+							<br/><br/><br/>
+						</div>
+						<div class="col">
+							<br/><br/><br/>
+							<span class="dash-header-2018">Exercise</span>
+							<br/><br/>
+							<%-# STREAK TABLE -%>
+							<div class="container-fluid" style="border:1px solid black;">
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;">
+										TODAY?
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
+										CURRENT
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black;">
+										LONGEST
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										YES/NO
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										X days
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px;">
+										<br/>
+										Y days
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+							<%-# END STREAK TABLE -%>	
+
+							<br/><br/><br/>
+						</div>
+						<div class="col">
+							<br/><br/><br/>
+							<span class="dash-header-2018">Journal</span>
+							<br/><br/>
+							<%-# STREAK TABLE -%>
+							<div class="container-fluid" style="border:1px solid black;">
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;">
+										TODAY?
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
+										CURRENT
+									</div>
+									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black;">
+										LONGEST
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										YES/NO
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+										<br/>
+										X days
+										<br/><br/>
+									</div>
+									<div class="col-sm-4" style="padding:12px;">
+										<br/>
+										Y days
+										<br/><br/>
+									</div>
+								</div>
+							</div>
+							<%-# END STREAK TABLE -%>	
+
+							<br/><br/><br/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<br/><br/><br/>
+							<span class="dash-header-2018"><%= link_to 'Success Dash >', '/dashboards/success'%></span>
+							<br/><br/><br/>
+						</div>
+					</div>
+				</div>		

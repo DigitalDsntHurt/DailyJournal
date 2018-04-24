@@ -68,6 +68,66 @@ class Climb < ApplicationRecord
 		if self.v9_attempts == nil
 			self.v9_attempts = 0
 		end
+		if self.nine_ab == nil
+			self.nine_ab = 0
+		end
+		if self.nine_ab_attempts == nil
+			self.nine_ab_attempts = 0
+		end
+		if self.nine_cd == nil
+			self.nine_cd = 0
+		end
+		if self.nine_cd_attempts == nil
+			self.nine_cd_attempts = 0
+		end
+		if self.ten_ab == nil
+			self.ten_ab = 0
+		end
+		if self.ten_ab_attempts == nil
+			self.ten_ab_attempts = 0
+		end
+		if self.ten_cd == nil
+			self.ten_cd = 0
+		end
+		if self.ten_cd_attempts == nil
+			self.ten_cd_attempts = 0
+		end
+		if self.eleven_ab == nil
+			self.eleven_ab = 0
+		end
+		if self.eleven_ab_attempts == nil
+			self.eleven_ab_attempts = 0
+		end
+		if self.eleven_cd == nil
+			self.eleven_cd = 0
+		end
+		if self.eleven_cd_attempts == nil
+			self.eleven_cd_attempts = 0
+		end
+		if self.twelve_a == nil
+			self.twelve_a = 0
+		end
+		if self.twelve_a_attempts == nil
+			self.twelve_a_attempts = 0
+		end
+		if self.twelve_b == nil
+			self.twelve_b = 0
+		end
+		if self.twelve_b_attempts == nil
+			self.twelve_b_attempts = 0
+		end
+		if self.twelve_c == nil
+			self.twelve_c = 0
+		end
+		if self.twelve_c_attempts == nil
+			self.twelve_c_attempts = 0
+		end
+		if self.twelve_d == nil
+			self.twelve_d = 0
+		end
+		if self.twelve_d_attempts == nil
+			self.twelve_d_attempts = 0
+		end
 	end
 
 	def set_total

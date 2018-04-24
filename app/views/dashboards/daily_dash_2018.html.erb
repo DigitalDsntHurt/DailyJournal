@@ -25,26 +25,7 @@
 			  				<%= render '/journal_entries/morning_notes', journal_entry: @journal_entry %>
 			  			</div>
 			  		</div>
-				</div>
-<%-# WEIGHT ENTRY AREA -%>
-				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
-					<div class="row">
-						<div class="col">
-							<span class="dash-header-2018">Weight</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<% if @todays_weight.count == 0 %>
-
-							<% elsif @todays_weight.order(:weighed_at).last.weighed_at.to_date == Date.today %>
-								<%= render '/weights/daily_dash_show', weight: @todays_weight %>
-							<% else %>
-								<%= render '/weights/daily_dash_form', weight: @weight %>
-							<% end %>	
-						</div>
-					</div>
-				</div>							
+				</div>						
 
 <%-# CONSUMPTION ENTRY & DISPLAY AREA-%>
 				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
@@ -77,8 +58,27 @@
 						</div>
 					</div>
 				</div>
-			
+<%-# WEIGHT ENTRY AREA -%>
+				<div class="container-fluid" style="border:1px solid black; padding-top:12px;">
+					<div class="row">
+						<div class="col">
+							<span class="dash-header-2018">Weight</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<% if @todays_weight.count == 0 %>
 
+							<% elsif @todays_weight.order(:weighed_at).last.weighed_at.to_date == Date.today %>
+								<%= render '/weights/daily_dash_show', weight: @todays_weight %>
+							<% else %>
+								<%= render '/weights/daily_dash_form', weight: @weight %>
+							<% end %>	
+						</div>
+					</div>
+				</div>
+<%-# Daily Goal Tracking -%>
+				<%= render '/dashboards/daily_goals_dash' %>						
 <%-# 2-PRONG TABLE -%>
 				<table frame="box" rules="none">
 					<tr>

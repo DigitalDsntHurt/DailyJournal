@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417155051) do
+ActiveRecord::Schema.define(version: 20180424062250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20180417155051) do
     t.integer  "v9s"
     t.date     "climb_date"
     t.text     "other"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "total"
     t.integer  "v_total"
     t.integer  "v0_attempts"
@@ -44,6 +44,26 @@ ActiveRecord::Schema.define(version: 20180417155051) do
     t.integer  "v9_attempts"
     t.integer  "minutes"
     t.integer  "attempt_total"
+    t.integer  "nine_ab"
+    t.integer  "nine_cd"
+    t.integer  "ten_ab"
+    t.integer  "ten_cd"
+    t.integer  "eleven_ab"
+    t.integer  "eleven_cd"
+    t.integer  "twelve_a"
+    t.integer  "twelve_b"
+    t.integer  "twelve_c"
+    t.integer  "twelve_d"
+    t.integer  "nine_ab_attempts"
+    t.integer  "nine_cd_attempts"
+    t.integer  "ten_ab_attempts"
+    t.integer  "ten_cd_attempts"
+    t.integer  "eleven_ab_attempts"
+    t.integer  "eleven_cd_attempts"
+    t.integer  "twelve_a_attempts"
+    t.integer  "twelve_b_attempts"
+    t.integer  "twelve_c_attempts"
+    t.integer  "twelve_d_attempts"
   end
 
   create_table "consumables", force: :cascade do |t|
