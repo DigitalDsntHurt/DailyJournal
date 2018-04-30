@@ -81,7 +81,8 @@ class DashboardsController < ApplicationController
 
 
     ## Goal Tracking ###
-    #@todays_morning_ritual
+    
+    ## Morning Ritual ###
     @morning_ritual_goal = nil
     if @todays_morning_ritual.count == 0
       @morning_ritual_goal = false
@@ -90,19 +91,32 @@ class DashboardsController < ApplicationController
     else
       @morning_ritual_goal = false
     end
-  end
 
-  ## Morning Ritual Streak
-  if @todays_morning_ritual == nil
-    @morning_ritual_streak = 0
-  else
-    @morning_ritual_streak = 1  
-  end
-  
-  @check_date = Date.today - 1
-  until MorningRitual.where(day: @check_date)[0] == nil or MorningRitual.where(day: @check_date)[0].attributes.values.select{|item| item == true }.count < 3
-    @morning_ritual_streak += 1
-    @check_date -= 1
+    ## Journal ###
+    @journal_goal = nil
+    if JournalEntry.where(occurrence_date: Date.today).count > 0
+      @journal_goal = true
+    else
+      @journal_goal = false
+    end
+
+    ## Goals Journal ###
+    @goal_journal_goal = nil
+    if JournalEntry.where("prompt like ?", "%goal%").where(occurrence_date: Date.today).count > 0
+      @goal_journal_goal = true
+    else
+      @goal_journal_goal = false
+    end
+
+    ## Evening Ritual ###
+    @evening_ritual_goal = nil
+    if @todays_evening_ritual.count == 0
+      @evening_ritual_goal = false
+    elsif @todays_evening_ritual[0].attributes.values.select{|item| item == true }.count > 2
+      @evening_ritual_goal = true
+    else
+      @evening_ritual_goal = false
+    end
   end
 
   def yesterday_dash_2018
