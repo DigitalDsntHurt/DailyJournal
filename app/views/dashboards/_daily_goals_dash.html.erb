@@ -159,7 +159,11 @@
 							<%-# STREAK TABLE -%>
 							<div class="container-fluid" style="border:1px solid black;">
 								<div class="row">
-									<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;">
+									<% if @exercise_goal == true %>
+										<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;background-color: green;">
+									<% else %>
+										<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black; background-color: red;">
+									<% end %>
 										TODAY?
 									</div>
 									<div class="col-sm-4" style="padding:12px;border-bottom:1px solid black; border-right:1px solid black;">
@@ -170,7 +174,11 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-sm-4" style="padding:12px; border-right:1px solid black;">
+									<% if @exercise_goal == true %>
+										<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black;background-color: green;">
+									<% else %>
+										<div class="col-sm-4" style="padding:12px; border-bottom:1px solid black;border-right:1px solid black; background-color: red;">
+									<% end %>
 										<br/>
 										YES/NO
 										<br/><br/>

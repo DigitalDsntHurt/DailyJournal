@@ -117,6 +117,16 @@ class DashboardsController < ApplicationController
     else
       @evening_ritual_goal = false
     end
+
+    ## Exercise ###
+    @exercise_goal = nil
+    if Workout.where(occurrence_date: Date.today).count > 0
+      if Workout.where(occurrence_date: Date.today).pluck(:minutes).sum > 15
+        @exercise_goal = true
+      end
+    else
+      @exercise_goal = false
+    end    
   end
 
   def yesterday_dash_2018
