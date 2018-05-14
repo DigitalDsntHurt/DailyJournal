@@ -52,7 +52,7 @@ class DashboardsController < ApplicationController
     @make_today_great = JournalEntry.where(prompt: "what would make today great?").last
     @todays_affirmations = JournalEntry.where(prompt: "daily affirmations. i am...").last
     @todays_grattitudes = JournalEntry.where(prompt: "what are you grateful for?").last
-    @todays_morning_notes = JournalEntry.where(prompt: "morning journal").last
+    @todays_morning_notes = JournalEntry.where("prompt like ?", "%morning journal%").last
     @three_amazing_things = JournalEntry.where(prompt: "three amazing things happened today...").last
     @made_today_better = JournalEntry.where(prompt: "how could i have made today better?").last
     @todays_evening_notes = JournalEntry.where(prompt: "evening journal").last
